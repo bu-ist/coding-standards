@@ -1,7 +1,34 @@
-# CSS & SASS Standards
+# CSS & Sass Standards
 
-*SASS is natural. SASS is fun. SASS is best when it's expertly done.* 
+*Sass is natural. Sass is fun. Sass is best when it's expertly done.* 
 
+**Table of contents** *(order is wrong, organization in-progress)*
+
+* [Principles](#principles)
+* [Formatting](#formatting)
+  * [Declaration Order](#declaration-order)
+  * [Comments](#comments)
+  * [Vendor Prefixes](#vendor-prefixes)
+* [Naming Conventions](#naming-conventions)
+  * [u-utilityName](#u-utilityName)
+* [Components](#components)
+  * [componentName](#componentName)
+  * [componentName--modifierName](#componentName--modifierName)
+  * [componentName-descendantName](#componentName-descendantName)
+  * [componentName.is-stateOfComponent](#is-stateOfComponent)
+* [Variables](#variables)
+  * [colors](#colors)
+  * [z-index](#zindex)
+  * [font-weight](#fontweight)
+  * [line-height](#lineheight)
+  * [letter-spacing](#letterspacing)
+* [Polyfills](#polyfills)
+* [Formatting](#formatting)
+  * [Spacing](#spacing)
+  * [Quotes](#quotes)
+  * [Specificity](#specificity)
+
+<a name="principles"></a>
 ## Priciples
 
 These guidelines strongly encourage the use of sensible patterns that model the best of what's out there. The goal is to write extremely lean styles with maximum clarity that leverage preprocessing to optimize both workflow and site performance.
@@ -11,7 +38,8 @@ These guidelines strongly encourage the use of sensible patterns that model the 
 * This is a living document, and new ideas are always welcome. Please contribute.
 * Everyone strictly enforces the agreed-upon style.
 
-## Formatting
+<a name="formatting"></a>
+## General Formatting
 
 * Use new lines for each selector, declaration, and closing `}` <br>*(Protip: configure your editor to "show invisibles" or to automatically remove end-of-line whitespace.)*
 * Set indentation to **tabs**, not spaces. <br>*(Protip: some editors like Sublime will let you set your preferred tab width for code viewing.)*
@@ -24,7 +52,7 @@ These guidelines strongly encourage the use of sensible patterns that model the 
 * Place the closing `}` of a ruleset in the same column as the first character of the ruleset
 * Include a blank line before and after sections but not between rulesets
 
-#### Example
+##### Example:
 
 ```css
 .selector-1,
@@ -38,7 +66,8 @@ These guidelines strongly encourage the use of sensible patterns that model the 
 }
 ```
 
-## Declaration order
+<a name="declaration-order"></a>
+## Declaration Order
 
 Declarations are to be consistently ordered based on a simple principle:
 
@@ -47,7 +76,7 @@ Declarations are to be consistently ordered based on a simple principle:
 3. Typography
 4. Everything Else
 
-#### Example
+##### Example:
 
 ```css
 .selector {
@@ -83,16 +112,17 @@ Declarations are to be consistently ordered based on a simple principle:
 
 Comments above are for demonstration only. Within each chunk list declarations in order of importance, stacking related rules (e.g., width and height, margin and padding).
 
+<a name="comments"></a>
 ## Comments
 
 Well commented code is extremely important. Take time to describe components, how they work, their limitations, and the way they are constructed.
 
 * Place comments on a new line above subject.
 * Make liberal use of comments to break CSS code into discrete sections.
-* Use `/* */` CSS comments. No need to use `//` SASS comments since Grunt should be configured to remove all comments from the output.
+* Use `/* */` CSS comments. No need to use `//` Sass comments since Grunt should be configured to remove all comments from the output.
 * Add `TODO` comments detailing unfinished tasks.
 
-#### Example
+##### Example:
 
 ```css
 /* This is a section of related styles
@@ -111,13 +141,14 @@ lines are indented by 2 spaces.
 */
 ```
 
-Note: [ASCII text](http://patorjk.com/software/taag/#p=display&f=Big&t=Code%20Standards) is OK for section comments. It's fun and useful in some editors.
+[ASCII text](http://patorjk.com/software/taag/#p=display&f=Big&t=Code%20Standards) is OK for section comments. It's fun and useful in some editors.
 
+<a name="vendor-prefixes"></a>
 ## Vendor Prefixes
 
-Use SASS mixins whenever possible. When writing CSS, use indentation to align values.
+Use Sass mixins whenever possible. When writing CSS, use indentation to align values.
 
-#### Example
+##### Example:
 
 ```css
 .thing {
@@ -128,11 +159,130 @@ Use SASS mixins whenever possible. When writing CSS, use indentation to align va
 }
 ```
 
+<a name="naming-conventions"></a>
+## Naming Conventions
+
+<a name="semantics">
+### Summary of Semantics
+
+* **Javascript:*** `.js-` prefixed class names for elements being relied upon for JavaScript selectors
+* **Utilities** are prefixed with `.u-` for single purpose utility classes like `.u-underline` and `.u-capitalize`
+* **Meaningful hypens and camelCase** underscore the separation between component, descendant components, and modifiers: `[property]-[value]--[component]`
+* **Stateful classes** use `.is-` to prefix classes often toggled by JavaScript, like `.is-disabled`
+* **Mixins** are prefixed with `.m-`
+
+<a name="ids-and-classes">
+### IDs & Classes
+
+Use classes for everything unless an ID is needed (e.g., for JavaScript). Classes and IDs are lowercase with words separated by a dash
+
+##### Example:
+
+```css
+.user-profile {}
+.post-header {}
+#top-navigation {}
+```
+
+<a name="javascript">
+### Selectors for JavaScript
+
+syntax: `js-<targetName>`
+
+JavaScript-specific classes reduce the risk that changing the structure or theme of components will inadvertently affect any required JavaScript behaviour and complex functionality. It is not neccesarry to use them in every case, just think of them as a tool in your utility belt. If you are creating a class, which you dont intend to use for styling, but instead only as a selector in JavaScript, you should probably be adding the `js-` prefix, but **JavaScript-specific classes should not, under any circumstances, be styled.** In practice this looks like this:
+
+```css
+<a href="/login" class="btn btn-primary js-login"></a>
+```
+
+<a name="utilities">
+### Utilities
+
+TODO
+
+<a name="components">
+### Components
+
+#### Componentizing
+
+Always look to abstract components. The reuse of components across designs helps to improve consistency and reduces code overhead. A name like `.homepage-nav` limits its use. Instead think about writing styles in such a way that they can be reused in other parts of the app. Try instead `.nav-bar`, which could be reused in another context.
+
+TODO
+
+<a name="naming-images"></a>
+### Images
+
+Image file names are lowercase with words separated by a dash:
+
+##### Example:
+
+```css
+icon-home.png
+```
+
+Image file names are prefixed with their usage.
+
+##### Example:
+
+```css
+icon-home.png
+bg-container.jpg
+bg-home.jpg
+sprite-top-navigation.png
+```
+
+<a name="specificity"></a>
+### Specificity
+
+Too much *cascading* of stylesheets can introduce [unnecessary performance](https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent#UseEfficientCSSSelectors) overhead. In general, only be as specific as you need to be. 
+
+##### Right:
+
+```css
+.user-list a:hover { color: red; }
+```
+
+##### Wrong:
+
+```css
+ul.user-list li span a:hover { color: red; }
+```
+
+<a name="colors"></a>
+### Colors
+
+Use **Sass variables** for color whenever possible. When specifying colors, use the following conventions:
+
+* **HEX:** Always use lowercase. Shorthand like `#ccc` is OK.
+* **RGBA:** Remember to include a leading 0 for all decimals, like `rgba(0, 0, 0, 0.5)`.
+
+<a name="font-weight"></a>
+### Font Weight
+
+With the additional support of web fonts font-weight plays a more important role than it once did. Different font weights will render typefaces specifically created for that weight, unlike the old days where bold could be just an algorithm to fatten a typeface. Always use the numerical value of font-weight to enable the best representation of a typeface.
+
+Whenever possible use `@extend` to specify appropriate baseline font styles:
+
+```css
+@type-micro
+@type-smallest
+@type-smaller
+@type-small
+@type-base
+@type-large
+@type-larger
+@type-largest
+@type-jumbo
+```
+
+**TODO:** Create the above variables.
+
+<a name="zindex"></a>
 ## Z-index
 
 We're modeling after Medium's z-index scale, which relies on variables to manage collision-free layers.
 
-#### Example
+##### Example:
 
 ```css
 // Z-Index Scale (private vars)
@@ -158,119 +308,15 @@ We're modeling after Medium's z-index scale, which relies on variables to manage
 @zIndex-1--blockGroup:              @zIndex-1;
 ```
 
-## Naming Conventions
-
-### IDs & Classes
-
-Use classes for everything unless an ID is needed (e.g., for JavaScript). Classes and IDs are lowercase with words separated by a dash:
-
-#### Right:
-
-```css
-.user-profile {}
-.post-header {}
-#top-navigation {}
-```
-
-#### Wrong:
-
-```css
-.userProfile {}
-.postheader {}
-#top_navigation {}
-```
-
-Image file names are lowercase with words separated by a dash:
-
-#### Right:
-
-```css
-icon-home.png
-```
-
-#### Wrong:
-
-```css
-iconHome.png
-icon_home.png
-iconhome.png
-```
-
-Image file names are prefixed with their usage.
-
-#### Right:
-
-```css
-icon-home.png
-bg-container.jpg
-bg-home.jpg
-sprite-top-navigation.png
-```
-
-#### Wrong:
-
-```css
-home-icon.png
-container-background.jpg
-bg.jpg
-top-navigation.png
-```
-
-### Componentizing
-
-Always look to abstract components. The reuse of components across designs helps to improve consistency and reduces code overhead. A name like `.homepage-nav` limits its use. Instead think about writing styles in such a way that they can be reused in other parts of the app. Try instead `.nav-bar`, which could be reused in another context.
-
-### Specificity
-
-Too much *cascading* of stylesheets can introduce [unnecessary performance](https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent#UseEfficientCSSSelectors) overhead. In general, only be as specific as you need to be. 
-
-#### Wrong:
-
-```css
-ul.user-list li span a:hover { color: red; }
-```
-
-#### Right:
-
-```css
-.user-list a:hover { color: red; }
-```
-
-### Colors
-
-Use SASS variables for color whenever possible *(see section on naming conventions)*. When specifying colors, use the following conventions:
-
-* **HEX:** Always use lowercase. Shorthand like `#ccc` is OK.
-* **RGBA:** Remember to include a leading 0 for all decimals, like `rgba(0, 0, 0, 0.5)`.
-
-### Font Weight
-
-With the additional support of web fonts font-weight plays a more important role than it once did. Different font weights will render typefaces specifically created for that weight, unlike the old days where bold could be just an algorithm to fatten a typeface. Always use the numerical value of font-weight to enable the best representation of a typeface.
-
-Whenever possible use `@extend` to specify appropriate baseline font styles:
-
-```css
-@type-micro
-@type-smallest
-@type-smaller
-@type-small
-@type-base
-@type-large
-@type-larger
-@type-largest
-@type-jumbo
-```
-
-**TODO:** Create the above variables.
-
-## SASS
+<a name="sass"></a>
+## Sass
 
 * Always place `@extend` statements on the first line of a declaration block.
 * Group `@include` statements at the top of a declaration block after any `@extend` statements.
 * Don't nest declaration blocks. It makes code hard to read on complex projects and often results unecessarily specific selectors. 
 * Nesting media queries is OK.
 
-#### Example
+##### Example:
 
 ```css
 .selector {
@@ -282,19 +328,23 @@ Whenever possible use `@extend` to specify appropriate baseline font styles:
 }
 ```
 
+<a name="variables"></a>
 ### Variables
 
 TODO
 
+<a name="mixins"></a>
 ### Mixins
 
 * Mixins should only be used when there are dynamic properties, otherwise use @extend.
 * Mixins should be documented in comments
 
+<a name="sources"></a>
 ## Sources
 
-Inspiration for these standards taken from:
+Many of these standards have been taken from the smart people who wrote:
 
 * [https://github.com/necolas/idiomatic-css](https://github.com/necolas/idiomatic-css)
+* [https://gist.github.com/fat/a47b882eb5f84293c4ed#performance](https://gist.github.com/fat/a47b882eb5f84293c4ed#performance)
 * [https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06)
 

@@ -6,7 +6,7 @@
 
 These guidelines strongly encourage the use of sensible patterns that model the best of what's out there. The goal is to write extremely lean styles with maximum clarity that leverage preprocessing to optimize both workflow and site performance.
 
-* Keep all code readable and understandable while writing as little as possible
+* Keep all code readable and understandable while writing as little as possible.
 * All code in our code-base should look like a single person typed it, even when many people are contributing to it.
 * This is a living document, and new ideas are always welcome. Please contribute.
 * Everyone strictly enforces the agreed-upon style.
@@ -14,7 +14,7 @@ These guidelines strongly encourage the use of sensible patterns that model the 
 ## Formatting
 
 * Use new lines for each selector, declaration, and closing `}` <br>*(Protip: configure your editor to "show invisibles" or to automatically remove end-of-line whitespace.)*
-* Set indentation to **tabs**, not spaces. <br>*(Protip: some text editors like Sublime will let you set your preferred tab width for code viewing.)*
+* Set indentation to **tabs**, not spaces. <br>*(Protip: some editors like Sublime will let you set your preferred tab width for code viewing.)*
 * Selectors are **flush left** except those nested within media queries
 * Use one level of indentation for each declaration
 * Include a single space before a `{`, after the `;` of a declaration and after each comma in comma-separated property or function values
@@ -25,7 +25,7 @@ These guidelines strongly encourage the use of sensible patterns that model the 
 * Include a blank line before and after sections but not between rulesets
 
 #### Example
-<pre>
+
 ```css
 .selector-1,
 .selector-2 {
@@ -37,7 +37,7 @@ These guidelines strongly encourage the use of sensible patterns that model the 
 	margin: 0;
 }
 ```
-</pre>
+
 
 ## Declaration order
 
@@ -49,7 +49,7 @@ Declarations are to be consistently ordered based on a simple principle:
 4. Everything Else
 
 #### Example
-<pre>
+
 ```css
 .selector {
     /* Positioning */
@@ -81,7 +81,6 @@ Declarations are to be consistently ordered based on a simple principle:
     feelings: optimistic;
 }
 ```
-</pre>
 
 Comments above are for demonstration only. Within each chunk list declarations in order of importance, stacking related rules (e.g., width and height, margin and padding).
 
@@ -100,7 +99,7 @@ Well commented code is extremely important. Take time to describe components, ho
 * Add `TODO` comments detailing unfinished tasks.
 
 #### Example
-<pre>
+
 ```css
 /* This is a section of related styles
 ----------------------------------------------------------------- */
@@ -117,7 +116,7 @@ completed at a later date. It wraps after 80 characters and following
 lines are indented by 2 spaces.
 */
 ```
-</pre>
+
 
 ## Colors
 
@@ -131,7 +130,7 @@ Use SASS variables for color whenever possible *(see section on naming conventio
 Use SASS mixins whenever possible. When writing CSS, use indentation to align values.
 
 #### Example
-<pre>
+
 ```css
 .thing {
 	-webkit-transition: background-color 500ms ease-out 1s;
@@ -140,14 +139,14 @@ Use SASS mixins whenever possible. When writing CSS, use indentation to align va
 	        transition: background-color 500ms ease-out 1s;
 }
 ```
-</pre>
+
 
 ## Z-index
 
 We're modeling after Medium's z-index scale, which relies on variables to manage collision-free layers.
 
 #### Example
-<pre>
+
 ```css
 // Z-Index Scale (private vars)
 // --------------------------------------------------
@@ -171,7 +170,7 @@ We're modeling after Medium's z-index scale, which relies on variables to manage
 @zIndex-1--surfaceUnder:            @zIndex-1;
 @zIndex-1--blockGroup:              @zIndex-1;
 ```
-</pre>
+
 
 ## SASS
 
@@ -185,7 +184,7 @@ All CSS standards apply to SCSS, too. This section defines how to use the additi
 * Nesting media queries is OK.
 
 #### Example
-<pre>
+
 ```css
 .selector {
     @extend .some-rule;
@@ -195,7 +194,7 @@ All CSS standards apply to SCSS, too. This section defines how to use the additi
     ...
 }
 ```
-</pre>
+
 
 ### Naming Conventions
 

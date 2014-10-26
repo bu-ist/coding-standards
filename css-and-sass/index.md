@@ -38,7 +38,6 @@ These guidelines strongly encourage the use of sensible patterns that model the 
 }
 ```
 
-
 ## Declaration order
 
 Declarations are to be consistently ordered based on a simple principle:
@@ -84,18 +83,13 @@ Declarations are to be consistently ordered based on a simple principle:
 
 Comments above are for demonstration only. Within each chunk list declarations in order of importance, stacking related rules (e.g., width and height, margin and padding).
 
-
-### IDs *vs.* Classes
-
-Use classes for everything unless an ID is needed (e.g., for JavaScript).
-
-### Comments
+## Comments
 
 Well commented code is extremely important. Take time to describe components, how they work, their limitations, and the way they are constructed.
 
 * Place comments on a new line above subject.
 * Make liberal use of comments to break CSS code into discrete sections.
-* Use `/* */` CSS comments. No need to use `//` SASS comments since Grunt should be configured to remove them all from the output.
+* Use `/* */` CSS comments. No need to use `//` SASS comments since Grunt should be configured to remove all comments from the output.
 * Add `TODO` comments detailing unfinished tasks.
 
 #### Example
@@ -117,15 +111,9 @@ lines are indented by 2 spaces.
 */
 ```
 
+Note: [ASCII text](http://patorjk.com/software/taag/#p=display&f=Big&t=Code%20Standards) is OK for section comments. It's fun and useful in some editors.
 
-## Colors
-
-Use SASS variables for color whenever possible *(see section on naming conventions)*. When specifying colors, use the following conventions:
-
-* **HEX:** Always use lowercase. Shorthand like `#ccc` is OK.
-* **RGBA:** Remember to include a leading 0 for all decimals, like `rgba(0, 0, 0, 0.5)`.
-
-### Vendor Prefixes
+## Vendor Prefixes
 
 Use SASS mixins whenever possible. When writing CSS, use indentation to align values.
 
@@ -133,13 +121,12 @@ Use SASS mixins whenever possible. When writing CSS, use indentation to align va
 
 ```css
 .thing {
-	-webkit-transition: background-color 500ms ease-out 1s;
-	   -moz-transition: background-color 500ms ease-out 1s;
-	     -o-transition: background-color 500ms ease-out 1s;
-	        transition: background-color 500ms ease-out 1s;
+    -webkit-transition: background-color 500ms ease-out 1s;
+       -moz-transition: background-color 500ms ease-out 1s;
+         -o-transition: background-color 500ms ease-out 1s;
+            transition: background-color 500ms ease-out 1s;
 }
 ```
-
 
 ## Z-index
 
@@ -171,12 +158,112 @@ We're modeling after Medium's z-index scale, which relies on variables to manage
 @zIndex-1--blockGroup:              @zIndex-1;
 ```
 
+## Naming Conventions
+
+### IDs & Classes
+
+Use classes for everything unless an ID is needed (e.g., for JavaScript). Classes and IDs are lowercase with words separated by a dash:
+
+#### Right:
+
+```css
+.user-profile {}
+.post-header {}
+#top-navigation {}
+```
+
+#### Wrong:
+
+```css
+.userProfile {}
+.postheader {}
+#top_navigation {}
+```
+
+Image file names are lowercase with words separated by a dash:
+
+#### Right:
+
+```css
+icon-home.png
+```
+
+#### Wrong:
+
+```css
+iconHome.png
+icon_home.png
+iconhome.png
+```
+
+Image file names are prefixed with their usage.
+
+#### Right:
+
+```css
+icon-home.png
+bg-container.jpg
+bg-home.jpg
+sprite-top-navigation.png
+```
+
+#### Wrong:
+
+```css
+home-icon.png
+container-background.jpg
+bg.jpg
+top-navigation.png
+```
+
+### Componentizing
+
+Always look to abstract components. The reuse of components across designs helps to improve consistency and reduces code overhead. A name like `.homepage-nav` limits its use. Instead think about writing styles in such a way that they can be reused in other parts of the app. Try instead `.nav-bar`, which could be reused in another context.
+
+### Specificity
+
+Too much *cascading* of stylesheets can introduce [unnecessary performance](https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent#UseEfficientCSSSelectors) overhead. In general, only be as specific as you need to be. 
+
+#### Wrong:
+
+```css
+ul.user-list li span a:hover { color: red; }
+```
+
+#### Right:
+
+```css
+.user-list a:hover { color: red; }
+```
+
+### Colors
+
+Use SASS variables for color whenever possible *(see section on naming conventions)*. When specifying colors, use the following conventions:
+
+* **HEX:** Always use lowercase. Shorthand like `#ccc` is OK.
+* **RGBA:** Remember to include a leading 0 for all decimals, like `rgba(0, 0, 0, 0.5)`.
+
+### Font Weight
+
+With the additional support of web fonts font-weight plays a more important role than it once did. Different font weights will render typefaces specifically created for that weight, unlike the old days where bold could be just an algorithm to fatten a typeface. Always use the numerical value of font-weight to enable the best representation of a typeface.
+
+Whenever possible use `@extend` to specify appropriate baseline font styles:
+
+```css
+@type-micro
+@type-smallest
+@type-smaller
+@type-small
+@type-base
+@type-large
+@type-larger
+@type-largest
+@type-jumbo
+```
+
+**TODO:** Create the above variables.
 
 ## SASS
-
-All CSS standards apply to SCSS, too. This section defines how to use the additional features of SASS.
-
-### General
 
 * Always place `@extend` statements on the first line of a declaration block.
 * Group `@include` statements at the top of a declaration block after any `@extend` statements.
@@ -194,11 +281,6 @@ All CSS standards apply to SCSS, too. This section defines how to use the additi
     ...
 }
 ```
-
-
-### Naming Conventions
-
-TODO
 
 ### Variables
 

@@ -1,7 +1,5 @@
 # CSS & Sass Standards
 
-*Sass is natural. Sass is fun. Sass is best when it's expertly done.* 
-
 **Table of contents** *(order is wrong, organization in-progress)*
 
 * [Principles](#principles)
@@ -10,12 +8,13 @@
   * [Comments](#comments)
   * [Vendor Prefixes](#vendor-prefixes)
 * [Naming Conventions](#naming-conventions)
-  * [u-utilityName](#u-utilityName)
-* [Components](#components)
-  * [componentName](#componentName)
-  * [componentName--modifierName](#componentName--modifierName)
-  * [componentName-descendantName](#componentName-descendantName)
-  * [componentName.is-stateOfComponent](#is-stateOfComponent)
+  * [Semantics](#semantics)
+  * [IDs & Classes](#ids-and-classes)
+  * [JavaScript](#javascript)
+  * [Utilities](#utilities)
+  * [Components](#components)
+  * [Images](#images)
+  * [Colors](#colors)
 * [Variables](#variables)
   * [colors](#colors)
   * [z-index](#zindex)
@@ -167,27 +166,26 @@ Use Sass mixins whenever possible. When writing CSS, use indentation to align va
 
 * **Javascript:*** `.js-` prefixed class names for elements being relied upon for JavaScript selectors
 * **Utilities** are prefixed with `.u-` for single purpose utility classes like `.u-underline` and `.u-capitalize`
-* **Meaningful hypens and camelCase** underscore the separation between component, descendant components, and modifiers: `[property]-[value]--[component]`
+* **Meaningful hypens and camelCase** underscore the separation between component, descendant components, and modifiers: `componentName-subComponent--modifier`
 * **Stateful classes** use `.is-` to prefix classes often toggled by JavaScript, like `.is-disabled`
 * **Mixins** are prefixed with `.m-`
 
 <a name="ids-and-classes">
 ### IDs & Classes
 
-Use classes for everything unless an ID is needed (e.g., for JavaScript). Classes and IDs are lowercase with words separated by a dash
+Use classes for everything unless an ID is needed (e.g., for JavaScript). Most classes and IDs are lowercase with words separated by a dash. Use camel case for utilities and components.
 
 ##### Example:
 
 ```css
-.user-profile {}
-.post-header {}
-#top-navigation {}
+.btn--primary {}
+.post-postHeader {}
 ```
 
 <a name="javascript">
 ### Selectors for JavaScript
 
-syntax: `js-<targetName>`
+syntax: `js-targetName`
 
 JavaScript-specific classes reduce the risk that changing the structure or theme of components will inadvertently affect any required JavaScript behaviour and complex functionality. It is not neccesarry to use them in every case, just think of them as a tool in your utility belt. If you are creating a class, which you dont intend to use for styling, but instead only as a selector in JavaScript, you should probably be adding the `js-` prefix, but **JavaScript-specific classes should not, under any circumstances, be styled.** In practice this looks like this:
 
@@ -198,29 +196,65 @@ JavaScript-specific classes reduce the risk that changing the structure or theme
 <a name="utilities">
 ### Utilities
 
-TODO
+Utility classes are simple structural and positional traits abstracted for use on any element. Multiple utilities can be used together, and utilities can be used alongside components. Utilities exist because certain CSS properties and patterns are used frequently. For example: clearing floats, vertical alignment, text truncation. Relying on utilities can help to reduce repetition and provide consistent implementations.
 
-<a name="components">
-### Components
+##### Naming:
 
-#### Componentizing
+Syntax: `u-utilityName`
 
-Always look to abstract components. The reuse of components across designs helps to improve consistency and reduces code overhead. A name like `.homepage-nav` limits its use. Instead think about writing styles in such a way that they can be reused in other parts of the app. Try instead `.nav-bar`, which could be reused in another context.
-
-TODO
-
-<a name="naming-images"></a>
-### Images
-
-Image file names are lowercase with words separated by a dash:
+Utilities must use a camel case name, prefixed with a `u-` namespace. What follows is an example of how various utilities can be used to create a simple structure within a component.
 
 ##### Example:
 
 ```css
-icon-home.png
+<div class="u-clearfix">
+  <p class="u-textTruncate">...</p>
+  <img class="u-pullLeft" src="..." alt="...">
+</div>
 ```
 
-Image file names are prefixed with their usage.
+<a name="components">
+### Components
+
+Components are custom elements that enclose specific semantics, styling, and behaviour. Always look to abstract components. The reuse of components across designs helps to improve consistency and reduces code overhead. A name like `.homepageNews` limits its use. Instead think about writing styles in such a way that they can be reused in other parts of the app. Try instead `.newsList`, which could be reused in another context.
+
+A subcomponent is a descendant of a component. It's main purpose is to describe and style a permanent part of a component, like `.newsPost-metaData`.
+
+##### Naming:
+
+Component and subcompontent names must be written in camel case. Modifiers are lowercase with hyphens.
+
+Syntax: `componentName-subComponent--modifier`
+
+##### Example: 
+
+```css
+.navBar {...}
+.navBar-contentNav {...}
+.navBar-contentNav--collabsible {...}
+
+/* Modifiers can also be appended to components without subcomponents */
+
+.btn {...}
+.btn--primary {...}
+.btn--inactive {...}
+
+/* In markup */
+
+<ul class="slideShow">
+  <li class="slideShow-slide">
+    <a class="slideShow-slide--event-promo">
+    ...
+    </a>
+  </li>
+</ul>
+
+```
+
+<a name="naming-images"></a>
+### Images
+
+Image file names are lowercase with words separated by a dash. File names are prefixed with their usage.
 
 ##### Example:
 

@@ -41,7 +41,7 @@ These guidelines strongly encourage the use of sensible patterns that model the 
 * Set indentation to **tabs**, not spaces. <br>*(Protip: some editors like Sublime will let you set your preferred tab width for code viewing.)*
 * Selectors are **flush left** except those nested within media queries
 * Use one level of indentation for each declaration
-* Include a single space before a `{`, after the `;` of a declaration and after each comma in comma-separated property or function values
+* Include a single space before a `{`, after a `:`, and after each `,` in comma-separated properties and values
 * Use double quotes consistently: `content: " "`
 * Quote attribute values in selectors: `input[type="checkbox"]`
 * Avoid specifying units for zero-values: `margin: 0;`
@@ -183,14 +183,14 @@ Use Sass mixins whenever possible. When writing CSS, use indentation to align va
 
 * **Javascript:*** `.js-` prefixed class names for elements being relied upon for JavaScript selectors
 * **Utilities** are prefixed with `.u-` for single purpose utility classes like `.u-underline` and `.u-capitalize`
-* **Meaningful hypens and camelCase** underscore the separation between component, descendant components, and modifiers: `componentName-subComponent--modifier`
+* **Meaningful hypens and camelCase** underscore the separation between component, descendant components, and modifiers: `componentName-subComponent--modifier`
 * **Stateful classes** use `.is-` to prefix classes often toggled by JavaScript, like `.is-disabled`
 * **Mixins** are prefixed with `.m-`
 
 <a name="ids-and-classes">
 ### IDs & Classes
 
-Use classes for everything unless an ID is needed (e.g., for JavaScript). Most classes and IDs are lowercase with words separated by a dash. Use camel case for utilities and components (see related sections below).
+Use classes for everything unless an ID is needed (e.g., for JavaScript). Most classes and IDs are lowercase with words separated by a dash. Use camelCase for utilities and components (see related sections below).
 
 ##### Example:
 
@@ -234,7 +234,7 @@ Utility classes are simple structural and positional traits abstracted for use o
 
 Syntax: `u-utilityName`
 
-Utilities must use a camel case name, prefixed with a `u-` namespace. What follows is an example of how various utilities can be used to create a simple structure within a component.
+Utilities must use a camelCase name, prefixed with a `u-` namespace. What follows is an example of how various utilities can be used to create a simple structure within a component.
 
 ##### Example:
 
@@ -254,7 +254,7 @@ A subcomponent is a descendant of a component. It's main purpose is to describe 
 
 ##### Naming:
 
-Component and subcompontent names must be written in camel case. Modifiers are lowercase with hyphens.
+Component and subcompontent names must be written in camelCase. Modifiers are lowercase with hyphens.
 
 Syntax: `componentName-subComponent--modifier`
 
@@ -369,7 +369,7 @@ We're modeling after Medium's z-index scale, which relies on variables to manage
 
 Syntax: `.m-mixinName`
 
-Mixins should only be used when there are dynamic properties, otherwise use @extend. Mixins should be prefixed with `m-` namespace, use camel case, and be well documented in comments.
+Mixins should only be used when there are dynamic properties, otherwise use @extend. Mixins should be prefixed with `m-` namespace, use camelCase, and be well documented in comments.
 
 <a name="media queries"></a>
 #### Media Queries

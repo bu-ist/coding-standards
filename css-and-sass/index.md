@@ -1,31 +1,28 @@
 # CSS & Sass Standards
 
-**Table of contents** *(order is wrong, organization in-progress)*
+**Table of contents**
 
 * [Principles](#principles)
-* [Formatting](#formatting)
-  * [Declaration Order](#declaration-order)
-  * [Comments](#comments)
-  * [Vendor Prefixes](#vendor-prefixes)
+* [General Formatting](#formatting)
+* [Declaration Order](#declaration-order)
+* [Comments](#comments)
+* [Vendor Prefixes](#vendor-prefixes)
+* [Sass](#sass)
 * [Naming Conventions](#naming-conventions)
-  * [Semantics](#semantics)
+  * [Summary of Semantics](#semantics)
   * [IDs & Classes](#ids-and-classes)
+  * [Specificity](#specificity)
   * [JavaScript](#javascript)
   * [Utilities](#utilities)
   * [Components](#components)
   * [Images](#images)
-  * [Colors](#colors)
 * [Variables](#variables)
   * [colors](#colors)
   * [z-index](#zindex)
-  * [font-weight](#fontweight)
-  * [line-height](#lineheight)
-  * [letter-spacing](#letterspacing)
-* [Polyfills](#polyfills)
-* [Formatting](#formatting)
-  * [Spacing](#spacing)
-  * [Quotes](#quotes)
-  * [Specificity](#specificity)
+  * [fonts](#fonts)
+* [Mixins](#mixins)
+  * [Media Queries](#media-queries)
+* [Sources](#sources)
 
 <a name="principles"></a>
 ## Priciples
@@ -140,7 +137,27 @@ lines are indented by 2 spaces.
 */
 ```
 
-[ASCII text](http://patorjk.com/software/taag/#p=display&f=Big&t=Code%20Standards) is OK for section comments. It's fun and useful in some editors.
+[ASCII text](http://patorjk.com/software/taag/#p=display&f=Big&t=Code%20Standards) is OK for section level comments. It's fun and useful in some editors.
+
+<a name="sass"></a>
+## Sass
+
+* Always place `@extend` statements on the first line of a declaration block.
+* Group `@include` statements at the top of a declaration block after any `@extend` statements.
+* Don't nest declaration blocks. It makes code hard to read on complex projects and often results unecessarily specific selectors. 
+* Nesting media queries is OK.
+
+##### Example:
+
+```css
+.selector {
+    @extend .some-rule;
+    @include clearfix();
+    @include box-sizing(border-box);
+    width: x-grid-unit(1);
+    ...
+}
+```
 
 <a name="vendor-prefixes"></a>
 ## Vendor Prefixes
@@ -173,7 +190,7 @@ Use Sass mixins whenever possible. When writing CSS, use indentation to align va
 <a name="ids-and-classes">
 ### IDs & Classes
 
-Use classes for everything unless an ID is needed (e.g., for JavaScript). Most classes and IDs are lowercase with words separated by a dash. Use camel case for utilities and components.
+Use classes for everything unless an ID is needed (e.g., for JavaScript). Most classes and IDs are lowercase with words separated by a dash. Use camel case for utilities and components (see related sections below).
 
 ##### Example:
 
@@ -182,8 +199,23 @@ Use classes for everything unless an ID is needed (e.g., for JavaScript). Most c
 .post-postHeader {}
 ```
 
+<a name="specificity"></a>
+### Specificity
+
+Too much *cascading* of stylesheets can introduce [unnecessary performance](https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent#UseEfficientCSSSelectors) overhead. In general, only be as specific as you need to be. 
+
+##### Example:
+
+```css
+/* Good: */
+.user-list a:hover { color: red; }
+
+/* Too specific: */
+ul.user-list li span a:hover { color: red; }
+```
+
 <a name="javascript">
-### Selectors for JavaScript
+### JavaScript Selectors 
 
 syntax: `js-targetName`
 
@@ -242,10 +274,8 @@ Syntax: `componentName-subComponent--modifier`
 /* In markup */
 
 <ul class="slideShow">
-  <li class="slideShow-slide">
-    <a class="slideShow-slide--event-promo">
-    ...
-    </a>
+  <li class="slideShow-slide slideShow-slide--event-promo">
+    <a>...</a>
   </li>
 </ul>
 
@@ -265,22 +295,10 @@ bg-home.jpg
 sprite-top-navigation.png
 ```
 
-<a name="specificity"></a>
-### Specificity
+<a name="variables"></a>
+## Variables
 
-Too much *cascading* of stylesheets can introduce [unnecessary performance](https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent#UseEfficientCSSSelectors) overhead. In general, only be as specific as you need to be. 
-
-##### Right:
-
-```css
-.user-list a:hover { color: red; }
-```
-
-##### Wrong:
-
-```css
-ul.user-list li span a:hover { color: red; }
-```
+TODO
 
 <a name="colors"></a>
 ### Colors
@@ -290,8 +308,12 @@ Use **Sass variables** for color whenever possible. When specifying colors, use 
 * **HEX:** Always use lowercase. Shorthand like `#ccc` is OK.
 * **RGBA:** Remember to include a leading 0 for all decimals, like `rgba(0, 0, 0, 0.5)`.
 
-<a name="font-weight"></a>
-### Font Weight
+<a name="fonts"></a>
+### Fonts
+
+TODO: how @font-face is used and how to specify shared typographic styles.
+
+#### Font Weight
 
 With the additional support of web fonts font-weight plays a more important role than it once did. Different font weights will render typefaces specifically created for that weight, unlike the old days where bold could be just an algorithm to fatten a typeface. Always use the numerical value of font-weight to enable the best representation of a typeface.
 
@@ -309,7 +331,7 @@ Whenever possible use `@extend` to specify appropriate baseline font styles:
 @type-jumbo
 ```
 
-**TODO:** Create the above variables.
+(**TODO:** Create the above variables.)
 
 <a name="zindex"></a>
 ## Z-index
@@ -342,37 +364,25 @@ We're modeling after Medium's z-index scale, which relies on variables to manage
 @zIndex-1--blockGroup:              @zIndex-1;
 ```
 
-<a name="sass"></a>
-## Sass
+<a name="mixins"></a>
+### Mixins
 
-* Always place `@extend` statements on the first line of a declaration block.
-* Group `@include` statements at the top of a declaration block after any `@extend` statements.
-* Don't nest declaration blocks. It makes code hard to read on complex projects and often results unecessarily specific selectors. 
-* Nesting media queries is OK.
+Syntax: `.m-mixinName`
+
+Mixins should only be used when there are dynamic properties, otherwise use @extend. Mixins should be prefixed with `m-` namespace, use camel case, and be well documented in comments.
+
+<a name="media queries"></a>
+#### Media Queries
+
+TODO
 
 ##### Example:
 
 ```css
-.selector {
-    @extend .some-rule;
-    @include clearfix();
-    @include box-sizing(border-box);
-    width: x-grid-unit(1);
-    ...
+@include breakpoint(small) {
+  .selector {...}
 }
 ```
-
-<a name="variables"></a>
-### Variables
-
-TODO
-
-<a name="mixins"></a>
-### Mixins
-
-* Mixins should only be used when there are dynamic properties, otherwise use @extend.
-* Mixins should be documented in comments
-
 <a name="sources"></a>
 ## Sources
 

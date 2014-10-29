@@ -37,8 +37,8 @@ These guidelines strongly encourage the use of sensible patterns that model the 
 <a name="formatting"></a>
 ## General Formatting
 
-* Use new lines for each selector, declaration, and closing `}` <br>*(Protip: configure your editor to "show invisibles" or to automatically remove end-of-line whitespace.)*
-* Set indentation to **tabs**, not spaces. <br>*(Protip: some editors like Sublime will let you set your preferred tab width for code viewing.)*
+* Use new lines for each selector, declaration, and closing `}` <br>*(ProTip: configure your editor to "show invisibles" or to automatically remove end-of-line whitespace.)*
+* Set indentation to **tabs**, not spaces. <br>*(ProTip: some editors like Sublime will let you set your preferred tab width for code viewing.)*
 * Selectors are **flush left** except those nested within media queries
 * Use one level of indentation for each declaration
 * Include a single space before a `{`, after a `:`, and after each `,` in comma-separated properties and values
@@ -51,12 +51,12 @@ These guidelines strongly encourage the use of sensible patterns that model the 
 ##### Example:
 
 ```css
-.selector-1,
-.selector-2 {
+.selectorOne,
+.selectorTwo {
 	position: absolute;
 	top: 0;
 }
-.selector-a {
+.selectorThree {
 	color: #ccc;
 	margin: 0;
 }
@@ -115,7 +115,8 @@ Well commented code is extremely important. Take time to describe components, ho
 
 * Place comments on a new line above subject.
 * Make liberal use of comments to break CSS code into discrete sections.
-* Use `/* */` CSS comments. No need to use `//` Sass comments since Grunt should be configured to remove all comments from the output.
+* Use `/* */` CSS comments when you are documenting CSS, such as section labels. <br>*(ProTip: Grunt should be configured to remove all comments from its compressed output, which is best for performance, but retaining CSS comments in a secondary, uncompressed  file can be a helpful way to view and refine your Sass-ing.)*
+* Use `//` Sass comments when you are documenting Sass, such as mixins.
 * Add `TODO` comments detailing unfinished tasks.
 
 ##### Example:
@@ -151,10 +152,10 @@ lines are indented by 2 spaces.
 
 ```css
 .selector {
-    @extend .some-rule;
-    @include clearfix();
-    @include box-sizing(border-box);
-    width: x-grid-unit(1);
+    @extend .someRule;
+    @include clearFix();
+    @include boxSizing(border-box);
+    width: gridUnit(1);
     ...
 }
 ```
@@ -167,7 +168,7 @@ Use Sass mixins whenever possible. When writing CSS, use indentation to align va
 ##### Example:
 
 ```css
-.thing {
+.selector {
     -webkit-transition: background-color 500ms ease-out 1s;
        -moz-transition: background-color 500ms ease-out 1s;
          -o-transition: background-color 500ms ease-out 1s;
@@ -183,19 +184,18 @@ Use Sass mixins whenever possible. When writing CSS, use indentation to align va
 
 * **Javascript:*** `.js-` prefixed class names for elements being relied upon for JavaScript selectors
 * **Utilities** are prefixed with `.u-` for single purpose utility classes like `.u-underline` and `.u-capitalize`
-* **Meaningful hypens and camelCase** underscore the separation between component, descendant components, and modifiers: `componentName-subComponent--modifier`
+* **Meaningful hypens and camelCase** clarify the separation between component, descendant components, and modifiers: `componentName-subComponent-modifier`
 * **Stateful classes** use `.is-` to prefix classes often toggled by JavaScript, like `.is-disabled`
-* **Mixins** are prefixed with `.m-`
 
 <a name="ids-and-classes">
 ### IDs & Classes
 
-Use classes for everything unless an ID is needed (e.g., for JavaScript). Most classes and IDs are lowercase with words separated by a dash. Use camelCase for utilities and components (see related sections below).
+Only use IDs for top level layout elements such as `sidebar` or `masthead`. Use classes for everything else unless an ID is needed for JavaScript. IDs and classes are camelCase with hyphens separating elements that demonstrate hierarchal relationships (see [Component Naming](#components))*.
 
 ##### Example:
 
 ```css
-.btn--primary {}
+.btn-primary {}
 .post-postHeader {}
 ```
 
@@ -208,10 +208,10 @@ Too much *cascading* of stylesheets can introduce [unnecessary performance](http
 
 ```css
 /* Good: */
-.user-list a:hover { color: red; }
+.userList a:hover { color: red; }
 
 /* Too specific: */
-ul.user-list li span a:hover { color: red; }
+ul.userList li span a:hover { color: red; }
 ```
 
 <a name="javascript">
@@ -232,14 +232,14 @@ Utility classes are simple structural and positional traits abstracted for use o
 
 ##### Naming:
 
-Syntax: `u-utilityName`
+syntax: `u-utilityName`
 
 Utilities must use a camelCase name, prefixed with a `u-` namespace. What follows is an example of how various utilities can be used to create a simple structure within a component.
 
 ##### Example:
 
 ```css
-<div class="u-clearfix">
+<div class="u-clearFix">
   <p class="u-textTruncate">...</p>
   <img class="u-pullLeft" src="..." alt="...">
 </div>
@@ -256,25 +256,25 @@ A subcomponent is a descendant of a component. It's main purpose is to describe 
 
 Component and subcompontent names must be written in camelCase. Modifiers are lowercase with hyphens.
 
-Syntax: `componentName-subComponent--modifier`
+syntax: `componentName-subComponent-modifier`
 
 ##### Example: 
 
 ```css
 .navBar {...}
 .navBar-contentNav {...}
-.navBar-contentNav--collabsible {...}
+.navBar-contentNav-collabsible {...}
 
 /* Modifiers can also be appended to components without subcomponents */
 
 .btn {...}
-.btn--primary {...}
-.btn--inactive {...}
+.btn-primary {...}
+.btn-inactive {...}
 
 /* In markup */
 
 <ul class="slideShow">
-  <li class="slideShow-slide slideShow-slide--event-promo">
+  <li class="slideShow-slide slideShow-slide-eventPromo">
     <a>...</a>
   </li>
 </ul>
@@ -315,7 +315,7 @@ TODO: how @font-face is used and how to specify shared typographic styles.
 
 #### Font Weight
 
-With the additional support of web fonts font-weight plays a more important role than it once did. Different font weights will render typefaces specifically created for that weight, unlike the old days where bold could be just an algorithm to fatten a typeface. Always use the numerical value of font-weight to enable the best representation of a typeface.
+With the additional support of web fonts font-weight plays a more important role than it once did. Different font weights will render typefaces specifically created for that weight, unlike the old days where bold could be just an algorithm to fatten a typeface. Always use the numerical value of font-weight to enable the best representation of a typeface, like `font-weight: 400;`.
 
 Whenever possible use `@extend` to specify appropriate baseline font styles:
 
@@ -336,7 +336,7 @@ Whenever possible use `@extend` to specify appropriate baseline font styles:
 <a name="zindex"></a>
 ## Z-index
 
-We're modeling after Medium's z-index scale, which relies on variables to manage collision-free layers.
+We're modeling Medium's z-index scale, which relies on variables to manage collision-free layers.
 
 ##### Example:
 
@@ -356,20 +356,21 @@ We're modeling after Medium's z-index scale, which relies on variables to manage
  
 // Z-Index Applications
 // --------------------------------------------------
-@zIndex-1--screenForeground:        @zIndex-1;
-@zIndex-1--followUpVisibility:      @zIndex-1;
-@zIndex-1--prlWelcome:              @zIndex-1;
-@zIndex-1--appImageDropdown:        @zIndex-1;
-@zIndex-1--surfaceUnder:            @zIndex-1;
-@zIndex-1--blockGroup:              @zIndex-1;
+@zIndex-1-screenForeground:        @zIndex-1;
+@zIndex-1-followUpVisibility:      @zIndex-1;
+@zIndex-2-prlWelcome:              @zIndex-2;
+@zIndex-2-appImageDropdown:        @zIndex-2;
+@zIndex-3-surfaceUnder:            @zIndex-3;
+@zIndex-4-blockGroup:              @zIndex-4;
+...
 ```
 
 <a name="mixins"></a>
 ### Mixins
 
-Syntax: `.m-mixinName`
+syntax: `mixinName`
 
-Mixins should only be used when there are dynamic properties, otherwise use @extend. Mixins should be prefixed with `m-` namespace, use camelCase, and be well documented in comments.
+Mixins should only be used when there are dynamic properties, otherwise use @extend. Mixins should use camelCase and be well documented in comments.
 
 <a name="media queries"></a>
 #### Media Queries
@@ -386,7 +387,7 @@ TODO
 <a name="sources"></a>
 ## Sources
 
-Many of these standards have been taken from the smart people who wrote:
+Many of these standards have been taken or adapted from the smart people who wrote:
 
 * [https://github.com/necolas/idiomatic-css](https://github.com/necolas/idiomatic-css)
 * [https://gist.github.com/fat/a47b882eb5f84293c4ed#performance](https://gist.github.com/fat/a47b882eb5f84293c4ed#performance)

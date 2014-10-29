@@ -22,6 +22,7 @@ function flexi_print_styles() {
 ```
 
 * Omit closing PHP tags (`?>`) at the end of every file. Trailing whitespace after closing tags can [cause issues](https://wordpress.org/support/topic/functionsphp-in-a-child-theme). The easiest way to avoid them is not to use them.
+* **Always** use full [opening tags](http://php.net/manual/en/language.basic-syntax.phptags.php) (`<?php`) in PHP. Short tags (`<?`,`<?=`) **will** have issues in our environment
 
 ## Themes
 

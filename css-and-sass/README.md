@@ -327,15 +327,15 @@ With the additional support of web fonts font-weight plays a more important role
 Whenever possible use `@extend` to specify appropriate baseline font styles:
 
 ```css
-@type-micro
-@type-smallest
-@type-smaller
-@type-small
-@type-base
-@type-large
-@type-larger
-@type-largest
-@type-jumbo
+$fontSize-micro
+$fontSize-smallest
+$fontSize-smaller
+$fontSize-small
+$fontSize-base
+$fontSize-large
+$fontSize-larger
+$fontSize-largest
+$fontSize-jumbo
 ```
 
 (**TODO:** Create the above variables.)
@@ -350,25 +350,25 @@ We're modeling Medium's z-index scale, which relies on variables to manage colli
 ```css
 // Z-Index Scale (private vars)
 // --------------------------------------------------
-@zIndex-1:   100;
-@zIndex-2:   200;
-@zIndex-3:   300;
-@zIndex-4:   400;
-@zIndex-5:   500;
-@zIndex-6:   600;
-@zIndex-7:   700;
-@zIndex-8:   800;
-@zIndex-9:   900;
-@zIndex-10: 1000;
+$zIndex-1:   100;
+$zIndex-2:   200;
+$zIndex-3:   300;
+$zIndex-4:   400;
+$zIndex-5:   500;
+$zIndex-6:   600;
+$zIndex-7:   700;
+$zIndex-8:   800;
+$zIndex-9:   900;
+$zIndex-10: 1000;
  
 // Z-Index Applications
 // --------------------------------------------------
-@zIndex-1-screenForeground:        @zIndex-1;
-@zIndex-1-followUpVisibility:      @zIndex-1;
-@zIndex-2-prlWelcome:              @zIndex-2;
-@zIndex-2-appImageDropdown:        @zIndex-2;
-@zIndex-3-surfaceUnder:            @zIndex-3;
-@zIndex-4-blockGroup:              @zIndex-4;
+$zIndex-1-screenForeground:        @zIndex-1;
+$zIndex-1-followUpVisibility:      @zIndex-1;
+$zIndex-2-prlWelcome:              @zIndex-2;
+$zIndex-2-appImageDropdown:        @zIndex-2;
+$zIndex-3-surfaceUnder:            @zIndex-3;
+$zIndex-4-blockGroup:              @zIndex-4;
 ...
 ```
 

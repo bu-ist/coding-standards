@@ -39,7 +39,7 @@ These guidelines strongly encourage the use of sensible patterns that model the 
 
 * Use new lines for each selector, declaration, and closing `}` <br>*(ProTip: configure your editor to "show invisibles" or to automatically remove end-of-line whitespace.)*
 * Set indentation to **tabs**, not spaces. <br>*(ProTip: some editors like Sublime will let you set your preferred tab width for code viewing.)*
-* Selectors are **flush left** except those nested within media queries
+* Selectors are **flush left** except those nested within media queries or pseudo-elements
 * Use one level of indentation for each declaration
 * Include a single space before a `{`, after a `:`, and after each `,` in comma-separated properties and values
 * Use double quotes consistently: `content: " "`

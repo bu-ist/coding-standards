@@ -128,12 +128,12 @@ Well commented code is extremely important. Take time to describe components, ho
 /* This is a sub-section or basic comment */
 
 /*
-The long description is ideal for more detailed explanations and 
-documentation. It can include example HTML, URLs, or any other 
+The long description is ideal for more detailed explanations and
+documentation. It can include example HTML, URLs, or any other
 information that is deemed necessary or useful.
 
-TODO: This is a todo statement that describes an atomic task to be 
-completed at a later date. It wraps after 80 characters and following 
+TODO: This is a todo statement that describes an atomic task to be
+completed at a later date. It wraps after 80 characters and following
 lines are indented by 2 spaces.
 */
 ```
@@ -144,8 +144,8 @@ lines are indented by 2 spaces.
 ## Sass
 
 * Always place `@extend` statements on the first line of a declaration block.
-* Group `@include` statements at the top of a declaration block after any `@extend` statements.
-* Don't nest declaration blocks. It makes code hard to read on complex projects and often results unecessarily specific selectors. 
+* Group `@include` statements at the top of a declaration block after any `@extend` statements except for `@include breakpoint`, which you should put after your base (mobile) styles.
+* Don't nest declaration blocks. It makes code hard to read on complex projects and often results unecessarily specific selectors.
 * Nesting [psuedo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) and media queries is OK. They should be last in the declaration block, separated from other properties with an empty new line.
 
 ##### Example:
@@ -156,11 +156,11 @@ lines are indented by 2 spaces.
     @include clearFix();
     @include boxSizing(border-box);
     width: gridUnit(1);
-    
+
     &:last-child {
     	...
     }
-    
+
     @media only screen and (min-width : 320px) {
       ...
     }
@@ -209,7 +209,7 @@ Only use IDs for top level layout elements such as `sidebar` or `masthead`. Use 
 <a name="specificity"></a>
 ### Specificity
 
-Too much *cascading* of stylesheets can introduce [unnecessary performance](https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent#UseEfficientCSSSelectors) overhead. In general, only be as specific as you need to be. 
+Too much *cascading* of stylesheets can introduce [unnecessary performance](https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent#UseEfficientCSSSelectors) overhead. In general, only be as specific as you need to be.
 
 ##### Example:
 
@@ -222,7 +222,7 @@ ul.userList li span a:hover { color: red; }
 ```
 
 <a name="javascript">
-### JavaScript Selectors 
+### JavaScript Selectors
 
 syntax: `js-targetName`
 
@@ -265,7 +265,7 @@ Component and subcompontent names must be written in camelCase. Modifiers are lo
 
 syntax: `componentName-subComponent-modifier`
 
-##### Example: 
+##### Example:
 
 ```css
 .navBar {...}
@@ -360,7 +360,7 @@ $zIndex-7:   700;
 $zIndex-8:   800;
 $zIndex-9:   900;
 $zIndex-10: 1000;
- 
+
 // Z-Index Applications
 // --------------------------------------------------
 $zIndex-1-screenForeground:        @zIndex-1;

@@ -26,10 +26,12 @@ Themes, frameworks, and plugins are often used years into the future and pass th
 
 When someone else looks at your code, it should be easy to understand how an element will behave and why. We also know that we can't predict every situation, and there is going to be a time where you need to break the rules. We deal with this by:
 
-* Using `@extend` for grid classes and icons (NEW ADDITION FOR SASS)
+* Using `@extend` when an element needs to use grid classes or icons (NEW ADDITION FOR SASS)
 * Nesting pseudo-elements and states (NEW ADDITION FOR SASS)
 * Nesting media queries, feature detection, and browser-specific styles under the class they affect (NEW ADDITION FOR SASS)
 * Explaining any rules we break and why with a single line comment `//` (NEW ADDITION FOR SASS)
+
+With that said, use the rules below to guide your code towards those principles.
 
 # CSS & SASS Standards
 

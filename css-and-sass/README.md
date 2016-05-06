@@ -1,4 +1,33 @@
-# CSS & Sass Standards
+# CSS & SASS Standards
+
+## What we think code should be
+
+
+
+### Code should be predictable.
+
+Your project works alongside a complex ecosystem of plugins, frameworks, and content. In order to be able to update these things in a timely manner, everyone's code has to behave predictably and reliably. We do this by:
+
+* [Naming everything consistently](#semantics) (Needs review)
+* [Prohibiting overly specific rules](#specificity) (SASS nesting rules should reference this)
+* Restricting custom styles on certain classes (NEW ADDITION - restrict grid and utility classes)
+* Reusing common components throughout our code (NEW ADDITION FOR SASS - explains when to @extend in SASS)
+
+### Code should be easy to maintain.
+
+Themes, frameworks, and plugins are often used years into the future and pass through many hands. These items - nitpicky as they seem - help make it easy for us to share and transition projects from person to person. We accomplish this by:
+
+* [Formatting our code consistently](#formatting) (SASS linter should be able to take care of this)
+* Using mixins and placeholder classes for common styles (NEW ADDITION FOR SASS - do not rewrite things that are already built into the framework)
+* Structuring our SASS files consistently (NEW ADDITION FOR SASS - explains how to override, include/exclude, organize, and name partials, and how to deal with overriding or excluding Responsive Framework partials)
+
+### Code should be easy to understand.
+
+When someone else looks at your code, it should be easy to understand what you've done and why. We also know that we can't predict every situation, and there is going to be a time where you need to break the rules. We deal with this by:
+
+* Declaring media queries, feature detection, and browser-specific styles inline (NEW ADDITION FOR SASS)
+* Nesting pseudo-elements (NEW ADDITION FOR SASS)
+* If you have to break the rules, explain why with a `//` commment (NEW ADDITION FOR SASS)
 
 **Table of contents**
 

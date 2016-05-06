@@ -4,16 +4,15 @@ This is a working draft of the coding standards. **DO NOT USE IT YET.**
 
 # Coding in the spirit of our standards
 
-We beleive, above all, that code should be predictable, easy to maintain, and easy to understand. While we're written rules to help support these ideas, we recognize that no two designers or developers will come up with the same solution to the same problem. It's up to you to code not just to the letter of the law, but the spirit of the law. And if you find any rules that go against what we're trying to accomplish, don't be afraid to challenge them [here](https://github.com/bu-ist/coding-standards/issues) and start a discussion so we can improve them.
+We believe that code should be predictable, easy to maintain, and easy to understand. While our standards are intended to help support these ideas, we recognize that no two designers or developers will come up with the exact same solution to the same problem. It's up to you to code not just to the letter of the law, but the spirit of the law. And if you find any rules that go against what we're trying to accomplish, don't be afraid to challenge them [here](https://github.com/bu-ist/coding-standards/issues) and start a discussion so we can improve them.
 
 ### Code should be predictable.
 
-Your project works alongside a complex ecosystem of plugins, frameworks, and content. In order to be able to update these things in a timely manner, everyone's code has to behave predictably and reliably. We do this by:
+Your project works alongside a complex ecosystem of plugins, frameworks, and content. In order to be able to update these things in a timely manner, everyone's code has to behave predictably and reliably. We do this with:
 
 * [Naming everything consistently](#semantics) (Needs review)
 * [Prohibiting overly specific rules](#specificity) (SASS nesting rules should reference this)
-* Restricting custom styles on certain classes (NEW ADDITION - restrict grid and utility classes)
-* Reusing common components throughout our code (NEW ADDITION FOR SASS - explains when to @extend in SASS)
+* Prohibiting overrides on certain classes (NEW ADDITION - restrict grid and utility classes)
 
 ### Code should be easy to maintain.
 
@@ -25,8 +24,9 @@ Themes, frameworks, and plugins are often used years into the future and pass th
 
 ### Code should be easy to understand.
 
-When someone else looks at your code, it should be easy to understand what you've done and why. We also know that we can't predict every situation, and there is going to be a time where you need to break the rules. We deal with this by:
+When someone else looks at your code, it should be easy to understand how an element will behave and why. We also know that we can't predict every situation, and there is going to be a time where you need to break the rules. We deal with this by:
 
+* Using `@extend` for grid classes and icons (NEW ADDITION FOR SASS)
 * Declaring media queries, feature detection, and browser-specific styles inline (NEW ADDITION FOR SASS)
 * Nesting pseudo-elements (NEW ADDITION FOR SASS)
 * Explaining any rules we break and why with a single line comment `//` (NEW ADDITION FOR SASS)

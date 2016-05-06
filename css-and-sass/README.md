@@ -4,7 +4,7 @@ This is a working draft of the coding standards. **DO NOT USE IT YET.**
 
 # Coding in the spirit of our standards
 
-We beleive, above all, that code should be predictable, easy to maintain, and easy to understand. While we're written rules to help support these ideas, we recognize that no two designers or developers will come up with the same solution to the same problem. It's up to you to code not just to the letter of the law, but the spirit of the law.
+We beleive, above all, that code should be predictable, easy to maintain, and easy to understand. While we're written rules to help support these ideas, we recognize that no two designers or developers will come up with the same solution to the same problem. It's up to you to code not just to the letter of the law, but the spirit of the law. And if you find any rules that go against what we're trying to accomplish, don't be afraid to challenge them [here](https://github.com/bu-ist/coding-standards/issues) and start a discussion so we can improve them.
 
 ### Code should be predictable.
 
@@ -29,7 +29,7 @@ When someone else looks at your code, it should be easy to understand what you'v
 
 * Declaring media queries, feature detection, and browser-specific styles inline (NEW ADDITION FOR SASS)
 * Nesting pseudo-elements (NEW ADDITION FOR SASS)
-* If you have to break the rules, explain why with a `//` commment (NEW ADDITION FOR SASS)
+* Explaining any rules we break and why with a single line comment `//` (NEW ADDITION FOR SASS)
 
 # CSS & SASS Standards
 

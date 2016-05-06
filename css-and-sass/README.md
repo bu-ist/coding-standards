@@ -2,7 +2,7 @@
 
 This is a working draft of the coding standards. **DO NOT USE IT YET.**
 
-# Coding in the spirit of the law
+# Coding in the spirit of our standards
 
 We beleive, above all, that code should be predictable, easy to maintain, and easy to understand. While we're written rules to help support these ideas, we recognize that no two designers or developers will come up with the same solution to the same problem. It's up to you to code not just to the letter of the law, but the spirit of the law.
 

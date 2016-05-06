@@ -1,3 +1,7 @@
+# IMPORTANT
+
+This is a working draft of the coding standards. **DO NOT USE IT YET.**
+
 # CSS & SASS Standards
 
 ## What we think code should be

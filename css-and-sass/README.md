@@ -1,6 +1,6 @@
 # IMPORTANT
 
-This is a working draft of the coding standards. **DO NOT USE IT YET.**
+This is a working draft of the coding standards updates. **DO NOT USE IT YET.**
 
 # Coding in the spirit of our standards
 
@@ -8,7 +8,7 @@ We believe that code should be predictable, easy to maintain, and easy to unders
 
 ### Code should be predictable.
 
-Your project works alongside a complex ecosystem of plugins, frameworks, and content. In order to be able to update these things in a timely manner, everyone's code has to behave predictably and reliably. We do this with:
+Your project works alongside a complex ecosystem of plugins, frameworks, and content. In order to be able to update these things in a timely manner, everyone's code has to behave predictably and reliably. We do this by:
 
 * [Naming everything consistently](#semantics) (Needs review)
 * [Prohibiting overly specific rules](#specificity) (SASS nesting rules should reference this)
@@ -19,7 +19,7 @@ Your project works alongside a complex ecosystem of plugins, frameworks, and con
 Themes, frameworks, and plugins are often used years into the future and pass through many hands. These items - nitpicky as they seem - help make it easy for us to share and transition projects from person to person. We accomplish this by:
 
 * [Formatting our code consistently](#formatting) (SASS linter should be able to take care of this)
-* Using mixins and placeholder classes for common styles (NEW ADDITION FOR SASS - do not rewrite things that are already built into the framework)
+* Using the mixins and placeholder classes provided by the framework where possible (NEW ADDITION FOR SASS - do not rewrite things that are already built into the framework)
 * Structuring our SASS files consistently (NEW ADDITION FOR SASS - explains how to override, include/exclude, organize, and name partials, and how to deal with overriding or excluding Responsive Framework partials)
 
 ### Code should be easy to understand.
@@ -27,15 +27,14 @@ Themes, frameworks, and plugins are often used years into the future and pass th
 When someone else looks at your code, it should be easy to understand how an element will behave and why. We also know that we can't predict every situation, and there is going to be a time where you need to break the rules. We deal with this by:
 
 * Using `@extend` for grid classes and icons (NEW ADDITION FOR SASS)
-* Declaring media queries, feature detection, and browser-specific styles inline (NEW ADDITION FOR SASS)
-* Nesting pseudo-elements (NEW ADDITION FOR SASS)
+* Nesting pseudo-elements and states (NEW ADDITION FOR SASS)
+* Nesting media queries, feature detection, and browser-specific styles under the class they affect (NEW ADDITION FOR SASS)
 * Explaining any rules we break and why with a single line comment `//` (NEW ADDITION FOR SASS)
 
 # CSS & SASS Standards
 
 **Table of contents**
 
-* [Principles](#principles)
 * [General Formatting](#formatting)
 * [Declaration Order](#declaration-order)
 * [Comments](#comments)
@@ -56,16 +55,6 @@ When someone else looks at your code, it should be easy to understand how an ele
 * [Mixins](#mixins)
   * [Media Queries](#media-queries)
 * [Sources](#sources)
-
-<a name="principles"></a>
-## Priciples
-
-These guidelines strongly encourage the use of sensible patterns that model the best of what's out there. The goal is to write extremely lean styles with maximum clarity that leverage preprocessing to optimize both workflow and site performance.
-
-* Keep all code readable and understandable while writing as little as possible.
-* All code in our code-base should look like a single person typed it, even when many people are contributing to it.
-* This is a living document, and new ideas are always welcome. Please contribute.
-* Everyone strictly enforces the agreed-upon style.
 
 <a name="formatting"></a>
 ## General Formatting

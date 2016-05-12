@@ -4,7 +4,7 @@ This is a working draft of the coding standards updates. **DO NOT USE IT YET.**
 
 # Coding in the spirit of our standards
 
-We believe that code should be predictable, easy to maintain, and easy to understand. While our standards are intended to help support these ideas, we recognize that no two designers or developers will come up with the exact same solution to the same problem. It's up to you to code not just to the letter of the law, but the spirit of the law. And if you find any rules that go against what we're trying to accomplish, don't be afraid to challenge them [here](https://github.com/bu-ist/coding-standards/issues) and start a discussion so we can improve them.
+We believe that code should be predictable, easy to maintain, and easy to understand. While our standards are intended to help support these ideas, we recognize that no two designers or developers will come up with the exact same solution to the same problem. We want you to code in the spirit of the law as much as follow letter of the law. And if you find any rules that go against what we're trying to accomplish, don't be afraid to challenge them [here](https://github.com/bu-ist/coding-standards/issues) and start a discussion so we can improve them.
 
 ### Code should be predictable.
 
@@ -19,8 +19,8 @@ Your project works alongside a complex ecosystem of plugins, frameworks, and con
 Themes, frameworks, and plugins are often used years into the future and pass through many hands. These items - nitpicky as they seem - help make it easy for us to share and transition projects from person to person. We accomplish this by:
 
 * [Formatting our code consistently](#formatting) (SASS linter should be able to take care of this)
-* Using the mixins and placeholder classes provided by the framework where possible (NEW ADDITION FOR SASS - do not rewrite things that are already built into the framework)
-* Structuring our SASS files consistently (NEW ADDITION FOR SASS - explains how to override, include/exclude, organize, and name partials, and how to deal with overriding or excluding Responsive Framework partials)
+* Using the mixins and placeholder classes provided by the framework before you write custom code (NEW ADDITION FOR SASS - do not rewrite things that are already built into the framework)
+* Structuring our SASS files consistently (NEW ADDITION FOR SASS - explains how to override, include/exclude, organize, and name partials, and how to deal with overriding or excluding Responsive Framework partials - we should also add this to the child starter)
 
 ### Code should be easy to understand.
 
@@ -29,7 +29,8 @@ When someone else looks at your code, it should be easy to understand how an ele
 * Using `@extend` when an element needs to use grid classes or icons (NEW ADDITION FOR SASS)
 * Nesting pseudo-elements and states (NEW ADDITION FOR SASS)
 * Nesting media queries, feature detection, and browser-specific styles under the class they affect (NEW ADDITION FOR SASS)
-* Explaining any rules we break and why with a single line comment `//` (NEW ADDITION FOR SASS)
+* Explaining any rules we break and why with a single line comment `//` (NEW ADDITION FOR SASS - consider using a keyword)
+* Using multi-line (`/* */`) comments for information that helps debug the compiled CSS, such as noting the location of a SASS placeholder class
 
 With that said, use the rules below to guide your code towards those principles.
 

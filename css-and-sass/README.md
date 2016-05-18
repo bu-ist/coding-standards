@@ -210,6 +210,7 @@ lines are indented by 2 spaces.
 
     // Same as .selector .child when compiled
     .child {
+
       &:before {
         // This is the absolute maximum amount of nesting that is allowed
       }
@@ -366,7 +367,7 @@ Naming conventions - camelCase with hyphens
 
 Use **Sass variables** for color whenever possible. When specifying colors, use the following conventions:
 
-* **HEX:** Always use lowercase. Shorthand like `#ccc` is OK.
+* **HEX:** Always use lowercase. Shorthand like `#ccc` should be used where possible.
 * **RGBA:** Remember to include a leading 0 for all decimals, like `rgba(0, 0, 0, 0.5)`.
 
 <a name="fonts"></a>

@@ -69,6 +69,7 @@ With that said, use the rules below to guide your code towards those principles.
 * Include a single space before a `{`, after a `:`, and after each `,` in comma-separated properties and values
 * Use double quotes consistently: `content: " "`
 * Quote attribute values in selectors: `input[type="checkbox"]`
+* URLs must be in double quotes: `background-image: url("images/bun.jpg");`
 * Avoid specifying units for zero-values: `margin: 0;`
 * Place the closing `}` of a ruleset in the same column as the first character of the ruleset
 * Include a blank line before and after sections but not between rulesets

@@ -59,6 +59,11 @@ With that said, use the rules below to guide your code towards those principles.
   * [Media Queries](#media-queries)
 * [Sources](#sources)
 
+## Up for discussion
+
+* Should we enforce certain properties using variables only? https://github.com/sasstools/sass-lint/blob/master/docs/rules/variable-for-property.md
+
+
 <a name="formatting"></a>
 ## General Formatting
 
@@ -331,7 +336,7 @@ sprite-top-navigation.png
 <a name="variables"></a>
 ## Variables
 
-TODO
+Naming conventions - camelCase with hyphens
 
 <a name="colors"></a>
 ### Colors

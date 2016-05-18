@@ -323,15 +323,31 @@ syntax: `componentName-subComponent-modifier`
 ##### Example:
 
 ```css
-.navBar {...}
-.navBar-contentNav {...}
-.navBar-contentNav-collabsible {...}
+.navBar {
+  (...)
+}
+
+.navBar-contentNav {
+  (...)
+}
+
+.navBar-contentNav-collabsible {
+  (...)
+}
 
 /* Modifiers can also be appended to components without subcomponents */
 
-.btn {...}
-.btn-primary {...}
-.btn-inactive {...}
+.btn {
+  (...)
+}
+
+.btn-primary {
+  (...)
+}
+
+.btn-inactive {
+  (...)
+}
 
 /* In markup */
 

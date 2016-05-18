@@ -175,6 +175,7 @@ lines are indented by 2 spaces.
 <a name="sass"></a>
 ## Sass
 
+* Do not include underscores or file extensions when importing SASS partials `@import "burf-theme";`
 * Always place `@extend` statements on the first line of a declaration block.
 * Group `@include` statements at the top of a declaration block after any `@extend` statements except for `@include breakpoint`, which you should put after your base (mobile) styles.
 * Don't nest declaration blocks. It makes code hard to read on complex projects and often results unecessarily specific selectors.

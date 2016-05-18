@@ -201,6 +201,10 @@ lines are indented by 2 spaces.
 }
 ```
 
+### Mixins
+
+* If a mixin does not accept any arguments, do not use parentheses in the mixin declaration, and do not call the mixin with parentheses. Example: `@include vertical-center-child`
+
 <a name="vendor-prefixes"></a>
 ## Vendor Prefixes
 

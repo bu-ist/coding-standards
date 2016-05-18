@@ -59,9 +59,15 @@ With that said, use the rules below to guide your code towards those principles.
   * [Media Queries](#media-queries)
 * [Sources](#sources)
 
+## Big changes
+
+* **Proposed:** Enforce element and class nesting. Combined with the max-depth rule, this is how we keep selector specificity to an absolute maximum of three levels deep. It's also a good visual reminder that code is getting complex. If things are hard to read, simplify. I'd move it down, but we need an extra level of max-depth for dealing with before, after, and IE classes.
+
 ## Up for discussion
 
 * Should we enforce certain properties using variables only? https://github.com/sasstools/sass-lint/blob/master/docs/rules/variable-for-property.md
+* What is our stance on attribute nesting? https://github.com/sasstools/sass-lint/blob/master/docs/rules/force-attribute-nesting.md
+
 
 
 <a name="formatting"></a>
@@ -176,12 +182,14 @@ lines are indented by 2 spaces.
 ## Sass
 
 * Do not include underscores or file extensions when importing SASS partials `@import "burf-theme";`
-* Always place `@extend` statements on the first line of a declaration block.
+* Always place `@extend` statements before anything else in a declaration block.
 * Group `@include` statements at the top of a declaration block after any `@extend` statements except for `@include breakpoint`, which you should put after your base (mobile) styles.
 * Don't nest declaration blocks. It makes code hard to read on complex projects and often results unecessarily specific selectors.
 * Nesting [psuedo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) and media queries is OK. They should be last in the declaration block, separated from other properties with an empty new line.
 * Braces should follow the [1TBS style variant](https://en.wikipedia.org/wiki/Indent_style#Variant:_1TBS). Braces on a single line are not allowed.
 * Always use an empty line between blocks of code.
+* Child and element classes in selectors must be nested
+* Nesting may not go more than three levels deep.
 
 ##### Example:
 
@@ -198,6 +206,13 @@ lines are indented by 2 spaces.
 
     @media only screen and (min-width : 320px) {
       ...
+    }
+
+    // Same as .selector .child when compiled
+    .child {
+      &:before {
+        // This is the absolute maximum amount of nesting that is allowed
+      }
     }
 }
 ```

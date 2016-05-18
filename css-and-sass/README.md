@@ -180,6 +180,7 @@ lines are indented by 2 spaces.
 * Group `@include` statements at the top of a declaration block after any `@extend` statements except for `@include breakpoint`, which you should put after your base (mobile) styles.
 * Don't nest declaration blocks. It makes code hard to read on complex projects and often results unecessarily specific selectors.
 * Nesting [psuedo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) and media queries is OK. They should be last in the declaration block, separated from other properties with an empty new line.
+* Braces should follow the [1TBS style variant](https://en.wikipedia.org/wiki/Indent_style#Variant:_1TBS). Braces on a single line are not allowed.
 
 ##### Example:
 

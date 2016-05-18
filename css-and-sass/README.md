@@ -76,6 +76,7 @@ With that said, use the rules below to guide your code towards those principles.
 * Quote attribute values in selectors: `input[type="checkbox"]`
 * URLs must be in double quotes: `background-image: url("images/bun.jpg");`
 * Avoid specifying units for zero-values: `margin: 0;`
+* Where possible, use descriptive values over numeric: `border: none;`
 * Place the closing `}` of a ruleset in the same column as the first character of the ruleset
 * Include a blank line before and after sections but not between rulesets
 

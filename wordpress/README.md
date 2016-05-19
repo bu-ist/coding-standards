@@ -1,7 +1,7 @@
 # WordPress Coding Standards
 
 All WordPress plugins and themes should adhere to the standards established in the core contributor handbooks:
-https://make.wordpress.org/core/handbook/coding-standards/
+https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/
 
 ## General
 

@@ -97,7 +97,7 @@ WordPress has many functions to help with many scenarios. Here are a few:
 Example of how printing an `<a>` with proper escaping.
 
 ```
-<a href="<?php echo esc_url( $some_url ); ?>" title="<?php esc_attr_e( $some_title ); ?>"><?php esc_html_e
+<a href="<?php echo esc_url( $some_url ); ?>" title="<?php esc_attr_e( $some_title ); ?>"><?php esc_html_e( $some_text_string ); ?></a>
 ```
 
 Example of how to use `wp_kses()` to only allow `<a>`, `<br>`, `<em>`, and `<strong>` tags.

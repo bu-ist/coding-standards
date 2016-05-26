@@ -131,13 +131,19 @@ Always omit closing PHP tags (`?>`) at the end of every file. Trailing whitespac
 
 **More info:** [WordPress PHP Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/#no-shorthand-php-tags)
 
-## Themes
+## Enqueuing Asset Files
+Always enqueue Javascript and CSS assets unless there is a compelling reason not to do so. Understand [their](http://codex.wordpress.org/Function_Reference/wp_enqueue_style) [arguments](http://codex.wordpress.org/Function_Reference/wp_enqueue_script).
 
-* Keep your template files clean and lean. Avoid complex PHP logic.
-* Avoid duplicating code across templates. If something will be utilized in multiple areas, it should have a well named function for returning the data, or a template file.
-* Always enqueue Javascript and CSS assets unless there is a compelling reason not to do so. Understand [their](http://codex.wordpress.org/Function_Reference/wp_enqueue_style) [arguments](http://codex.wordpress.org/Function_Reference/wp_enqueue_script).
-	* Take advantage of the version arguments in `wp_enqueue_script()` and `wp_enqueue_style()` for [cache busting](https://pippinsplugins.com/uncached-script-and-style-updates/).
-* Usage of any functions or classes defined outside of the current theme should always be wrapped in a `function_exists` or `class_exists` conditional to prevent PHP fatal errors in the absence of a plugin.
+Take advantage of the version arguments in `wp_enqueue_script()` and `wp_enqueue_style()` for [cache busting](https://pippinsplugins.com/uncached-script-and-style-updates/) purposes.
+
+**Remember to namespace your asset name when enqueuing**
+
+```
+function r_mytheme_enqueue_styles() {
+	wp_enqueue_style( 'r-mytheme-stylesheet', get_stylesheet_directory_uri() . '/css/path-to-my-stylesheet.css', array( 'dependency-1' ), '1.0' );
+}
+add_action( 'wp_enqueue_scripts', 'r_mytheme_enqueue_styles' );
+```
 
 ## Performance
 

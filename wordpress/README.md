@@ -20,17 +20,35 @@ A full breakdown of PHP code formatting standards can be found in the [WordPress
 Be mindful of [PHPs global namespace](http://php.net/manual/en/language.namespaces.global.php). All functions and classes should be prefixed consistently within the plugin or theme.
 
 ```php
-// Bad
+/**
+ * Example 1
+ */
+ // Bad
 function enqueue_styles() {
 	...
 }
 add_action( 'wp_enqueue_styles', 'enqueue_styles' );
 
 // Good
-function bu_wp_enqueue_styles() {
+function r_mytheme_wp_enqueue_styles() {
 	...
 }
-add_action( 'wp_enqueue_styles', 'bu_wp_enqueue_styles' );
+add_action( 'wp_enqueue_styles', 'r_mytheme_wp_enqueue_styles' );
+
+/**
+ * Example 2
+ */
+// Bad
+function enqueue_scripts() {
+	...
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_scripts' );
+
+// Good
+function bu_myplugin_wp_enqueue_styles() {
+	...
+}
+add_action( 'wp_enqueue_styles', 'bu_myplugin_wp_enqueue_styles' );
 ```
 When it makes sense, like functionality should be grouped into a class. For example, say we are working with course functionality.
 

@@ -12,19 +12,19 @@ Usage of any functions or classes defined outside of the current theme should al
 
 The following is a list of root level theme folders that should exist in every project with a description of its purpose.
 
-###admin
+###/admin
 All admin related JS & CSS resides here.
 
-###includes
+###/includes
 This folder should include files for grouping like functionality, and classes. For example, if you have one metabox registration function, it can live in `functions.php`. When you start adding more, a class or file should be created for grouping purposes.
 
-###templates
+###/templates
 Any page template files reside here.
 
-###template-parts
+###/template-parts
 Any template part files are grouped in here.
 
-###css-dev
+###/css-dev
 All SASS files reside here.
 
-###js-dev
+###/js-dev

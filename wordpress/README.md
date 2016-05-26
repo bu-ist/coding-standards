@@ -33,7 +33,7 @@ add_action( 'wp_enqueue_styles', 'enqueue_styles' );
 function r_mytheme_wp_enqueue_styles() {
 	...
 }
-add_action( 'wp_enqueue_styles', 'r_mytheme_wp_enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'r_mytheme_wp_enqueue_styles' );
 
 /**
  * Example 2

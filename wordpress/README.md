@@ -92,6 +92,29 @@ WordPress has many functions to help with many scenarios. Here are a few:
 * [`esc_attr()`](https://codex.wordpress.org/Function_Reference/esc_attr)
 * [`esc_url()`](https://codex.wordpress.org/Function_Reference/esc_url)
 * [`esc_js()`](https://codex.wordpress.org/Function_Reference/esc_js)
+* [`wp_kses_*` functions](https://developer.wordpress.org/reference/functions/wp_kses/) (kses strips evil scripts)
+
+Example of how printing an `<a>` with proper escaping.
+
+```
+<a href="<?php echo esc_url( $some_url ); ?>" title="<?php esc_attr_e( $some_title ); ?>"><?php esc_html_e
+```
+
+Example of how to use `wp_kses()` to only allow `<a>`, `<br>`, `<em>`, and `<strong>` tags.
+
+```
+$allowed_tags = array(
+    'a' => array(
+        'href' => array(),
+        'title' => array()
+    ),
+    'br' => array(),
+    'em' => array(),
+    'strong' => array(),
+);
+
+$sanitized_html_string = wp_kses( $string, $allowed_tags ); 
+```
 
 ### More Information
 

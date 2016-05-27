@@ -219,3 +219,8 @@ When the query you are running does not need any of the following contexts, defi
 `no_found_rows` prevents an extra `COUNT()` query that tallies the total number of posts matching given query arguments.
 
 **More info:** [10up Engineering Best Practices](https://10up.github.io/Engineering-Best-Practices/)
+
+### Avoid `RAND` Queries
+
+`RAND` queries can be very challenging for the database, especially with large datasets. Instead of using `RAND`, try retrieving 100 posts instead and randomly choosing some.
+

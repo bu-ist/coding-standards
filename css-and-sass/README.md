@@ -152,7 +152,7 @@ lines are indented by 2 spaces.
 
 ```css
 .selector {
-    @extend .someRule;
+    @extend %someRule;
     @include clearFix();
     @include boxSizing(border-box);
     width: gridUnit(1);

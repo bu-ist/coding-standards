@@ -25,7 +25,7 @@
 * [Sources](#sources)
 
 <a name="principles"></a>
-## Priciples
+## Principles
 
 These guidelines strongly encourage the use of sensible patterns that model the best of what's out there. The goal is to write extremely lean styles with maximum clarity that leverage preprocessing to optimize both workflow and site performance.
 
@@ -145,7 +145,7 @@ lines are indented by 2 spaces.
 
 * Always place `@extend` statements on the first line of a declaration block.
 * Group `@include` statements at the top of a declaration block after any `@extend` statements except for `@include breakpoint`, which you should put after your base (mobile) styles.
-* Don't nest declaration blocks. It makes code hard to read on complex projects and often results unecessarily specific selectors.
+* Don't nest declaration blocks. It makes code hard to read on complex projects and often results unnecessarily specific selectors.
 * Nesting [psuedo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) and media queries is OK. They should be last in the declaration block, separated from other properties with an empty new line.
 
 ##### Example:
@@ -191,7 +191,7 @@ Use Sass mixins whenever possible. When writing CSS, use indentation to align va
 
 * **Javascript:*** `.js-` prefixed class names for elements being relied upon for JavaScript selectors
 * **Utilities** are prefixed with `.u-` for single purpose utility classes like `.u-underline` and `.u-capitalize`
-* **Meaningful hypens and camelCase** clarify the separation between component, descendant components, and modifiers: `componentName-subComponent-modifier`
+* **Meaningful hyphens and camelCase** clarify the separation between component, descendant components, and modifiers: `componentName-subComponent-modifier`
 * **Stateful classes** use `.is-` to prefix classes often toggled by JavaScript, like `.is-disabled`
 
 <a name="ids-and-classes">
@@ -226,7 +226,7 @@ ul.userList li span a:hover { color: red; }
 
 syntax: `js-targetName`
 
-JavaScript-specific classes reduce the risk that changing the structure or theme of components will inadvertently affect any required JavaScript behaviour and complex functionality. It is not neccesarry to use them in every case, just think of them as a tool in your utility belt. If you are creating a class, which you dont intend to use for styling, but instead only as a selector in JavaScript, you should probably be adding the `js-` prefix, but **JavaScript-specific classes should not, under any circumstances, be styled.** In practice this looks like this:
+JavaScript-specific classes reduce the risk that changing the structure or theme of components will inadvertently affect any required JavaScript behaviour and complex functionality. It is not necessary to use them in every case, just think of them as a tool in your utility belt. If you are creating a class, which you don't intend to use for styling, but instead only as a selector in JavaScript, you should probably be adding the `js-` prefix, but **JavaScript-specific classes should not, under any circumstances, be styled.** In practice this looks like this:
 
 ```css
 <a href="/login" class="btn btn-primary js-login"></a>
@@ -399,4 +399,3 @@ Many of these standards have been taken or adapted from the smart people who wro
 * [https://github.com/necolas/idiomatic-css](https://github.com/necolas/idiomatic-css)
 * [https://gist.github.com/fat/a47b882eb5f84293c4ed#performance](https://gist.github.com/fat/a47b882eb5f84293c4ed#performance)
 * [https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06)
-

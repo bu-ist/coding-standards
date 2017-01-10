@@ -1,4 +1,3 @@
-# The current coding standards. Any changes made to this file should be reflected in .sass-lint-r-2.x.yml as well.
 # A slightly stricter linter based on WordPress Coding Standards.
 
 scss_files: "**/*.scss"

@@ -95,6 +95,16 @@ After successfully merging a branch into the `develop` or `master`, the pulled
 
 ## Creating A New Release
 
+Every pull request into `master` is should be considered a new release because
+`master` always reflects the code that exists on production. The following
+steps actions should be performed on every pull request being merged into
+`master`.
+
+1. Increment any version number strings.
+1. Update the "Unreleased" heading in the `CHANGELOG.md` to reflect the new version
+ being prepared for release.
+1. Perform any necessary compile or build tasks through Grunt.
+
 ### `master` Pull Request Process
 
 When the code in `develop` is ready to be released into the wild, a pull
@@ -102,17 +112,18 @@ When the code in `develop` is ready to be released into the wild, a pull
 
 1. Ensure your local checkout of the repository is up to date.
 1. Check out the `develop` branch.
-1. Create a new branch for preparing your release.
-1. Increment version number strings.
-1. Update the "Unreleased heading in the `CHANGELOG.md` to reflect the version
- being released.
-1. Perform any necessary build tasks through Grunt.
+1. Create a new branch from `develop` and prepare your release. Take care to
+ perform each step listed above under Creating A New Relase.
 1. Submit a pull request to merge your branch into `master`.
 1. After your pull request receives approval from at least one other team
- member, merge your code into `master` and ensure the merge went smoothly.
-1. After verifying your merge, tag the master branch with the version number
- released. Ex. `1.5.1`, or `1.6`.
+ member, merge your code into `master` and ensure the merge goes smoothly.
 1. Delete your release branch.
+1. After verifying your merge and deleting your branch, [create a release
+ against master in GitHub](https://help.github.com/articles/creating-releases/)
+ for the repository. Release names should match the version released. Ex.
+ `1.5.1`, or `1.6`.
+1. Create a pull request to merge `master` into `develop` to sync the latest
+ release into `develop` for future development.
 
 ## Creating A Hot Fix
 
@@ -126,21 +137,19 @@ Sometimes, a fix needs to be deployed to production ASAP. When this happens,
 1. Ensure your local checkout of the repository is up to date.
 1. Check out the `master` branch.
 1. Create a new branch for your work.
-1. Make necessary code changes and commit.
-1. Because a hot fix is deployed to production, version numbers should also be
- incremented.
-1. Update the `CHANGELOG.md` to reflect the new version being released, and
- list the changes being made.
-1. Perform any necessary build tasks through Grunt.
+1. Make the necessary code changes and commit.
 1. Submit a pull request to merge your branch into `master`.
-1. Because this code will bypass `develop`, it is important to get at least one
- code review from another team member.
+1. Since this code will be deployed to production, the release steps listed
+ above should be followed.
+1. Because this code will bypass `develop`, it is important to get at least
+ one code review from another team member.
 1. After your pull request receives approval, merge your code into `master` and
  ensure the merge went smoothly.
-1. After verifying your merge, tag the master branch with the version number
- released.
-1. Because this pull request went directly into `master`, we need to open a
- second pull request into `develop`. Follow the [instructions above for develop
- pull requests](#develop-pull-request-process). Unless there are merge
- conflicts, you don't need to get this pull request peer reviewed because it
- was already reviewed when being merged into `master`.
+1. Delete your branch.
+1. After verifying your merge and deleting your branch, [create a release
+ against master in GitHub](https://help.github.com/articles/creating-releases/)
+ for the repository. Release names should match the version released. Ex.
+ `1.5.1`, or `1.6`.
+1. Create a pull request to merge `master` into `develop` to sync the latest
+ release into `develop` for future development. Approval is not necessary on
+ this pull request.

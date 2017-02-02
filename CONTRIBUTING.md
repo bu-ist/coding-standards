@@ -12,10 +12,14 @@ The `master` branch can be considered stable, production ready code. A list of
  stable releases is maintained as we go and can be used by anyone concerned by
  ongoing development.
 
-All ongoing development takes place in the primary branch, `develop`.
+All ongoing development takes place in branches off of `develop` (the primary
+branch). This allows you to work on tasks and features in isolation until they
+are 100% finished. It also creates a clear record of how the feature
+progressed, and the finished state when it was merged into the overall
+codebase.
 
-Every effort should be made to make a pull request as stable as possible before
- merging it in.
+Every effort should be made to make a branch as stable as possible before
+merging your branch into `develop` through a pull request.
 
 ### `develop` Pull Request Process
 
@@ -62,29 +66,36 @@ Each commit and pull request will automatically be evaluated by [Code Climate](h
 ### Unit Tests
 
 If this repository possesses any unit tests, they are required to pass in order
- for a pull request to be merged.
+for a pull request to be merged.
 
 If you are introducing new functions in your pull request, please do your best
- to include unit tests validating the functionality of newly added functions.
+to include unit tests validating the functionality of newly added functions.
+
+Unit test suites are a collection of tests and assertions that ensure your code
+works as expected. These are usually automatically run through [Travis CI](https://travis-ci.com),
+but can also be run locally on any machine.
 
 ### Creating Pull Requests
 
 Pull requests should have a meaningful titles and descriptions of the changes
- being merged in. This could mean one sentence, or 4 paragraphs. Someone
- reviewing your pull request should be able to easily understand what was added
- or changed, why, and how you fixed it. Use your best judgement.
+being merged in. This could mean one sentence, or 4 paragraphs. Someone
+reviewing your pull request should be able to easily understand what was added
+or changed, why, and how you fixed it. Use your best judgement.
 
 When submitting your pull request to `develop`, add a line to `CHANGELOG.md`
- explaining your change. This should be placed under the "Unreleased" heading.
- There should be at least one changelog entry per pull request.
+explaining your change. This should be placed under the "Unreleased" heading.
+There should be at least one changelog entry per pull request.
 
-Any necessary changes to any `README.md` files should also be made before
- making a pull request. For anything that need more explanation or context,
- link out to a blog post documenting them in more detail.
+Any necessary changes to `README.md` files should also be made before making
+a pull request.
+
+For anything that needs more explanation, or code examples need to be provided,
+link out to a blog post on [Make ID](http://developer.bu.edu/make-id/) or documentation
+page on [developer.bu.edu/webteam/](http://developer.bu.edu/webteam/) for more detail.
 
 If one exists, the pull request should link to the GitHub issue (typing # will
- bring up an autocomplete dialogue to search through issues). Also, consider
- linking the pull request to a Trello card with the GitHub Power-Up.
+bring up an autocomplete dialogue to search through issues). Also, consider
+linking the pull request to a [Trello card with the GitHub Power-Up](http://blog.trello.com/github-and-trello-integrate-your-commits).
 
 ### Deleting Branches
 

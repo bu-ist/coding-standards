@@ -9,7 +9,7 @@ This repository follows a pull request/peer review workflow. All code submitted
  into `develop` and `master` must be done through a pull request.
 
 The `master` branch can be considered stable, production ready code. A list of
- stable releases is maintained as we go and can be used by anyone concerned by
+ stable releases is maintained as we go and can be used by anyone concerned with
  ongoing development.
 
 All ongoing development takes place in branches off of `develop` (the primary
@@ -106,9 +106,8 @@ After successfully merging a branch into the `develop` or `master`, the pulled
 
 ## Creating A New Release
 
-Every pull request into `master` is should be considered a new release because
-`master` always reflects the code that exists on production. The following
-steps actions should be performed on every pull request being merged into
+Every pull request into `master` should be considered a new release because
+`master` always reflects the code that exists on production. The following actions should be performed on every pull request being merged into
 `master`.
 
 1. Increment any version number strings.

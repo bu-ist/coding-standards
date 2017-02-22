@@ -9,13 +9,17 @@ This repository follows a pull request/peer review workflow. All code submitted
  into `develop` and `master` must be done through a pull request.
 
 The `master` branch can be considered stable, production ready code. A list of
- stable releases is maintained as we go and can be used by anyone concerned by
+ stable releases is maintained as we go and can be used by anyone concerned with
  ongoing development.
 
-All ongoing development takes place in the primary branch, `develop`.
+All ongoing development takes place in branches off of `develop` (the primary
+branch). This allows you to work on tasks and features in isolation until they
+are 100% finished. It also creates a clear record of how the feature
+progressed, and the finished state when it was merged into the overall
+codebase.
 
-Every effort should be made to make a pull request as stable as possible before
- merging it in.
+Every effort should be made to make a branch as stable as possible before
+merging your branch into `develop` through a pull request.
 
 ### `develop` Pull Request Process
 
@@ -62,29 +66,36 @@ Each commit and pull request will automatically be evaluated by [Code Climate](h
 ### Unit Tests
 
 If this repository possesses any unit tests, they are required to pass in order
- for a pull request to be merged.
+for a pull request to be merged.
 
 If you are introducing new functions in your pull request, please do your best
- to include unit tests validating the functionality of newly added functions.
+to include unit tests validating the functionality of newly added functions.
+
+Unit test suites are a collection of tests and assertions that ensure your code
+works as expected. These are usually automatically run through [Travis CI](https://travis-ci.com),
+but can also be run locally on any machine.
 
 ### Creating Pull Requests
 
 Pull requests should have a meaningful titles and descriptions of the changes
- being merged in. This could mean one sentence, or 4 paragraphs. Someone
- reviewing your pull request should be able to easily understand what was added
- or changed, why, and how you fixed it. Use your best judgement.
+being merged in. This could mean one sentence, or 4 paragraphs. Someone
+reviewing your pull request should be able to easily understand what was added
+or changed, why, and how you fixed it. Use your best judgement.
 
 When submitting your pull request to `develop`, add a line to `CHANGELOG.md`
- explaining your change. This should be placed under the "Unreleased" heading.
- There should be at least one changelog entry per pull request.
+explaining your change. This should be placed under the "Unreleased" heading.
+There should be at least one changelog entry per pull request.
 
-Any necessary changes to any `README.md` files should also be made before
- making a pull request. For anything that need more explanation or context,
- link out to a blog post documenting them in more detail.
+Any necessary changes to `README.md` files should also be made before making
+a pull request.
+
+For anything that needs more explanation, or code examples need to be provided,
+link out to a blog post on [Make ID](http://developer.bu.edu/make-id/) or documentation
+page on [developer.bu.edu/webteam/](http://developer.bu.edu/webteam/) for more detail.
 
 If one exists, the pull request should link to the GitHub issue (typing # will
- bring up an autocomplete dialogue to search through issues). Also, consider
- linking the pull request to a Trello card with the GitHub Power-Up.
+bring up an autocomplete dialogue to search through issues). Also, consider
+linking the pull request to a [Trello card with the GitHub Power-Up](http://blog.trello.com/github-and-trello-integrate-your-commits).
 
 ### Deleting Branches
 
@@ -95,6 +106,15 @@ After successfully merging a branch into the `develop` or `master`, the pulled
 
 ## Creating A New Release
 
+Every pull request into `master` should be considered a new release because
+`master` always reflects the code that exists on production. The following actions should be performed on every pull request being merged into
+`master`.
+
+1. Increment any version number strings.
+1. Update the "Unreleased" heading in the `CHANGELOG.md` to reflect the new version
+ being prepared for release.
+1. Perform any necessary compile or build tasks through Grunt.
+
 ### `master` Pull Request Process
 
 When the code in `develop` is ready to be released into the wild, a pull
@@ -102,17 +122,18 @@ When the code in `develop` is ready to be released into the wild, a pull
 
 1. Ensure your local checkout of the repository is up to date.
 1. Check out the `develop` branch.
-1. Create a new branch for preparing your release.
-1. Increment version number strings.
-1. Update the "Unreleased heading in the `CHANGELOG.md` to reflect the version
- being released.
-1. Perform any necessary build tasks through Grunt.
+1. Create a new branch from `develop` and prepare your release. Take care to
+ perform each step listed above under Creating A New Relase.
 1. Submit a pull request to merge your branch into `master`.
 1. After your pull request receives approval from at least one other team
- member, merge your code into `master` and ensure the merge went smoothly.
-1. After verifying your merge, tag the master branch with the version number
- released. Ex. `1.5.1`, or `1.6`.
+ member, merge your code into `master` and ensure the merge goes smoothly.
 1. Delete your release branch.
+1. After verifying your merge and deleting your branch, [create a release
+ against master in GitHub](https://help.github.com/articles/creating-releases/)
+ for the repository. Release names should match the version released. Ex.
+ `1.5.1`, or `1.6`.
+1. Create a pull request to merge `master` into `develop` to sync the latest
+ release into `develop` for future development.
 
 ## Creating A Hot Fix
 
@@ -126,21 +147,19 @@ Sometimes, a fix needs to be deployed to production ASAP. When this happens,
 1. Ensure your local checkout of the repository is up to date.
 1. Check out the `master` branch.
 1. Create a new branch for your work.
-1. Make necessary code changes and commit.
-1. Because a hot fix is deployed to production, version numbers should also be
- incremented.
-1. Update the `CHANGELOG.md` to reflect the new version being released, and
- list the changes being made.
-1. Perform any necessary build tasks through Grunt.
+1. Make the necessary code changes and commit.
 1. Submit a pull request to merge your branch into `master`.
-1. Because this code will bypass `develop`, it is important to get at least one
- code review from another team member.
+1. Since this code will be deployed to production, the release steps listed
+ above should be followed.
+1. Because this code will bypass `develop`, it is important to get at least
+ one code review from another team member.
 1. After your pull request receives approval, merge your code into `master` and
  ensure the merge went smoothly.
-1. After verifying your merge, tag the master branch with the version number
- released.
-1. Because this pull request went directly into `master`, we need to open a
- second pull request into `develop`. Follow the [instructions above for develop
- pull requests](#develop-pull-request-process). Unless there are merge
- conflicts, you don't need to get this pull request peer reviewed because it
- was already reviewed when being merged into `master`.
+1. Delete your branch.
+1. After verifying your merge and deleting your branch, [create a release
+ against master in GitHub](https://help.github.com/articles/creating-releases/)
+ for the repository. Release names should match the version released. Ex.
+ `1.5.1`, or `1.6`.
+1. Create a pull request to merge `master` into `develop` to sync the latest
+ release into `develop` for future development. Approval is not necessary on
+ this pull request.

@@ -151,7 +151,7 @@ linters:
     style: one_space
 
   SpaceAfterComment:
-    enabled: true
+    enabled: false
     style: one_space
     allow_empty_comments: true
 

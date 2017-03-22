@@ -14,7 +14,7 @@ linters:
 
   BorderZero:
     enabled: true
-    convention: zero # or `none`
+    convention: 'none' # or `none`
 
   ColorKeyword:
     enabled: true
@@ -41,7 +41,7 @@ linters:
 
   EmptyLineBetweenBlocks:
     enabled: true
-    ignore_single_line_blocks: true
+    ignore_single_line_blocks: false
 
   EmptyRule:
     enabled: true
@@ -79,29 +79,26 @@ linters:
     width: 1
 
   LeadingZero:
-    enabled: true
-    style: include_zero
+    enabled: false
 
   MergeableSelector:
     enabled: true
-    force_nesting: true
+    force_nesting: false
 
   NameFormat:
     enabled: true
-    allow_leading_underscore: true
-    convention: camel_case
+    allow_leading_underscore: false
+    convention: (^[a-z][a-zA\--Z0-9]*$)
+    convention_explanation: 'Classes may not use UPPERCASE or underscores. Additonally, overriding the col- classes is prohibited.'
 
   NestingDepth:
-    enabled: true
-    max_depth: 3
-    ignore_parent_selectors: false
+    enabled: false
 
   PlaceholderInExtend:
     enabled: true
 
   PrivateNamingConvention:
-    enabled: true
-    prefix: _
+    enabled: false
 
   PropertyCount:
     enabled: false
@@ -110,10 +107,7 @@ linters:
 
   # Sort properties alphabetically
   PropertySortOrder:
-    enabled: true
-    ignore_unspecified: false
-    min_properties: 2
-    separate_groups: false
+    enabled: false
 
   PropertySpelling:
     enabled: true
@@ -121,18 +115,15 @@ linters:
     disabled_properties: []
 
   QualifyingElement:
-    enabled: true
-    allow_element_with_attribute: false
-    allow_element_with_class: false
-    allow_element_with_id: false
+    enabled: false
 
   SelectorDepth:
-    enabled: true
-    max_depth: 3
+    enabled: false
 
   SelectorFormat:
     enabled: true
-    convention: hyphenated_lowercase
+    convention: (^[a-z][a-zA\--Z0-9]*$)
+    convention_explanation: 'Classes may not use UPPERCASE or underscores. Additonally, overriding the col- classes is prohibited.'
 
   Shorthand:
     enabled: true

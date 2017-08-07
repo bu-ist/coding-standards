@@ -1,5 +1,9 @@
 # Changelog
 
+# 2.0.3
+
+- Introduce default custom `PHPCS` rulesets for plugins and themes.
+
 # 2.0.2
 
 - Prevent SASSdoc comments from triggering issues.

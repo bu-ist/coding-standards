@@ -2,7 +2,8 @@
 
 ## 2.0.4
 
-- Inform the `WordPress.XSS.EscapeOutput` rule of BU functions that properly escape output.
+- Inform the `WordPress.XSS.EscapeOutput` rule of BU functions that properly escape output. `bu_sanitize_banner_subtitle()` and
+`bu_banners_get_image()` were added.
 
 ## 2.0.3
 

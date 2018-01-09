@@ -249,7 +249,7 @@ The most commonly used translation function is `__()`.
 
 `$translated_text = __( 'A string to translate', 'bu-bp' );`
 
-Another basic one is `_e()`. This is exactly the same as `__()`, with the exception of the result being printed to the screen.
+Another basic option is `_e()`. This functions the same as `__()`, with the exception of the result being printed to the screen.
 
 ```
 // These two examples are exactly the same.
@@ -263,6 +263,8 @@ Other functions exist performing additional formatting to translated content. A 
 
 * [`esc_attr_e()`](https://codex.wordpress.org/Function_Reference/esc_attr_e) and [`esc_attr__()`](https://codex.wordpress.org/Function_Reference/esc_attr__): Translates a string and escapes it for use in an attribute.
 * [`esc_html_e()`](https://codex.wordpress.org/Function_Reference/esc_html_e) and [`esc_html__()`](https://codex.wordpress.org/Function_Reference/esc_html__): Translates a string and escapes any HTML within it.
+
+It is best to use the above examples as sanitization is also required for standards.
 
 ###Variables
 

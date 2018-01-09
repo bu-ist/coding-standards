@@ -29,6 +29,7 @@
 	<rule ref="WordPress.XSS.EscapeOutput">
 		<properties>
 			<property name="customAutoEscapedFunctions" value="bu_banners_get_image" type="array" />
+			<property name="customAutoEscapedFunctions" value="bu_sanitize_banner_subtitle" type="array" />
 		</properties>
 	</rule>
 

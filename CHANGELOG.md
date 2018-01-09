@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.4
+
+- Inform the `WordPress.XSS.EscapeOutput` rule of BU functions that properly escape output.
+
 ## 2.0.3
 
 - Introduce default custom `PHPCS` rulesets for plugins and themes.

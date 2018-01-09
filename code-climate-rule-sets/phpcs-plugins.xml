@@ -14,6 +14,15 @@
 		</properties>
 	</rule>
 
+	<!-- All output should be properly escaped to avoid potential cross site scripting (XSS) attacks. -->
+	<!-- The WPCS accounts for the WordPress Core functions that properly escape output, but not functions in our environment. -->
+	<!-- All functions that properly escape output can be added here. -->
+	<rule ref="WordPress.XSS.EscapeOutput">
+		<properties>
+			<property name="customAutoEscapedFunctions" value="bu_banners_get_image" type="array" />
+		</properties>
+	</rule>
+
 	<!-- Show sniff codes in all reports -->
 	<arg value="s"/>
 

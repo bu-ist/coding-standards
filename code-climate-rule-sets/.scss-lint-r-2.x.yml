@@ -197,7 +197,7 @@ linters:
     enabled: true
 
   UnnecessaryParentReference:
-    enabled: true
+    enabled: false
 
   UrlFormat:
     enabled: true

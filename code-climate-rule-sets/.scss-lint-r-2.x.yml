@@ -90,7 +90,8 @@ linters:
   NameFormat:
     enabled: true
     allow_leading_underscore: true
-    convention: hyphenated_lowercase
+    convention: (^[a-z][a-zA\--Z0-9]*$)
+    convention_explanation: 'Classes may not use UPPERCASE or underscores.'
 
   NestingDepth:
     enabled: true

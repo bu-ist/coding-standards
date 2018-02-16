@@ -90,8 +90,7 @@ linters:
   NameFormat:
     enabled: true
     allow_leading_underscore: true
-    convention: (^[a-z][a-zA\--Z0-9]*$)
-    convention_explanation: 'Classes may not use UPPERCASE or underscores.'
+    convention: hyphenated_lowercase
 
   NestingDepth:
     enabled: true
@@ -134,7 +133,8 @@ linters:
 
   SelectorFormat:
     enabled: true
-    convention: hyphenated_lowercase
+    convention: (^[a-z]|^wp\_|^gform\_)[a-z\-0-9]*$
+    convention_explanation: 'Classes may not use UPPERCASE. Underscores are only allowed only for classes beginning wp_ and gform_ (and only for the prefix itself; no subsequent underscores may be used).'
 
   Shorthand:
     enabled: true

@@ -122,8 +122,8 @@ linters:
 
   SelectorFormat:
     enabled: true
-    convention: (^[a-z]|^wp\_|^gform\_)[a-z\-0-9]*$
-    convention_explanation: 'Classes may not use UPPERCASE. Underscores are only allowed only for classes beginning wp_ and gform_ (and only for the prefix itself; no subsequent underscores may be used). Additonally, overriding the col- classes is prohibited.'
+    convention: (^[a-z][a-zA\--Z0-9]*$)
+    convention_explanation: 'Classes may not use UPPERCASE or underscores. Additonally, overriding the col- classes is prohibited.'
 
   Shorthand:
     enabled: true

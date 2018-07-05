@@ -1,0 +1,33 @@
+{
+	"extends": "stylelint-config-wordpress",
+	"rules": {
+		"max-nesting-depth": [ "3", {
+			ignore: [ "blockless-at-rules" ]
+		} ],
+		"no-descending-specificity": "true",
+		"no-duplicate-selectors": "true",
+		"no-invalid-double-slash-comments": "false",
+		"function-blacklist": [
+			"rotate",
+			"scale",
+			"translate",
+			"rgba",
+			"linear-gradient"
+		],
+		"function-url-scheme-blacklist": [
+			"ftp",
+			"/^http/",
+			"/cms-devl/",
+			"/test/",
+			"/wp-content/",
+			"/files/",
+		],
+		"declaration-no-important": "true",
+		"declaration-block-single-line-max-declarations": "1",
+		"selector-no-qualifying-type": [ "true", {
+			ignore: "attribute"
+		} ],
+		"selector-pseudo-class-blacklist": "focus",
+		"comment-word-blacklist": "/^TODO:/",
+	}
+}

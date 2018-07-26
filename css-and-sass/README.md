@@ -44,31 +44,31 @@ With that said, use the rules below to guide your code towards those principles.
 * [Vendor Prefixes](#vendor-prefixes)
 * [Sass](#sass)
 * [Naming Conventions](#naming-conventions)
-  * [Summary of Semantics](#semantics)
-  * [IDs & Classes](#ids-and-classes)
-  * [Specificity](#specificity)
-  * [JavaScript](#javascript)
-  * [Utilities](#utilities)
-  * [Components](#components)
-  * [Images](#images)
+	* [Summary of Semantics](#semantics)
+	* [IDs & Classes](#ids-and-classes)
+	* [Specificity](#specificity)
+	* [JavaScript](#javascript)
+	* [Utilities](#utilities)
+	* [Components](#components)
+	* [Images](#images)
 * [Variables](#variables)
-  * [colors](#colors)
-  * [z-index](#zindex)
-  * [fonts](#fonts)
+	* [colors](#colors)
+	* [z-index](#zindex)
+	* [fonts](#fonts)
 * [Mixins](#mixins)
-  * [Media Queries](#media-queries)
+	* [Media Queries](#media-queries)
 * [Sources](#sources)
 
-## Big changes
+<a name="principles"></a>
+## Principles
 
-* **Proposed:** Enforce element and class nesting. Combined with the max-depth rule, this is how we keep selector specificity to an absolute maximum of three levels deep. It's also a good visual reminder that code is getting complex. If things are hard to read, simplify. I'd move it down, but we need an extra level of max-depth for dealing with before, after, and IE classes.
+These guidelines encourage the use of sensible patterns that model the best of what's out there. The goal is to write clean, performant, reusable styles that all our designers and developers can read and understand. We leverage Sass to help us accomplish this.
 
-## Up for discussion
+We feel strongly that information should be accessible to all, and as such, our standards encourage practices that keep accessibility and user choice in mind. For example, if a user turns JavaScript off, or the scripts fail, it's important to us that the meaning is still conveyed.
 
-* Should we enforce certain properties using variables only? https://github.com/sasstools/sass-lint/blob/master/docs/rules/variable-for-property.md
-* What is our stance on attribute nesting? https://github.com/sasstools/sass-lint/blob/master/docs/rules/force-attribute-nesting.md
+In the spirit of keeping information accessible to all, we also recognize that not everyone has access to the same level of technology and hardware. We strive to write performant HTML and CSS so information isn't gated to those who have fast internet connections. We write modern code where possible, but if a modern approach prevents access to critical information or presents a significant usability concern, it's not ready for us to adopt that approach without appropriate fallbacks in place.
 
-
+These rules are in place because we believe in these things, as well as creating an environment where everyone can contribute to and understand our codebase.
 
 <a name="formatting"></a>
 ## General Formatting
@@ -89,12 +89,12 @@ With that said, use the rules below to guide your code towards those principles.
 ##### Example:
 
 ```css
-.selectorOne,
-.selectorTwo {
+.selector-one,
+.selector-two {
 	position: absolute;
 	top: 0;
 }
-.selectorThree {
+.selector-three {
 	color: #ccc;
 	margin: 0;
 }
@@ -103,48 +103,20 @@ With that said, use the rules below to guide your code towards those principles.
 <a name="declaration-order"></a>
 ## Declaration Order
 
-Declarations are to be consistently ordered based on a simple principle:
-
-1. Positioning
-2. Display & Box Model
-3. Typography
-4. Everything Else
+Declarations go in alphabetical order.
 
 ##### Example:
 
 ```css
 .selector {
-    /* Positioning */
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    /* Display & Box Model */
-    display: inline-block;
-    overflow: hidden;
-    box-sizing: border-box;
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-    padding: 10px;
-    border: 10px solid #333;
-
-    /* Typography */
-    font-family: sans-serif;
-    font-size: 16px;
-    text-align: right;
-    color: #fff;
-
-    /* Everything Else */
-    background: #000;
-    feelings: optimistic;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 10;
 }
 ```
-
-Comments above are for demonstration only. Within each chunk list declarations in order of importance, stacking related rules (e.g., width and height, margin and padding).
 
 <a name="comments"></a>
 ## Comments
@@ -184,7 +156,7 @@ lines are indented by 2 spaces.
 * Do not include underscores or file extensions when importing SASS partials `@import "burf-theme";`
 * Always place `@extend` statements before anything else in a declaration block.
 * Group `@include` statements at the top of a declaration block after any `@extend` statements except for `@include breakpoint`, which you should put after your base (mobile) styles.
-* Don't nest declaration blocks. It makes code hard to read on complex projects and often results unecessarily specific selectors.
+* Don't nest declaration blocks. It makes code hard to read on complex projects and often results unnecessarily specific selectors.
 * Nesting [psuedo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) and media queries is OK. They should be last in the declaration block, separated from other properties with an empty new line.
 * Braces should follow the [1TBS style variant](https://en.wikipedia.org/wiki/Indent_style#Variant:_1TBS). Braces on a single line are not allowed.
 * Always use an empty line between blocks of code.
@@ -195,26 +167,26 @@ lines are indented by 2 spaces.
 
 ```css
 .selector {
-    @extend .someRule;
-    @include clearFix();
-    @include boxSizing(border-box);
-    width: gridUnit(1);
+		@extend %someRule;
+		@include cleafix();
+		@include boxSizing(border-box);
+		width: gridUnit(1);
 
-    &:last-child {
-    	...
-    }
+		&:last-child {
+			...
+		}
 
-    @media only screen and (min-width : 320px) {
-      ...
-    }
+		@media only screen and (min-width : 320px) {
+			...
+		}
 
-    // Same as .selector .child when compiled
-    .child {
+		// Same as .selector .child when compiled
+		.child {
 
-      &:before {
-        // This is the absolute maximum amount of nesting that is allowed
-      }
-    }
+			&:before {
+				// This is the absolute maximum amount of nesting that is allowed
+			}
+		}
 }
 ```
 
@@ -231,10 +203,10 @@ Use Sass mixins whenever possible. When writing CSS, use indentation to align va
 
 ```css
 .selector {
-    -webkit-transition: background-color 500ms ease-out 1s;
-       -moz-transition: background-color 500ms ease-out 1s;
-         -o-transition: background-color 500ms ease-out 1s;
-            transition: background-color 500ms ease-out 1s;
+		-webkit-transition: background-color 500ms ease-out 1s;
+			 -moz-transition: background-color 500ms ease-out 1s;
+				 -o-transition: background-color 500ms ease-out 1s;
+						transition: background-color 500ms ease-out 1s;
 }
 ```
 
@@ -246,7 +218,7 @@ Use Sass mixins whenever possible. When writing CSS, use indentation to align va
 
 * **Javascript:*** `.js-` prefixed class names for elements being relied upon for JavaScript selectors
 * **Utilities** are prefixed with `.u-` for single purpose utility classes like `.u-underline` and `.u-capitalize`
-* **Meaningful hypens and camelCase** clarify the separation between component, descendant components, and modifiers: `componentName-subComponent-modifier`
+* **Meaningful hyphens and camelCase** clarify the separation between component, descendant components, and modifiers: `componentName-subComponent-modifier`
 * **Stateful classes** use `.is-` to prefix classes often toggled by JavaScript, like `.is-disabled`
 
 <a name="ids-and-classes">
@@ -281,7 +253,7 @@ ul.userList li span a:hover { color: red; }
 
 syntax: `js-targetName`
 
-JavaScript-specific classes reduce the risk that changing the structure or theme of components will inadvertently affect any required JavaScript behaviour and complex functionality. It is not neccesarry to use them in every case, just think of them as a tool in your utility belt. If you are creating a class, which you dont intend to use for styling, but instead only as a selector in JavaScript, you should probably be adding the `js-` prefix, but **JavaScript-specific classes should not, under any circumstances, be styled.** In practice this looks like this:
+JavaScript-specific classes reduce the risk that changing the structure or theme of components will inadvertently affect any required JavaScript behaviour and complex functionality. It is not necessary to use them in every case, just think of them as a tool in your utility belt. If you are creating a class, which you don't intend to use for styling, but instead only as a selector in JavaScript, you should probably be adding the `js-` prefix, but **JavaScript-specific classes should not, under any circumstances, be styled.** In practice this looks like this:
 
 ```css
 <a href="/login" class="btn btn-primary js-login"></a>
@@ -302,8 +274,8 @@ Utilities must use a camelCase name, prefixed with a `u-` namespace. What follow
 
 ```css
 <div class="u-clearFix">
-  <p class="u-textTruncate">...</p>
-  <img class="u-pullLeft" src="..." alt="...">
+	<p class="u-textTruncate">...</p>
+	<img class="u-pullLeft" src="..." alt="...">
 </div>
 ```
 
@@ -324,37 +296,37 @@ syntax: `componentName-subComponent-modifier`
 
 ```css
 .navBar {
-  (...)
+	(...)
 }
 
 .navBar-contentNav {
-  (...)
+	(...)
 }
 
 .navBar-contentNav-collabsible {
-  (...)
+	(...)
 }
 
 /* Modifiers can also be appended to components without subcomponents */
 
 .btn {
-  (...)
+	(...)
 }
 
 .btn-primary {
-  (...)
+	(...)
 }
 
 .btn-inactive {
-  (...)
+	(...)
 }
 
 /* In markup */
 
 <ul class="slideShow">
-  <li class="slideShow-slide slideShow-slide-eventPromo">
-    <a>...</a>
-  </li>
+	<li class="slideShow-slide slideShow-slide-eventPromo">
+		<a>...</a>
+	</li>
 </ul>
 
 ```
@@ -459,7 +431,7 @@ TODO
 
 ```css
 @include breakpoint(small) {
-  .selector {...}
+	.selector {...}
 }
 ```
 <a name="sources"></a>
@@ -470,4 +442,3 @@ Many of these standards have been taken or adapted from the smart people who wro
 * [https://github.com/necolas/idiomatic-css](https://github.com/necolas/idiomatic-css)
 * [https://gist.github.com/fat/a47b882eb5f84293c4ed#performance](https://gist.github.com/fat/a47b882eb5f84293c4ed#performance)
 * [https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06)
-

@@ -71,7 +71,7 @@ With that said, use the rules below to guide your code towards those principles.
 * Include a single space before a `{`, after a `:`, and after each `,` in comma-separated properties and values
 * Use double quotes consistently: `content: " "`
 * Quote attribute values in selectors: `input[type="checkbox"]`
-* URLs must be in double quotes: `background-image: url("images/bun.jpg");`
+* URLs must be in single quotes: `background-image: url('images/bun.jpg');`
 * Avoid specifying units for zero-values: `margin: 0;`
 * Where possible, use descriptive values over numeric: `border: none;`
 * Place the closing `}` of a ruleset in the same column as the first character of the ruleset
@@ -116,30 +116,28 @@ Well commented code is extremely important. Take time to describe components, ho
 
 * Place comments on a new line above subject.
 * Make liberal use of comments to break CSS code into discrete sections.
-* Use `/* */` CSS comments when you are documenting CSS, such as section labels. <br>*(ProTip: Grunt should be configured to remove all comments from its compressed output, which is best for performance, but retaining CSS comments in a secondary, uncompressed  file can be a helpful way to view and refine your Sass-ing.)*
 * Use `//` Sass comments when you are documenting Sass, such as mixins.
 * Add `TODO` comments detailing unfinished tasks.
 
 ##### Example:
 
 ```css
-/* This is a section of related styles
------------------------------------------------------------------ */
+// This is a section of related styles
+// -----------------------------------------------------------------
 
-/* This is a sub-section or basic comment */
+// This is a sub-section or basic comment
 
-/*
-The long description is ideal for more detailed explanations and
-documentation. It can include example HTML, URLs, or any other
-information that is deemed necessary or useful.
+/* This is a comment intended for debugging compiled CSS */
 
-TODO: This is a todo statement that describes an atomic task to be
-completed at a later date. It wraps after 80 characters and following
-lines are indented by 2 spaces.
-*/
+// The long description is ideal for more detailed explanations and
+// documentation. It can include example HTML, URLs, or any other
+// information that is deemed necessary or useful.
+
+// TODO: This is a todo statement that describes an atomic task to be
+// completed at a later date. It wraps after 80 characters and following
+// lines are indented by 2 spaces.
+
 ```
-
-[ASCII text](http://patorjk.com/software/taag/#p=display&f=Big&t=Code%20Standards) is OK for section level comments. It's fun and useful in some editors.
 
 <a name="sass"></a>
 ## Sass
@@ -228,9 +226,11 @@ The following mixins are supported in Responsive Foundation so you don't have to
 ```
 
 <a name="naming-conventions"></a>
+
 ## Naming Conventions
 
 <a name="semantics">
+
 ### Summary of Semantics
 
 * **Javascript:** Use the `js-` prefix for classes and IDs that are used as JavaScript selectors.
@@ -240,6 +240,7 @@ The following mixins are supported in Responsive Foundation so you don't have to
 * **Stateful classes** use `.is-` to prefix classes often toggled by JavaScript, like `.is-disabled`.
 
 <a name="ids-and-classes">
+
 ### IDs & Classes
 
 Only use IDs for top level layout elements such as `sidebar` or `masthead`. Use classes for everything else unless an ID is needed for JavaScript. IDs and classes are hyphenated. For more information, see [Component Naming](#components)).
@@ -254,6 +255,7 @@ Only use IDs for top level layout elements such as `sidebar` or `masthead`. Use 
 ```
 
 <a name="specificity"></a>
+
 ### Specificity
 
 Too much *cascading* of stylesheets can introduce [unnecessary performance](https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent#UseEfficientCSSSelectors) overhead. It also makes reusing styles in other places difficult, and can introduce unexpected styling results down the line. In general, only be as specific as you absolutely need to be.
@@ -278,6 +280,7 @@ ul.homepage-callout li a .homepage-callout-description { color: red; }
 ```
 
 <a name="javascript">
+
 ### JavaScript Selectors
 
 syntax: `js-target-name`
@@ -289,6 +292,7 @@ JavaScript-specific classes and IDs reduce the risk that changing the structure 
 ```
 
 <a name="utilities">
+
 ### Utilities
 
 Utility classes are simple structural and positional traits abstracted for use on any element. Multiple utilities can be used together, and utilities can be used alongside components. Utilities are great for common CSS patterns, or for applying very simple styles to quickly prototype and demonstrate functionality. For example, you might use the `.u-visuallyhidden` class to hide text visually, but keep it screen reader accessible. Or, you might use `.u-show` and `.u-hide` while writing JavaScript to demonstrate filtering functionality very quickly, without worrying about writing fancy CSS styles.
@@ -310,6 +314,7 @@ A screen-reader accessible Facebook social icon, without text.
 ```
 
 <a name="components">
+
 ### Components
 
 Components are small, reusable elements that have specific styles and behaviour that all work together in harmony, and work independently of the content and structure around them. When writing components, try to think of what the general styles that would work anywhere might be. Then, add additional scoped styles for different page templates as needed.
@@ -396,6 +401,7 @@ syntax: `component-subcomponent-modifier`
 ```
 
 <a name="naming-images"></a>
+
 ### Images
 
 Image file names are lowercase with words separated by a dash. File names are prefixed with their usage.
@@ -410,11 +416,13 @@ sprite-top-navigation.png
 ```
 
 <a name="variables"></a>
+
 ## Variables
 
 Naming conventions - hyphenated
 
 <a name="colors"></a>
+
 ### Colors
 
 Use **Sass variables** for color whenever possible. When specifying colors, use the following conventions:
@@ -423,6 +431,7 @@ Use **Sass variables** for color whenever possible. When specifying colors, use 
 * **RGBA:** Remember to include a leading 0 for all decimals, like `rgba(0, 0, 0, 0.5)`.
 
 <a name="fonts"></a>
+
 ### Fonts
 
 #### Font Weight
@@ -441,9 +450,11 @@ Whenever possible use `@extend` to specify appropriate baseline font styles:
 ```
 
 <a name="zindex"></a>
+
 ## Z-index
 
-We're modeling Medium's z-index scale, which uses well-named variables to help keep layering in check.
+We model our z-index scale after Medium, which uses well-named variables to help
+keep layering in check.
 
 ##### Example:
 
@@ -473,6 +484,7 @@ $z-index-dev:                       $z-index-10;
 ```
 
 <a name="mixins"></a>
+
 ### Mixins
 
 syntax: `@mixin mixin-name { ... }`
@@ -493,6 +505,7 @@ come after it. In this case, go ahead and use the matching mixin instead. It's b
 repeat those styles than introduce additional specificity to your selectors.
 
 <a name="media queries"></a>
+
 #### Media Queries
 
 Our codebase is written mobile-first, and we strive to keep to that as best as we can.
@@ -528,6 +541,7 @@ of someone visiting a site at a mobile size on IE8 are very slim.
 }
 ```
 <a name="sources"></a>
+
 ## Sources
 
 Many of these standards have been taken or adapted from the smart people who wrote:

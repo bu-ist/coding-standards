@@ -12,21 +12,27 @@ Your project works alongside a complex ecosystem of plugins, frameworks, and con
 
 ### Code should be easy to maintain.
 
-Themes, frameworks, and plugins are often used years into the future and pass through many hands. These items - nitpicky as they seem - help make it easy for us to share and transition projects from person to person. We accomplish this by:
+Themes, frameworks, and plugins are often used years into the future and pass through many hands. These guidelines help make it easy for us to share and transition projects from person to person. We accomplish this by:
 
-* [Formatting our code consistently](#formatting) (SASS linter should be able to take care of this)
-* Using the mixins and placeholder classes provided by the framework before you write custom code (NEW ADDITION FOR SASS - do not rewrite things that are already built into the framework)
-* Structuring our SASS files consistently (NEW ADDITION FOR SASS - explains how to override, include/exclude, organize, and name partials, and how to deal with overriding or excluding Responsive Framework partials - we should also add this to the child starter)
+* [Formatting our code consistently](#formatting)
+* Using the mixins and placeholder classes provided by Responsive Foundation before you write custom code
+* Structuring our Sass files consistently
 
 ### Code should be easy to understand.
 
 When someone else looks at your code, it should be easy to understand how an element will behave and why. We also know that we can't predict every situation, and there is going to be a time where you need to break the rules. We deal with this by:
 
-* Using `@extend` when an element needs to use grid classes or icons (NEW ADDITION FOR SASS)
-* Nesting pseudo-elements and states (NEW ADDITION FOR SASS)
-* Nesting media queries, feature detection, and browser-specific styles under the class they affect (NEW ADDITION FOR SASS)
-* Explaining any rules we break and why with a single line comment `//` (NEW ADDITION FOR SASS - consider using a keyword)
+* Using `@extend` when an element needs to use grid classes or icons
+* Nesting pseudo-elements and states
+* Nesting media queries, feature detection, and browser-specific styles under the class they affect
+* Explaining any rules we break and why with a single line comment `//`
 * Using multi-line (`/* */`) comments for information that helps debug the compiled CSS, such as noting the location of a SASS placeholder class
+
+### Code should strive to make information available to all equally.
+
+We feel strongly that information should be accessible to all, and as such, our standards encourage practices that keep accessibility and user choice in mind. For example, if a user turns JavaScript off, or the scripts fail, it's important to us that the meaning of that content is still conveyed.
+
+In the spirit of keeping information accessible to all, we also recognize that not everyone has access to the same level of technology and hardware. We strive to write performant HTML and CSS so information isn't gated to those who have fast internet connections. We write modern code where possible, but if a modern approach prevents access to critical information or presents a significant usability concern, it's not ready for us to adopt that approach without appropriate fallbacks in place.
 
 With that said, use the rules below to guide your code towards those principles.
 
@@ -54,17 +60,6 @@ With that said, use the rules below to guide your code towards those principles.
 * [Mixins](#mixins)
 	* [Media Queries](#media-queries)
 * [Sources](#sources)
-
-<a name="principles"></a>
-## Principles
-
-These guidelines encourage the use of sensible patterns that model the best of what's out there. The goal is to write clean, performant, reusable styles that all our designers and developers can read and understand. We leverage Sass to help us accomplish this.
-
-We feel strongly that information should be accessible to all, and as such, our standards encourage practices that keep accessibility and user choice in mind. For example, if a user turns JavaScript off, or the scripts fail, it's important to us that the meaning is still conveyed.
-
-In the spirit of keeping information accessible to all, we also recognize that not everyone has access to the same level of technology and hardware. We strive to write performant HTML and CSS so information isn't gated to those who have fast internet connections. We write modern code where possible, but if a modern approach prevents access to critical information or presents a significant usability concern, it's not ready for us to adopt that approach without appropriate fallbacks in place.
-
-These rules are in place because we believe in these things, as well as creating an environment where everyone can contribute to and understand our codebase.
 
 <a name="formatting"></a>
 ## General Formatting

@@ -199,6 +199,32 @@ lines are indented by 2 spaces.
 
 Use Sass mixins whenever possible. When writing CSS, use indentation to align values.
 
+The following mixins are supported in Responsive Foundation so you don't have to manually write out vendor prefixes:
+
+```
+@include border-radius( 50% );
+@include box-shadow( inset 0 2px 0px rgba( 255, 255, 255, 0.25 ) );
+@include linear-gradient( transparent, darken( $your-color, 10% ) );
+@include opacity( 0.5 );
+@include transition( opacity 250ms ease-in-out 0s );
+@include transform( translateX( 100px ) );
+@include transform-origin( top );
+@include translate( -10px, 0 );
+@include rotate( 90 );
+@include scale( 2 );
+
+@include keyframes( infinite-loader ) {
+	from {
+		transform: rotate( 0deg );
+	}
+	to {
+		transform: rotate( 360deg );
+	}
+}
+@include animation( infinite-loader 250ms infinite );
+
+```
+
 ##### Example:
 
 ```css
@@ -216,118 +242,165 @@ Use Sass mixins whenever possible. When writing CSS, use indentation to align va
 <a name="semantics">
 ### Summary of Semantics
 
-* **Javascript:*** `.js-` prefixed class names for elements being relied upon for JavaScript selectors
-* **Utilities** are prefixed with `.u-` for single purpose utility classes like `.u-underline` and `.u-capitalize`
-* **Meaningful hyphens and camelCase** clarify the separation between component, descendant components, and modifiers: `componentName-subComponent-modifier`
-* **Stateful classes** use `.is-` to prefix classes often toggled by JavaScript, like `.is-disabled`
+* **Javascript:** Use the `js-` prefix for classes and IDs that are used as JavaScript selectors.
+* **Utilities:** Use the `u-` prefix for single purpose utility classes like `.u-hide` and `.u-show`.
+* **Naming:** Scope your classes by naming them with a component-descendant pattern. If the styles are only intended for a particular page template, prefix your class with the template name. For example: `.callout-link` for generic styles for links in callouts, and `.homepage-callout-link` for link styles that apply to homepage callouts only. Only list the descendant you're currently working with in your class name.
+* **Hyphenation** Hyphenate whenever you would normally use a space. For example, a homepage callout link would be written `.homepage-callout-link`.
+* **Stateful classes** use `.is-` to prefix classes often toggled by JavaScript, like `.is-disabled`.
 
 <a name="ids-and-classes">
 ### IDs & Classes
 
-Only use IDs for top level layout elements such as `sidebar` or `masthead`. Use classes for everything else unless an ID is needed for JavaScript. IDs and classes are camelCase with hyphens separating elements that demonstrate hierarchal relationships (see [Component Naming](#components))*.
+Only use IDs for top level layout elements such as `sidebar` or `masthead`. Use classes for everything else unless an ID is needed for JavaScript. IDs and classes are hyphenated. For more information, see [Component Naming](#components)).
+
+**Exceptions:** JavaScript selectors that you can guarantee only happen once on a page. In general, you should not style IDs, as our goal is to write modular, reusable styles.
 
 ##### Example:
 
 ```css
-.btn-primary {}
-.post-postHeader {}
+.button-primary {}
+.post-headline {}
 ```
 
 <a name="specificity"></a>
 ### Specificity
 
-Too much *cascading* of stylesheets can introduce [unnecessary performance](https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent#UseEfficientCSSSelectors) overhead. In general, only be as specific as you need to be.
+Too much *cascading* of stylesheets can introduce [unnecessary performance](https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent#UseEfficientCSSSelectors) overhead. It also makes reusing styles in other places difficult, and can introduce unexpected styling results down the line. In general, only be as specific as you absolutely need to be.
+
+For each level of nesting and specificity you introduce on a CSS selector, you need _at least that many levels_ to override the style later on in the stylesheet. For example, to override a general list style written as `.content-area ul li` for a set of callouts that also shows in the content area, you must write _at least_ `.section-callouts ul li` in order for the style to override. This can lead to very complex CSS very quickly and snowballs throughout projects, so take great care to nip this in the bud when you see it.
+
+Another unintended consequence of overly specific CSS rules are that they're usually closely tied to HTML structure. This means if you have to change your HTML down the line, the rule will break too.
+
+**Exceptions:** At times where it would be a burden to add classes to make a simpler rule possible, it's fine to nest under one class and style by tag. For example, in a longform editorial article, instead of giving every `<p>` tag a class of `.article-paragraph`, it makes more sense to write a rule like `.article p`, even though it's a little more specific. Always balance your judgements on specificity with consideration for ease of editing markup to add classes, as well as the potential for unintended styling issues down the road.
 
 ##### Example:
 
 ```css
-/* Good: */
-.userList a:hover { color: red; }
+/* Good, because we're working with metadata in a PHP template, and it's easy to add classes to our callout paragraph. */
+.homepage-callout-description { color: red; }
 
-/* Too specific: */
-ul.userList li span a:hover { color: red; }
+/* Too specific - and what happens if you want to change to the more semantic <aside> tag? */
+ul.homepage-callout li a .homepage-callout-description { color: red; }
+
+/* Good, because <p> is controlled by the WordPress editor and it would be a huge development burden to hand-add and maintain classes on each individual <p> tag generated by the editor: */
+.article-text p { color: red; }
 ```
 
 <a name="javascript">
 ### JavaScript Selectors
 
-syntax: `js-targetName`
+syntax: `js-target-name`
 
-JavaScript-specific classes reduce the risk that changing the structure or theme of components will inadvertently affect any required JavaScript behaviour and complex functionality. It is not necessary to use them in every case, just think of them as a tool in your utility belt. If you are creating a class, which you don't intend to use for styling, but instead only as a selector in JavaScript, you should probably be adding the `js-` prefix, but **JavaScript-specific classes should not, under any circumstances, be styled.** In practice this looks like this:
+JavaScript-specific classes and IDs reduce the risk that changing the structure or theme of components will inadvertently affect any required JavaScript behaviour and complex functionality. It is not necessary to use them in every case - just think of them as a tool in your utility belt. **JavaScript-specific classes should not, under any circumstances, be styled.** If you need to style that element, just add another class. In practice this looks like this:
 
-```css
-<a href="/login" class="btn btn-primary js-login"></a>
+```html
+<a href="/login" class="button-primary button-login js-login"></a>
 ```
 
 <a name="utilities">
 ### Utilities
 
-Utility classes are simple structural and positional traits abstracted for use on any element. Multiple utilities can be used together, and utilities can be used alongside components. Utilities exist because certain CSS properties and patterns are used frequently. For example: clearing floats, vertical alignment, text truncation. Relying on utilities can help to reduce repetition and provide consistent implementations.
+Utility classes are simple structural and positional traits abstracted for use on any element. Multiple utilities can be used together, and utilities can be used alongside components. Utilities are great for common CSS patterns, or for applying very simple styles to quickly prototype and demonstrate functionality. For example, you might use the `.u-visuallyhidden` class to hide text visually, but keep it screen reader accessible. Or, you might use `.u-show` and `.u-hide` while writing JavaScript to demonstrate filtering functionality very quickly, without worrying about writing fancy CSS styles.
+
+When using Sass, consider using the matching `%u-` placeholders that Responsive Foundation provides to get the benefits of utility classes, while keeping the PHP and HTML markup clean and easy to read.
 
 ##### Naming:
 
-syntax: `u-utilityName`
+syntax: `u-utility-name`
 
-Utilities must use a camelCase name, prefixed with a `u-` namespace. What follows is an example of how various utilities can be used to create a simple structure within a component.
+Utilities should be hyphenated and prefixed with `u-`. The name should accurately describe what the utility class will do when applied.
 
 ##### Example:
 
+A screen-reader accessible Facebook social icon, without text.
+
 ```css
-<div class="u-clearFix">
-	<p class="u-textTruncate">...</p>
-	<img class="u-pullLeft" src="..." alt="...">
-</div>
+`<a href="#" class="social-link-facebook u-visuallyhidden">Facebook</a>
 ```
 
 <a name="components">
 ### Components
 
-Components are custom elements that enclose specific semantics, styling, and behaviour. Always look to abstract components. The reuse of components across designs helps to improve consistency and reduces code overhead. A name like `.homepageNews` limits its use. Instead think about writing styles in such a way that they can be reused in other parts of the app. Try instead `.newsList`, which could be reused in another context.
+Components are small, reusable elements that have specific styles and behaviour that all work together in harmony, and work independently of the content and structure around them. When writing components, try to think of what the general styles that would work anywhere might be. Then, add additional scoped styles for different page templates as needed.
 
-A subcomponent is a descendant of a component. It's main purpose is to describe and style a permanent part of a component, like `.newsPost-metaData`.
+For example, a common pattern is to have a callouts component that looks a little different on the homepage template. A good way to structure this in CSS might look like:
+
+```css
+.callout {
+	background: #fff;
+	color: #777;
+}
+
+.homepage .callout {
+	background: #ccc;
+}
+```
+
+In Sass, a good pattern is to write your general styles first, and then write exceptions to those styles after.
+
+```scss
+.callout {
+	background: #fff;
+	color: #777;
+
+	.homepage & {
+		background: #ccc;
+	}
+}
+```
+
+Subcompontents are the pieces that work together to make a component. When naming subcomponents, scope them to your component name, but only use the name of the subcomponent you're working with in your selector. In other words, in a situation like this:
+
+```html
+<aside class="callout">
+	<a href="#" class="callout-link">
+		<p class="callout-description">Hello</p>
+	</a>
+</aside>
+```
+
+The paragraph subcomponent's name should be `.callout-description`, not `.callout-link-description`. Even though the description is a child of `.callout-link`, the _component_ is `.callout`, so the class should be scoped to that. HTML structure can change throughout the project in components as bugs are fixed and styles are added, and by keeping our naming flat and independent of how our HTML is written, we can make adjustments over time without worrying about changing our class names over and over again.
 
 ##### Naming:
 
-Component and subcompontent names must be written in camelCase. Modifiers are lowercase with hyphens.
+All classes should be hyphenated, once per word. As you name things, make sure the name is descriptive of the component and what it does. Be very careful with introducing unnecessarily global classes that could be used in many, many places, such as `.info`.
 
-syntax: `componentName-subComponent-modifier`
+Class names should be readable and easy to understand. Common knowledge abbreviations that appear in HTML element naming, such as `nav`, are great to use. Abbreviations that require you to know our environment to understand, such as `.hp-`, or could be easily misunderstood for a common CSS pattern like clearfix, such as `.cf-`, are not. Above all, the naming should make clear to anyone reading through your CSS what the impact of editing styles in your rules will be.
 
-##### Example:
+syntax: `component-subcomponent-modifier`
+
+##### Examples:
 
 ```css
-.navBar {
+.primary-nav {
 	(...)
 }
 
-.navBar-contentNav {
+.primary-nav-menu {
 	(...)
 }
 
-.navBar-contentNav-collabsible {
+.primary-nav-item {
 	(...)
 }
 
 /* Modifiers can also be appended to components without subcomponents */
 
-.btn {
+.button {
 	(...)
 }
 
-.btn-primary {
-	(...)
-}
-
-.btn-inactive {
+.button-primary {
 	(...)
 }
 
 /* In markup */
 
-<ul class="slideShow">
-	<li class="slideShow-slide slideShow-slide-eventPromo">
-		<a>...</a>
-	</li>
-</ul>
+<section class="callouts homepage-callouts">
+	<aside class="callout">
+		<a class="callout-link">...</a>
+	</aside>
+</section>
 
 ```
 
@@ -348,7 +421,7 @@ sprite-top-navigation.png
 <a name="variables"></a>
 ## Variables
 
-Naming conventions - camelCase with hyphens
+Naming conventions - hyphenated
 
 <a name="colors"></a>
 ### Colors
@@ -361,8 +434,6 @@ Use **Sass variables** for color whenever possible. When specifying colors, use 
 <a name="fonts"></a>
 ### Fonts
 
-TODO: how @font-face is used and how to specify shared typographic styles.
-
 #### Font Weight
 
 With the additional support of web fonts font-weight plays a more important role than it once did. Different font weights will render typefaces specifically created for that weight, unlike the old days where bold could be just an algorithm to fatten a typeface. Always use the numerical value of font-weight to enable the best representation of a typeface, like `font-weight: 400;`.
@@ -370,68 +441,99 @@ With the additional support of web fonts font-weight plays a more important role
 Whenever possible use `@extend` to specify appropriate baseline font styles:
 
 ```css
-$fontSize-micro
-$fontSize-smallest
-$fontSize-smaller
-$fontSize-small
-$fontSize-base
-$fontSize-large
-$fontSize-larger
-$fontSize-largest
-$fontSize-jumbo
+@extend %font-size-1; // Matches <h1> size and line-height styles
+@extend %font-size-2;
+@extend %font-size-3;
+@extend %font-size-4;
+@extend %font-size-5;
+@extend %font-size-6;
 ```
-
-(**TODO:** Create the above variables.)
 
 <a name="zindex"></a>
 ## Z-index
 
-We're modeling Medium's z-index scale, which relies on variables to manage collision-free layers.
+We're modeling Medium's z-index scale, which uses well-named variables to help keep layering in check.
 
 ##### Example:
 
 ```css
 // Z-Index Scale (private vars)
 // --------------------------------------------------
-$zIndex-1:   100;
-$zIndex-2:   200;
-$zIndex-3:   300;
-$zIndex-4:   400;
-$zIndex-5:   500;
-$zIndex-6:   600;
-$zIndex-7:   700;
-$zIndex-8:   800;
-$zIndex-9:   900;
-$zIndex-10: 1000;
+$z-index-1:   100;
+$z-index-2:   200;
+$z-index-3:   300;
+$z-index-4:   400;
+$z-index-5:   500;
+$z-index-6:   600;
+$z-index-7:   700;
+$z-index-8:   800;
+$z-index-9:   900;
+$z-index-10: 1000;
 
 // Z-Index Applications
 // --------------------------------------------------
-$zIndex-1-screenForeground:        @zIndex-1;
-$zIndex-1-followUpVisibility:      @zIndex-1;
-$zIndex-2-prlWelcome:              @zIndex-2;
-$zIndex-2-appImageDropdown:        @zIndex-2;
-$zIndex-3-surfaceUnder:            @zIndex-3;
-$zIndex-4-blockGroup:              @zIndex-4;
+$z-index-content:                   $z-index-1;
+$z-index-states:                    $z-index-3;
+$z-index-panels:                    $z-index-5;
+$z-index-primarynav:                $z-index-7;
+$z-index-overlays:                  $z-index-9;
+$z-index-dev:                       $z-index-10;
 ...
 ```
 
 <a name="mixins"></a>
 ### Mixins
 
-syntax: `mixinName`
+syntax: `@mixin mixin-name { ... }`
 
-Mixins should only be used when there are dynamic properties, otherwise use @extend. Mixins should use camelCase and be well documented in comments.
+Mixins work best when you have a set of styles you want to reuse, but you need some
+flexibility and options for the styles they're spitting out. For example, our icons
+mixin allows you to choose either the before or after pseudo-element to place the icon
+on.
+
+If you're not passing any arguments to your mixin, consider using an equivalent placeholder
+class instead. All mixins that can be used this way in Foundation have a matching
+Sass placeholder you can use. Placeholders group selectors instead of repeating styles, so
+it's a good idea to use them when you can.
+
+**Exceptions:** A placeholder might not always work if the original placeholder styles are
+declared too far up in your stylesheet, and you need to override some other styles which
+come after it. In this case, go ahead and use the matching mixin instead. It's better to
+repeat those styles than introduce additional specificity to your selectors.
 
 <a name="media queries"></a>
 #### Media Queries
 
-TODO
+Our codebase is written mobile-first, and we strive to keep to that as best as we can.
+
+Use the `breakpoint` mixin for any media query that is written mobile-first. This mixin
+automatically prints styles in a way that older versions of Internet Explorer can
+understand in a separate stylesheet.
+
+Use the `retina` mixin if you need to target retina devices, such as for serving a larger
+image.
+
+Use the default breakpoints when possible. When it's not possible, use a variable that
+describes the new breakpoint you're adding. For example, you may add `$bp-mobile-nav`
+to indicate the breakpoint where the mobile nav styles will switch to desktop styles.
+
+All `breakpoint` and `retina` mixins should be written _inside_ the selector, in order
+of smallest to largest, when writing Sass. See example below.
+
+**Exceptions:** In certain limited cases, it's easier to write a simple `max-width`
+media query than to write mobile-first CSS. Our breakpoints mixin doesn't support
+this, but as long as your styles only apply to mobile devices, this is fine. The
+main thing the breakpoints mixin does for you is create an IE stylesheet, and you'll
+be missing the benefits of that by writing a plain CSS media query. However, the changes
+of someone visiting a site at a mobile size on IE8 are very slim.
 
 ##### Example:
 
 ```css
-@include breakpoint(small) {
-	.selector {...}
+.primary-nav {
+	@include breakpoint( $xs ) {
+		// Styles for the $xs breakpoint
+	}
 }
 ```
 <a name="sources"></a>

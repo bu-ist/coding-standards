@@ -1,7 +1,3 @@
-# IMPORTANT
-
-This is a working draft of the coding standards updates. **DO NOT USE IT YET.**
-
 # Coding in the spirit of our standards
 
 We believe that code should be predictable, easy to maintain, and easy to understand. While our standards are intended to help support these ideas, we recognize that no two designers or developers will come up with the exact same solution to the same problem. We want you to code in the spirit of the law as much as follow letter of the law. And if you find any rules that go against what we're trying to accomplish, don't be afraid to challenge them [here](https://github.com/bu-ist/coding-standards/issues) and start a discussion so we can improve them.
@@ -10,9 +6,9 @@ We believe that code should be predictable, easy to maintain, and easy to unders
 
 Your project works alongside a complex ecosystem of plugins, frameworks, and content. In order to be able to update these things in a timely manner, everyone's code has to behave predictably and reliably. We do this by:
 
-* [Naming everything consistently](#semantics) (Needs review)
-* [Prohibiting overly specific rules](#specificity) (SASS nesting rules should reference this)
-* Prohibiting overrides on certain classes (NEW ADDITION - restrict grid and utility classes)
+* [Naming everything consistently](#semantics)
+* [Prohibiting overly specific rules](#specificity)
+* Prohibiting overrides on certain classes
 
 ### Code should be easy to maintain.
 

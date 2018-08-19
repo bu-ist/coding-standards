@@ -26,6 +26,16 @@ A helpful tip is to run `phpcs` with the `-s` flag. This will show you the name 
 
 Because there are other, well maintained best practice manuals available, this guide is meant to supplement them with summaries of the most important items with some internal context.
 
+### Composer
+
+This repo also comes with a `composer-phpbin.json` file. If the app you're working on does not use composer, add this file as `composer.json` into the app and run `composer install` to install PHPCodeSniffer, WordPress coding standards and PHP 5.3 Compatability sniffs.
+
+To sniff all PHP files:
+
+```bash
+./vendor/bin/phpcs *.php
+```
+
 Those guides are:
 
 * [WordPress Coding Standards PHP_CodeSniffer](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards)

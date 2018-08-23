@@ -18,6 +18,10 @@ We decided to standardize using the WordPress coding standards as a baseline so 
 
 This is a Work In Progress effort to apply a default standard to all PHPbin applications. As it is a WIP, you may find a PHP application that wildly differs from our default standard, for instance BUniverse was built on Zend Framework. Use your best judgement on whether an application without formal standards should follow these standards or not.
 
+There are two phpcs.xml files in this repo. One is the default standard and the other accodomates applications which have used snake_case for many years and are not worth updating to camelCase.
+
+**Please ensure you apply any changes to both rulesets.**
+
 ## Code sniffing
 
 This repo comes with a `phpcs.xml` file for sniffing. Include this file as the baseline in any application without sniffing.

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.1.0
 - Exclude "WordPress-VIP" subset from code climate's phpcs file.
 - Add PHPbin Coding Standards.
 - Update the CSS and Sass README.

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+- Exclude "WordPress-VIP" subset from code climate's phpcs file.
+- Add PHPbin Coding Standards.
+- Update the CSS and Sass README.
+- Add `bu_` prefix to allowed list of CSS selectors.
+
 ## 2.0.4
 
 - Inform the `WordPress.XSS.EscapeOutput` rule of BU functions that properly escape output. `bu_sanitize_banner_subtitle()` and

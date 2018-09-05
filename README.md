@@ -8,6 +8,7 @@ New web team employees should review these documents prior to committing any cod
 
 * [WordPress](wordpress/README.md)
 * [CSS and Sass](css-and-sass/README.md)
+* [PHPbin](phpbin/README.md)
 
 ## Why?
 
@@ -31,4 +32,4 @@ In the meantime there are several tools that can be installed locally to ensure 
 
 Have a recommendation? Create a branch and submit a pull request!
 
-All web team members have write access to this repository. That said, updates to these standards should not be made without giving folks a chance to weigh in. [Github pull requests](https://help.github.com/articles/using-pull-requests/) are well-suited for this; opening a pull request creates a dedicated page for comments, and notifies all repostiory watchers.
+[Github pull requests](https://help.github.com/articles/using-pull-requests/) are well-suited for this; opening a pull request creates a dedicated page for comments, and notifies all repostiory watchers.

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ruleset name="phpbin-coding-standards">
+	<description>PHPbin coding sniffs based off WordPress</description>
+
+	<file>.</file>
+
+	<rule ref="PHPCompatibility"/>
+	<config name="testVersion" value="5.3-"/>
+
+	<rule ref="WordPress">
+		<!-- Disable WP nonce sniffs -->
+		<exclude name="WordPress.Security.NonceVerification.NoNonceVerification" />
+
+		<!-- Disable WP PDO sniffs -->
+		<exclude name="WordPress.DB.RestrictedClasses.mysql__PDO" />
+
+		<!-- Disable all WP alt functions since we won't have WP alts in non-WP -->
+		<exclude name="WordPress.WP.AlternativeFunctions" />
+	</rule>
+
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+</ruleset>

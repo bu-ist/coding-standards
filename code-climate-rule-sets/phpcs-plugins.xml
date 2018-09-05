@@ -2,17 +2,7 @@
 <ruleset name="Plugins Custom Ruleset">
 	<description>Custom sniff configuration specifically for WordPress plugins.</description>
 
-	<rule ref="WordPress" />
-
-	<!-- By default, the WordPress standard excludes checks for create_function() because it still exists in core. -->
-	<!-- Until this exclusion is removed from the standard, we want to override that by providing our own properties. -->
-	<!-- See https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/wiki/Customizable-sniff-properties#existing-exclusions -->
-	<rule ref="WordPress.PHP.DiscouragedPHPFunctions">
-		<!-- From "VIP": The obfuscation group is excluded as there are plenty of legitimate uses for the base64 functions. -->
-		<properties>
-			<property name="exclude" value="obfuscation"/>
-		</properties>
-	</rule>
+	<rule ref="WordPress"/>
 
 	<!-- All output should be properly escaped to avoid potential cross site scripting (XSS) attacks. -->
 	<!-- The WPCS accounts for the WordPress Core functions that properly escape output, but not functions in our environment. -->

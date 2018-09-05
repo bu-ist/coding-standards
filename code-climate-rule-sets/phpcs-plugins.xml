@@ -2,10 +2,13 @@
 <ruleset name="Plugins Custom Ruleset">
 	<description>Custom sniff configuration specifically for WordPress plugins.</description>
 
-	<!-- Until Code Climate updates WPCS to 1.0.0, only include the subsets we want (exclude WordPress VIP) -->
+	<!-- Taken from WPCS 1.0.0 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/blob/1.0.0/WordPress/ruleset.xml -->
 	<rule ref="WordPress-Core"/>
 	<rule ref="WordPress-Docs"/>
-	<rule ref="WordPress-Extra"/>
+	<rule ref="WordPress-Extra">
+		<!-- Even though the VIP sniffs are not included in Extra, this will remove them from the scan. -->
+		<exclude name="WordPress.VIP"/>
+	</rule>
 
 	<!-- By default, the WordPress standard excludes checks for create_function() because it still exists in core. -->
 	<!-- Until this exclusion is removed from the standard, we want to override that by providing our own properties. -->

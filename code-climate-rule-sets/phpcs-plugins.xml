@@ -8,7 +8,7 @@
 	<!-- The WPCS accounts for the WordPress Core functions that properly escape output, but not functions in our environment. -->
 	<!-- All functions that properly escape output can be added here. -->
 	<!-- Functions added to this list must have unit tests demonstrating that harmful code is properly stripped out or sanitized. -->
-	<rule ref="WordPress.XSS.EscapeOutput">
+	<rule ref="WordPress.Security.EscapeOutput">
 		<properties>
 			<property name="customAutoEscapedFunctions" value="bu_banners_get_image" type="array" />
 		</properties>

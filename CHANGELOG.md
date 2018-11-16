@@ -1,6 +1,11 @@
 # Changelog
 
+## 2.1.1
+
+- Changed deprecated `WordPress.XSS.EscapeOutput` to use `WordPress.Security.EscapeOutput` instead.
+
 ## 2.1.0
+
 - Exclude "WordPress-VIP" subset from code climate's phpcs file.
 - Add PHPbin Coding Standards.
 - Update the CSS and Sass README.

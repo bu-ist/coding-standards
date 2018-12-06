@@ -8,6 +8,13 @@
 	<config name="testVersion" value="5.3-"/>
 
 	<rule ref="WordPress">
+		<!-- Disable sniff complaining about file comment -->
+		<exclude name="Squiz.Commenting.FileComment.Missing" />
+
+		<!-- Disable sniffs complaining about filenames -->
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+
 		<!-- Disable WP nonce sniffs -->
 		<exclude name="WordPress.Security.NonceVerification.NoNonceVerification" />
 
@@ -20,4 +27,8 @@
 
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<!-- When running phpcs on Travis, the directory path contains "build".
+	     If you use "*/build/*" as exclude-pattern, it results in having
+	     no files for sniffing. Thus, try to be as specific as possible. -->
+	<exclude-pattern>*/build/logs*</exclude-pattern>
 </ruleset>

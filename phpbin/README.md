@@ -34,6 +34,13 @@ Because there are other, well maintained best practice manuals available, this g
 
 This repo also comes with a `composer-phpbin.json` file. If the app you're working on does not use composer, add this file as `composer.json` into the app and run `composer install` to install PHPCodeSniffer, WordPress coding standards and PHP 5.3 Compatability sniffs.
 
+If your project is already using `composer`, run these commands to install the dependencies mentioned above:
+```
+composer require --dev "dealerdirect/phpcodesniffer-composer-installer=*"
+composer require --dev "phpcompatibility/php-compatibility=*"
+composer require --dev "wp-coding-standards/wpcs=*"
+```
+
 To sniff all PHP files:
 
 ```bash

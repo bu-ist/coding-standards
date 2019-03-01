@@ -34,3 +34,9 @@ Primarily, the README.md file should be a good starting point for a complete str
 * Are any credentials needed?
 
 If your README can answer all these questions you likely have a great README!
+
+#### Examples of Real READMEs
+
+Below are a few examples of READMEs we think are stellar examples:
+
+[bu-infographics](https://github.com/bu-ist/bu-infographics/blob/develop/README.md)

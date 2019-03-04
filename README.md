@@ -43,9 +43,11 @@ Below are a few examples of READMEs we think are stellar examples:
 
 ### Commented Out Code
 
-When making changes to a remote Git repository ( e.g. Github.com ), particularly `master`, or otherwise sharing code:
+When making changes to a remote Git repository ( e.g. Github.com ), particularly `master`, or otherwise shared code don't persist commented out code.
 
 - [Don't commit commented out code](https://kentcdodds.com/blog/please-dont-commit-commented-out-code).
 - [Don't share commented out code](https://www.nayuki.io/page/dont-share-commented-out-code).
 
-Code you're `pushing` or otherwise sharing should not include commented out code. Doing so makes reading your code take longer for no gain. By all means comment out code locally while working out a change but when sharing it by publishing it to github.com it should only contain used code. The only exception is if you're working in branch explictly marked for your personal use, but when merging that branch it should not contain commented out code.
+Code you're `pushing` or otherwise sharing should not include commented out code. Doing so makes reading your code take longer for **no gain**.
+
+By all means comment out code locally while working out a change but when sharing it by publishing it to github.com it should only contain used code. If you wish to save commented out code remotely just in case do so in a branch explicitly marked for your personal use only. Remember to remove any remaning commented out code though before merging to `master` or other shared branches.

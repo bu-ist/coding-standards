@@ -9,6 +9,7 @@ New web team employees should review these documents prior to committing any cod
 * [WordPress](wordpress/README.md)
 * [CSS and Sass](css-and-sass/README.md)
 * [PHPbin](phpbin/README.md)
+* [Git/Best Practices](best-practices/README.md)
 
 ## Why?
 

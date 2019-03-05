@@ -60,3 +60,8 @@ Typically, the `master` branch is considered a production quality branch, or may
 
 Some codebases at BU are new to Git and some have been Gitting for years. Read through any Contributing documentation to see how that repo is structured. If there is not Contributing doc, look in the README. If still in doubt, ask someone but in almost all cases creating a new branch will be the least disruptive and safest. Once your branched code is ready, merging into `master` ( or `develop` if following a workflow similar to the [`coding-standards`](https://github.com/bu-ist/coding-standards/blob/master/CONTRIBUTING.md) or whichever branch that repo's workflow designates as the merging branch ).
 
+### Pull Requests
+
+When in doubt, create a new branch! It's easy and cheap to do so and will ensure your work is segregated from other work happening in the `develop`, `master`, or other branch. Once ready to merge your branch into a shared branch create a Pull Request to do so and ask for at least one code review of your change.
+
+Creating a Pull Request for your merge allows other developers to review the change set and comment with suggestions before you merge. It is much easier for reviewers to comment on your change if it is contained within a Pull Request.

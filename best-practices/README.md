@@ -69,3 +69,7 @@ Many repos at BU follow the [Git flow workflow](https://guides.github.com/introd
 When in doubt, create a new branch! It's easy and cheap to do so and will ensure your work is segregated from other work happening in the `develop`, `master`, or other branch. Once ready to merge your branch into a shared branch create a Pull Request to do so and ask for at least one code review of your change.
 
 Creating a Pull Request for your merge allows other developers to review the change set and comment with suggestions before you merge. It is much easier for reviewers to comment on your change if it is contained within a Pull Request.
+
+### More Git Best Practices
+
+For more Git focused best practices see this [excellent document](https://sethrobertson.github.io/GitBestPractices/).

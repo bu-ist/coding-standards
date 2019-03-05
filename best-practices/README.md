@@ -43,6 +43,12 @@ Below are a few examples of READMEs we think are stellar examples:
 
 [bu-infographics](https://github.com/bu-ist/bu-infographics/blob/develop/README.md)
 
+### Commit messages
+
+Commit messages are the first thing someone else sees when reviewing or investigating your change. Make sure your commit messages explain why you made the change ( the diff itself shows what changed! ). There's no need to restate how you made the change, but ensuring the context of your change is captured by the commit message will make future developers thank you!
+
+A deeper dive into [writing good commit message](https://chris.beams.io/posts/git-commit/).
+
 ### Commented Out Code
 
 When making changes to a remote Git repository ( e.g. Github.com ), particularly `master`, or otherwise shared code don't persist commented out code.

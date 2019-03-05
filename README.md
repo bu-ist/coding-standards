@@ -51,3 +51,21 @@ When making changes to a remote Git repository ( e.g. Github.com ), particularly
 Code you're `pushing` or otherwise sharing should not include commented out code. Doing so makes reading your code take longer for **no gain**.
 
 By all means comment out code locally while working out a change but when sharing it by publishing it to github.com it should only contain used code. If you wish to save commented out code remotely just in case do so in a branch explicitly marked for your personal use only. Remember to remove any remaning commented out code though before merging to `master` or other shared branches.
+
+### Branches are cheap
+
+Speaking of branches, in Git branches are cheap and easy to use. Almost every workflow at BU will benefit from taking advantage of branches. Many codebases at BU use [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) to varying degrees but nearly all codebases utilize branching to ensure all code in `master` is production ready.
+
+Typically, the `master` branch is considered a production quality branch, or may even be production! That means changes you make and push to `master` should follow all the principles laid out in this repo. Code destined for `master` should be well-formed, readable and contain no commented out code or other artifacts that are not being deployed to production.
+
+#### Use branches for your code changes
+
+Some codebases at BU are new to Git and some have been Gitting for years. Read through any Contributing documentation to see how that repo is structured. If there is not Contributing doc, look in the README. If still in doubt, ask someone but in almost all cases creating a new branch will be the least disruptive and safest. Once your branched code is ready, merging into `master` ( or `develop` if following a workflow similar to the [`coding-standards`](https://github.com/bu-ist/coding-standards/blob/master/CONTRIBUTING.md) or whichever branch that repo's workflow designates as the merging branch ).
+
+Many repos at BU follow the [Git flow workflow](https://guides.github.com/introduction/flow/). The most critical piece of this workflow is [creating feature branches for your changes](https://gist.github.com/vlandham/3b2b79c40bc7353ae95a) and then merging back in when ready. Whether your repo adopts a similar workflow the most critical thing you can do is ensure `master` is in a production ready state always by working on your changes in a different branch. In other words, [don't mess with master](https://thenewstack.io/dont-mess-with-the-master-working-with-branches-in-git-and-github/)!
+
+### Pull Requests
+
+When in doubt, create a new branch! It's easy and cheap to do so and will ensure your work is segregated from other work happening in the `develop`, `master`, or other branch. Once ready to merge your branch into a shared branch create a Pull Request to do so and ask for at least one code review of your change.
+
+Creating a Pull Request for your merge allows other developers to review the change set and comment with suggestions before you merge. It is much easier for reviewers to comment on your change if it is contained within a Pull Request.

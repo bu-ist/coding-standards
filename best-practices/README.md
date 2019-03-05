@@ -2,6 +2,8 @@
 
 The purpose of this repository is to provide an example of a best practices Git/Github repository. The concepts here are geared towards creating a great Git/Github repo that can be handed off to practically anyone but the concepts can apply to most any piece of code.
 
+As this guide is hosted on Github, you may have guessed that using Git to track, review and publish code changes is a best practice. Using [distributed shared version control](https://www.atlassian.com/git/tutorials/what-is-version-control) is the first step to an agile work without fear of changing code! If your codebase is not already under version control, put it on Github!
+
 ## The README is critical
 
 The first thing a user sees when visiting a repository on Github is a listing of files and the README.md file, if present. That makes the README.md part of the first impression anyone has of your repository.

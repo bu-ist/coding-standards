@@ -10,7 +10,7 @@
 		"font-family-name-quotes": "always-unless-keyword",
 		"function-parentheses-space-inside": "always",
 		"function-url-quotes": "always",
-		"max-line-length": 100,
+		"max-line-length": 120,
 		"rule-empty-line-before": [
 			"always",
 			{

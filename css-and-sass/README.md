@@ -144,6 +144,7 @@ Well commented code is extremely important. Take time to describe components, ho
 
 * Do not include underscores or file extensions when importing SASS partials `@import "burf-theme";`
 * Always place `@extend` statements before anything else in a declaration block.
+* `@extend` should only be used with placeholder classes, never CSS classes. [Learn why here.](https://github.com/bu-ist/responsive-framework/wiki/Sass-best-practices#extending) For example, `@extend %row-styles;` is correct, while `@extend .row;` is not.
 * Group `@include` statements at the top of a declaration block after any `@extend` statements except for `@include breakpoint`, which you should put after your base (mobile) styles.
 * Don't nest declaration blocks. It makes code hard to read on complex projects and often results unnecessarily specific selectors.
 * Nesting [psuedo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) and media queries is OK. They should be last in the declaration block, separated from other properties with an empty new line.

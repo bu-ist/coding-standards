@@ -10,5 +10,5 @@ jobs:
         with:
           manifest: labels/labels.yml
           repository: |
-              bu-ist/responsive-child-starter-3x
+              bu-ist/r3-studentwellbeing
           token: ${{ secrets.GITHUB_TOKEN }}

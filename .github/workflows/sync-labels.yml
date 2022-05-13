@@ -11,4 +11,4 @@ jobs:
           manifest: labels/labels.yml
           repository: |
               bu-ist/responsive-child-starter-3x
-          token: ${{ secrets.PERSONAL_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}

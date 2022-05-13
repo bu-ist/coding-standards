@@ -11,4 +11,4 @@ jobs:
           manifest: labels/labels.yml
           repository: |
               bu-ist/r3-studentwellbeing
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PERSONAL_TOKEN }}

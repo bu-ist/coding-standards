@@ -1,0 +1,100 @@
+- name: '🔥 Product Bug'
+  color: DE4A45
+  description: "A bug which is not directly related to a custom child theme."
+- name: "🚦 Blocked"
+  color: D33336
+- name: "🚦 IS&T dependency"
+  color: F5B404
+- name: "🚦 Product dependency"
+  color: F5B404
+- name: "🚦 Question"
+  color: F5B404
+- name: "💡 Duplicate"
+  from_name: 'duplicate'
+  color: ffffff
+- name: "💡 Idea"
+  color: CDFBFF
+- name: "💡 Feature"
+  color: 9BF7FF
+- name: "💡 Bug"
+  from_name: 'bug'
+  color: 9BF7FF
+- name: "💡 Enhancement"
+  color: 39F0FF
+  from_name: 'enhancement'
+- name: '✅ Needs requirements'
+  color: E0F7C9
+- name: '✅ Needs frontend'
+  from_name: '✅ To Do: HTML/CSS'
+  color: E0F7C9
+- name: '✅ Needs backend'
+  from_name: '✅ To Do: PHP'
+  color: E0F7C9
+- name: '✅ Needs documentation'
+  from_name: '✅ To Do: Documentation'
+  color: C1EF93
+- name: '⏰ Critical'
+  color: D33336
+- name: '⏰ High Priority'
+  color: DE6668
+- name: '⏰ Medium Priority'
+  color: EE5D5F
+- name: '⏰ Low Priority'
+  color: FBD7D8
+- name: '⏰ Deferred'
+  color: FEF2F2
+  from_name: 'wontfix'
+- name: '🔌 BU Banners'
+  color: F0DCFF
+- name: '🔌 BU Blocks'
+  color: F0DCFF
+- name: '🔌 BU Course Overrides'
+  color: F0DCFF
+- name: '🔌 BU Degrees & Programs'
+  color: F0DCFF
+- name: '🔌 BU Filtering'
+  color: F0DCFF
+- name: '🔌 BU In the Media'
+  color: F0DCFF
+- name: '🔌 BU Landing Pages'
+  color: F0DCFF
+- name: '🔌 BU Post Details'
+  color: F0DCFF
+- name: '🔌 BU PrePress'
+  color: F0DCFF
+- name: '🔌 BU Stats'
+  color: F0DCFF
+- name: '🔌 BU Stories'
+  color: F0DCFF
+- name: '⚙️ Admin config'
+  color: 21759B
+- name: '⚙️ Block'
+  color: 21759B
+- name: '⚙️ Block pattern'
+  color: 21759B
+- name: '⚙️ Block template'
+  color: 21759B
+- name: '⚙️ Customizer'
+  color: 21759B
+- name: '⚙️ Manual migration'
+  color: 21759B
+- name: '⚙️ Menu / nav'
+  color: 21759B
+- name: '⚙️ Metabox'
+  color: 21759B
+- name: '⚙️ Plugin'
+  color: 21759B
+- name: '⚙️ Post type'
+  color: 21759B
+- name: '⚙️ Scripted migration'
+  color: 21759B
+- name: '⚙️ Shortcode'
+  color: 21759B
+- name: '⚙️ Template'
+  color: 21759B
+- name: '⚙️ Template part'
+  color: 21759B
+- name: '⚙️ To be determined'
+  color: 21759B
+- name: '⚙️ Widget'
+  color: 21759B

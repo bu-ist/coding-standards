@@ -1,0 +1,14 @@
+name: Sync labels
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: joeyparrish/action-label-syncer@v1
+        with:
+          manifest: labels/labels.yml
+          repository: |
+              bu-ist/responsive-child-starter-3x
+          token: ${{ secrets.PERSONAL_TOKEN }}

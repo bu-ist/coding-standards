@@ -13,4 +13,4 @@ jobs:
           repository: |
             bu-ist/r3-studentwellbeing
           token: ${{ secrets.PERSONAL_TOKEN }}
-          prune: false
+          prune: true

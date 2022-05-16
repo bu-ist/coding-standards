@@ -12,28 +12,34 @@
 - name: 🚦 Question
   color: F5B404
 - name: 💡 Duplicate
-  aliases: duplicate
+  aliases: 
+    - duplicate
   color: ffffff
 - name: 💡 Idea
   color: CDFBFF
 - name: 💡 Feature
   color: 9BF7FF
 - name: 💡 Bug
-  aliases: bug
+  aliases: 
+    - bug
   color: 9BF7FF
 - name: 💡 Enhancement
   color: 39F0FF
-  aliases: enhancement
+  aliases: 
+    - enhancement
 - name: ✅ Needs requirements
   color: E0F7C9
 - name: ✅ Needs frontend
-  aliases: ✅ To Do: HTML/CSS
+  aliases: 
+    - "✅ To Do: HTML/CSS"
   color: E0F7C9
 - name: ✅ Needs backend
-  aliases: ✅ To Do: PHP
+  aliases: 
+    - "✅ To Do: PHP"
   color: E0F7C9
 - name: ✅ Needs documentation
-  aliases: ✅ To Do: Documentation
+  aliases:
+    - "✅ To Do: Documentation"
   color: C1EF93
 - name: ⏰ Critical
   color: D33336
@@ -45,7 +51,8 @@
   color: FBD7D8
 - name: ⏰ Deferred
   color: FEF2F2
-  aliases: wontfix
+  aliases: 
+    - wontfix
 - name: 🔌 BU Banners
   color: F0DCFF
 - name: 🔌 BU Blocks

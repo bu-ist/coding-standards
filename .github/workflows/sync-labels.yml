@@ -3,6 +3,12 @@ on:
   workflow_dispatch:
 jobs:
   build:
+    strategy:
+      # don't break another job if one is failed
+      fail-fast: false
+      matrix:
+        repo:
+          - bu-ist/r3-studentwellbeing
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -10,6 +16,6 @@ jobs:
       - uses: micnncim/action-label-syncer@v1
         with:
           manifest: labels/labels.yml
-          repository: |
-              - bu-ist/r3-studentwellbeing
+          repository: ${{ matrix.repo }}
           token: ${{ secrets.PERSONAL_TOKEN }}
+          prune: false

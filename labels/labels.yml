@@ -1,4 +1,6 @@
-- name: 🔥 Product Bug
+- name: 🔥 Product bug
+  aliases: 
+    - "🔥 Product Bug"
   color: DE4A45
   description: A bug which is not directly related to a custom child theme.
 - name: 🚦 Blocked

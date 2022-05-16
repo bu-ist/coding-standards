@@ -9,7 +9,7 @@ jobs:
       # - uses: joeyparrish/action-label-syncer@v1
       - uses: micnncim/action-label-syncer@v1
         with:
-          manifest: .github/labels.yml
+          manifest: labels/labels.yml
           repository: |
             bu-ist/r3-studentwellbeing
           token: ${{ secrets.PERSONAL_TOKEN }}

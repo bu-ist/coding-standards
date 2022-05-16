@@ -14,5 +14,4 @@ jobs:
             bu-ist/r3-studentwellbeing
             bu-ist/bu-landing-pages
           token: ${{ secrets.PERSONAL_TOKEN }}
-          prune: true
-          dry-run: true
+          prune: false

@@ -15,7 +15,7 @@ jobs:
       # - uses: joeyparrish/action-label-syncer@v1
       - uses: micnncim/action-label-syncer@v1
         with:
-          manifest: labels/labels.yml
+          manifest: .github/labels.yml
           repository: ${{ matrix.repo }}
           token: ${{ secrets.PERSONAL_TOKEN }}
           prune: false

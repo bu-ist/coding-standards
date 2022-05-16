@@ -7,7 +7,10 @@
   color: D33336
   aliases: 
     - "🚦 Status: Blocked"
+    - "blocked"
 - name: 🚦 IS&T dependency
+  aliases: 
+    - "Needs: IS&T"
   color: F5B404
 - name: 🚦 Product dependency
   color: F5B404
@@ -18,6 +21,8 @@
     - duplicate
   color: ffffff
 - name: 💡 Idea
+  aliases: 
+    - "wishlist"
   color: CDFBFF
 - name: 💡 Feature
   color: 9BF7FF
@@ -30,14 +35,22 @@
   aliases: 
     - enhancement
 - name: ✅ Needs requirements
+  aliases: 
+    - "awaiting documentation"
+    - "help wanted"
+    - "question"
   color: E0F7C9
 - name: ✅ Needs frontend
   aliases: 
     - "✅ To Do: HTML/CSS"
+    - "🧐 Needs: Designer"
+    - "needs frontend"
   color: E0F7C9
 - name: ✅ Needs backend
   aliases: 
     - "✅ To Do: PHP"
+    - "needs backend"
+    - "🧐 Needs: Developer"
   color: E0F7C9
 - name: ✅ Needs documentation
   aliases:
@@ -46,6 +59,8 @@
 - name: ⏰ Critical
   color: D33336
 - name: ⏰ High Priority
+  aliases:
+    - "high priority"
   color: DE6668
 - name: ⏰ Medium Priority
   color: EE5D5F

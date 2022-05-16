@@ -3,7 +3,8 @@
   description: A bug which is not directly related to a custom child theme.
 - name: 🚦 Blocked
   color: D33336
-  aliases: 🚦 Status: Blocked
+  aliases: 
+    - "🚦 Status: Blocked"
 - name: 🚦 IS&T dependency
   color: F5B404
 - name: 🚦 Product dependency

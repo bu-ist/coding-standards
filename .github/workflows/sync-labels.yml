@@ -11,6 +11,7 @@ jobs:
         with:
           manifest: labels/labels.yml
           repository: |
+            bu-ist/r3-fitrec
             bu-ist/r3-studentwellbeing
             bu-ist/bu-banners
             bu-ist/bu-landing-pages

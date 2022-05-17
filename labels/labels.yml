@@ -65,10 +65,15 @@
 - name: ⏰ High Priority
   aliases:
     - "high priority"
+    - "⏰ High priority"
   color: DE6668
 - name: ⏰ Medium Priority
+  aliases:
+    - "⏰ Medium priority"
   color: EE5D5F
 - name: ⏰ Low Priority
+  aliases:
+    - "⏰ Low priority"
   color: FBD7D8
 - name: ⏰ Deferred
   color: FEF2F2

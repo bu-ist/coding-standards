@@ -14,6 +14,7 @@ jobs:
             bu-ist/r3-fitrec
             bu-ist/r3-studentwellbeing
             bu-ist/r3-cds
+            bu-ist/id-github-demo
             bu-ist/bu-banners
             bu-ist/bu-landing-pages
           token: ${{ secrets.PERSONAL_TOKEN }}

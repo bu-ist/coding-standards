@@ -1,4 +1,12 @@
 # Labels system
+Welcome to the GitHub Labels system! This system is maintained by Ashley Kolodziej in Boston University's Interactive Design department, and is open to any repository in our system. By using this labels system, your repository's labels will automatically update whenever a change is made to our labels system in a non-destructive manner, without any additional work on your part.
+
+The system currently supports custom themes, and will soon be expanded to support other project types such as plugins.
+
+## Opt-in to the Custom Themes labeling system
+1. **Add support to your repository:** Add your repository name to the GitHub Labels action here and commit the change. https://github.com/bu-ist/coding-standards/blob/main/.github/workflows/sync-labels.yml#L13
+2. **Run the labels sync action:** Use the action in this repository to sync labels to your repository (and all others) at any time. This will rename any labels which have been mapped to a particular label, but it will not delete any custom labels you have created.
+<img width="1197" alt="Screen Shot 2022-06-20 at 3 01 15 PM" src="https://user-images.githubusercontent.com/1828613/174664366-6d2e52bd-23a0-45a5-a04c-86cdc48717eb.png">
 
 ## Quick tips
 

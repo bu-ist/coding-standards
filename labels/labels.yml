@@ -9,6 +9,7 @@
     - "🚦 Status: Blocked"
     - "blocked"
     - "on hold"
+    - "Blocked by vendor"
 - name: 🚦 IS&T dependency
   aliases: 
     - "Needs: IS&T"

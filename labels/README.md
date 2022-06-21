@@ -19,19 +19,22 @@ The system currently supports custom themes, and will soon be expanded to suppor
 
 We base our label structure on the fine principles proposed [here](https://medium.com/@dave_lunny/sane-github-labels-c5d2e6004b63). We start with groups of labels for the following:
 
-- **Status:** Can progress be made on this issue right now? Why or why not?
-- **Type:** What type of work is this? This is for helping to track what is billable, and when.
-- **To Do:** What will someone need to _do_ to accomplish this task? The starter labels are organized by skillset.
-- **Priority:** How important is this task? You can choose anything from Critical (prevents launch) to Not Addressing.
-- **Needs:** Who are the stakeholders for this task - the people it affects? These are the people that _need_ to be looped in, whether they work on the task, or need to provide feedback on it. 
+- **Status labels:** What dependencies or gotchas do we need to track that may impact work on this issue?
+- **Planning labels:** What type of work is this? This is for helping to track what is billable, and when.
+- **Task labels:** What is the next thing someone needs to _do_ to move this task forward?
+- **Priority labels:** How important is this task? You can choose anything from Critical (prevents launch) to Deferred.
+- **Plugin labels:** Which tasks are planned to use plugin functionality?
+- **Task type labels:** What type of implementation task is this?
 
-You can see an example of these labels in practice in the [Responsive Foundation repository](https://github.com/bu-ist/responsive-foundation/issues).
+You can see an example of these labels in practice in the [ID Github Demo repository](https://github.com/bu-ist/id-github-demo/issues).
 
 ### The design system
 
-Each label group has a color scheme and is always prefixed with the group name and a certain emoji that represents that group except for Status, which uses the traffic light colors to quickly communicate whether you can stop, proceed with caution, or go on a task.
+Each label group has a color scheme and is always prefixed with an emoji that represents that group except for Status, which uses a fire emoji to denote that a product bug is present.
 
-![Screen Shot 2020-04-23 at 5 05 39 PM](https://user-images.githubusercontent.com/1828613/80149472-b8c02980-8584-11ea-8038-56bc0184e137.png)
+![Web 1920 – 1](https://user-images.githubusercontent.com/1828613/174879001-a13738d7-b472-4793-9eb3-7b1ad15e6876.png)
+
+If you would like to add a new label to the system, please reach out to Ashley Kolodziej for access to the XD file.
 
 ### Why these labels? What about _____?
 

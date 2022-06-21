@@ -12,7 +12,15 @@ jobs:
           manifest: labels/labels-product.yml
           repository: |
             bu-ist/bu-banners
+            bu-ist/bu-blocks
+            bu-ist/bu-filtering
             bu-ist/bu-landing-pages
+            bu-ist/bu-prepress
+            bu-ist/bu-program-pages
             bu-ist/bu-responsive-customizations
+            bu-ist/responsive-child-starter
+            bu-ist/responsive-foundation
+            bu-ist/responsive-framework
+            bu-ist/responsive-framework-3x
           token: ${{ secrets.PERSONAL_TOKEN }}
           prune: false

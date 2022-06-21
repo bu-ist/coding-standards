@@ -8,6 +8,7 @@
   aliases: 
     - "🚦 Status: Blocked"
     - "blocked"
+    - "Blocked"
     - "on hold"
     - "Blocked by vendor"
 - name: 🚦 IS&T dependency
@@ -47,6 +48,7 @@
     - "help wanted"
     - "question"
     - "needs triage"
+    - "needs requirements"
   color: E0F7C9
 - name: ✅ Needs frontend
   aliases: 

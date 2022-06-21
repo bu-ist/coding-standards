@@ -7,6 +7,7 @@
   color: D33336
   aliases: 
     - "🚦 Status: Blocked"
+    - "🚦 Status: Needs Review"
     - "blocked"
     - "Blocked"
     - "on hold"
@@ -74,24 +75,30 @@
   color: C1EF93
 - name: ⏰ Critical
   color: D33336
+  aliases:
+    - "⏰ Priority: Critical"
 - name: ⏰ High Priority
   aliases:
     - "high priority"
     - "⏰ High priority"
+    - "⏰ Priority: High"
   color: DE6668
 - name: ⏰ Medium Priority
   aliases:
     - "⏰ Medium priority"
+    - "⏰ Priority: Medium"
   color: EE5D5F
 - name: ⏰ Low Priority
   aliases:
     - "⏰ Low priority"
+    - "⏰ Priority: Low"
   color: FBD7D8
 - name: ⏰ Deferred
   color: FEF2F2
   aliases: 
     - wontfix
     - invalid
+    - "⏰ Priority: Not Addressing"
 - name: 🔌 BU Banners
   color: F0DCFF
 - name: 🔌 BU Blocks

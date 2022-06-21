@@ -29,8 +29,6 @@ You can see an example of these labels in practice in the [Responsive Foundation
 
 ### The design system
 
-<img src="https://xd.adobe.com/embed/6d6129c9-3244-4a4e-96a8-ce925d11275c-3832/">
-
 Each label group has a color scheme and is always prefixed with the group name and a certain emoji that represents that group except for Status, which uses the traffic light colors to quickly communicate whether you can stop, proceed with caution, or go on a task.
 
 ![Screen Shot 2020-04-23 at 5 05 39 PM](https://user-images.githubusercontent.com/1828613/80149472-b8c02980-8584-11ea-8038-56bc0184e137.png)

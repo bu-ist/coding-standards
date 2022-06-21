@@ -17,6 +17,7 @@
 - name: 🚦 Question
   aliases: 
     - question
+    - "needs verification"
   color: F5B404
 - name: 💡 Duplicate
   aliases: 
@@ -25,6 +26,7 @@
 - name: 💡 Idea
   aliases: 
     - "wishlist"
+    - "New Block Idea"
   color: CDFBFF
 - name: 💡 Feature
   color: 9BF7FF
@@ -47,6 +49,7 @@
     - "✅ To Do: HTML/CSS"
     - "🧐 Needs: Designer"
     - "needs frontend"
+    - "needs design"
   color: E0F7C9
 - name: ✅ Needs backend
   aliases: 

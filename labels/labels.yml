@@ -18,6 +18,7 @@
   aliases: 
     - question
     - "needs verification"
+    - "help wanted"
   color: F5B404
 - name: 💡 Duplicate
   aliases: 
@@ -43,6 +44,7 @@
     - "awaiting documentation"
     - "help wanted"
     - "question"
+    - "needs triage"
   color: E0F7C9
 - name: ✅ Needs frontend
   aliases: 

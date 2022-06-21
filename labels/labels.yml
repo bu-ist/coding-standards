@@ -31,6 +31,7 @@
   aliases: 
     - "wishlist"
     - "New Block Idea"
+    - "good first issue"
   color: CDFBFF
 - name: 💡 Feature
   color: 9BF7FF
@@ -67,6 +68,7 @@
 - name: ✅ Needs documentation
   aliases:
     - "✅ To Do: Documentation"
+    - "documentation"
     - "Documentation"
     - "Needs Documentation"
   color: C1EF93

@@ -52,6 +52,7 @@
     - "🧐 Needs: Designer"
     - "needs frontend"
     - "needs design"
+    - "Styles - Front End"
   color: E0F7C9
 - name: ✅ Needs backend
   aliases: 
@@ -113,6 +114,10 @@
   color: F0DCFF
 - name: ⚙️ Admin config
   color: 21759B
+- name: ⚙️ Architecture
+  color: 21759B
+  aliases: 
+    - "Plugin Architecture"
 - name: ⚙️ Block
   color: 21759B
 - name: ⚙️ Block pattern

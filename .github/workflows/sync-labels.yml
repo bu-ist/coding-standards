@@ -17,5 +17,6 @@ jobs:
             bu-ist/id-github-demo
             bu-ist/bu-banners
             bu-ist/bu-landing-pages
+            bu-ist/bu-responsive-customizations
           token: ${{ secrets.PERSONAL_TOKEN }}
           prune: false

@@ -18,6 +18,7 @@ jobs:
             bu-ist/bu-prepress
             bu-ist/bu-program-pages
             bu-ist/bu-responsive-customizations
+            bu-ist/cdn
             bu-ist/responsive-child-starter
             bu-ist/responsive-child-starter-3x
             bu-ist/responsive-foundation

@@ -11,6 +11,7 @@ jobs:
         with:
           manifest: labels/labels-product.yml
           repository: |
+            bu-ist/bu-announcements
             bu-ist/bu-banners
             bu-ist/bu-blocks
             bu-ist/bu-filtering

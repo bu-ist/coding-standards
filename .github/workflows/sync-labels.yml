@@ -11,6 +11,7 @@ jobs:
         with:
           manifest: labels/labels.yml
           repository: |
+            bu-ist/bu-announcements            
             bu-ist/r-prebuilt-admin
             bu-ist/r3-cds
             bu-ist/r3-fitrec

@@ -5,13 +5,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: joeyparrish/action-label-syncer@rename-and-import
       # - uses: micnncim/action-label-syncer@v1
         with:
           manifest: labels/labels-product.yml
           repository: |
-            bu-ist/bu-announcements
             bu-ist/bu-banners
             bu-ist/bu-blocks
             bu-ist/bu-filtering
@@ -27,5 +26,6 @@ jobs:
             bu-ist/responsive-foundation
             bu-ist/responsive-framework
             bu-ist/responsive-framework-3x
+            bu-ist/bu-announcements
           token: ${{ secrets.PERSONAL_TOKEN }}
           prune: false

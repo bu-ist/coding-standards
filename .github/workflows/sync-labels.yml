@@ -38,5 +38,6 @@ jobs:
             bu-ist/responsive-foundation
             bu-ist/responsive-framework
             bu-ist/responsive-framework-3x
+            bu-ist/bu-announcements
           token: ${{ secrets.PERSONAL_TOKEN }}
           prune: false

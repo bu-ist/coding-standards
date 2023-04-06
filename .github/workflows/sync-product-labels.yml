@@ -27,5 +27,6 @@ jobs:
             bu-ist/responsive-framework
             bu-ist/responsive-framework-3x
             bu-ist/bu-announcements
+            bu-ist/id-gutenberg
           token: ${{ secrets.PERSONAL_TOKEN }}
           prune: false

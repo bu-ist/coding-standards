@@ -39,3 +39,7 @@ If you would like to add a new label to the system, please reach out to Ashley K
 ### Why these labels? What about _____?
 
 Not all projects we take on are built the same way. Some will be very complex child themes and plugins. Others might be as simple as custom CSS. These labels represent the common needs all types of projects share, from the very simple to the very complex. Keeping the standard set of labels as simple as possible creates a lower barrier of entry for new folks. It also allows flexibility for the more complex projects to add their own labels. We think these groups will be a good starting point for your individual project needs 95% of the time - and for those edge cases, you can and should add your own labels!
+
+
+## Troubleshooting
+If the Action fails and you see a 404 when accessing the API this can happen if the Personal Token has expired or the access to the personal token was been removed. Such as if the user's account who created the personal access token was removed. Update the Personal Access Token with a new one to restore access so the Action can access the Github API for private repo data. 

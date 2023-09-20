@@ -41,5 +41,6 @@ jobs:
             bu-ist/responsive-framework-3x
             bu-ist/bu-announcements
             bu-ist/id-gutenberg
+            bu-ist/r-prebuilt-allston/
           token: ${{ secrets.PERSONAL_TOKEN }}
           prune: false

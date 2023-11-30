@@ -42,5 +42,7 @@ jobs:
             bu-ist/bu-announcements
             bu-ist/id-gutenberg
             bu-ist/r-prebuilt-allston/
+            bu-ist/bu-block-starter
+            bu-ist/responsive-child-starter-3x-block-editor
           token: ${{ secrets.PERSONAL_TOKEN }}
           prune: false

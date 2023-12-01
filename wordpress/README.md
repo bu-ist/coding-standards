@@ -17,6 +17,10 @@ A full breakdown of PHP code formatting standards can be found in the [WordPress
 
 # PHP Namespacing
 
+TBD...
+
+# PHP Prefixing
+
 Be mindful of [PHPs global namespace](http://php.net/manual/en/language.namespaces.global.php). All functions and classes should be prefixed consistently within the plugin or theme.
 
 ```php

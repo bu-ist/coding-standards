@@ -10,7 +10,8 @@ jobs:
       # - uses: micnncim/action-label-syncer@v1
         with:
           manifest: labels/labels.yml
-          repository: |           
+          repository: |
+            bu-ist/r3-annual-report
             bu-ist/r3-cds
             bu-ist/r3-fitrec
             bu-ist/r3-global-programs

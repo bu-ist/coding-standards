@@ -10,6 +10,8 @@ jobs:
       # - uses: micnncim/action-label-syncer@v1
         with:
           manifest: labels/labels-product.yml
+          # ensure there is no whitespace characters after each repo name
+          # a white space must be present after the pipe below.
           repository: |
             bu-ist/bu-banners
             bu-ist/bu-blocks

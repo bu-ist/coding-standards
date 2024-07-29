@@ -30,5 +30,6 @@ jobs:
             bu-ist/id-gutenberg
             bu-ist/bu-block-starter
             bu-ist/responsive-child-starter-3x-block-editor
+            bu-ist/bu-testimonials
           token: ${{ secrets.PERSONAL_TOKEN }}
           prune: false

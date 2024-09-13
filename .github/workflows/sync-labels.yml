@@ -49,5 +49,6 @@ jobs:
             bu-ist/responsive-child-starter-3x-block-editor
             bu-ist/bu-policy-links
             bu-ist/r3-prebuilt-public-garden
+            bu-ist/r3-hub
           token: ${{ secrets.PERSONAL_TOKEN }}
           prune: false

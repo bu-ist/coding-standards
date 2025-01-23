@@ -1,0 +1,28 @@
+{
+  "name": "bu/theme-slug",
+  "description": "PHP utils needed for the project",
+  "type": "project",
+  "require-dev": {
+    "wp-coding-standards/wpcs": "^3.0",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+    "phpcsstandards/phpcsutils": "^1.0",
+    "phpcompatibility/phpcompatibility-wp": "*"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jamie Reevior",
+      "email": "jreevior@bu.edu"
+    }
+  ],
+  "scripts": {
+    "phpcs": "phpcs --standard=.phpcs.xml.dist",
+    "phpcbf": "phpcs --standard=.phpcs.xml.dist"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+		"vendor-dir": "dev/phpcs/vendor/"
+  }
+}

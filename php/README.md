@@ -13,27 +13,34 @@ The new Gutenberg starter repos for themes and plugins have `PHPCS` baked in:
 
 ## Older Repos
 
-To add this functionality to an older repo, copy these files into your repo:
-- [/dev/phpcs](https://github.com/bu-ist/responsive-child-starter-3x-block-editor/tree/develop/dev/phpcs) folder
-- [/.phpcs.xml.dist](https://github.com/bu-ist/responsive-child-starter-3x-block-editor/blob/develop/.phpcs.xml.dist)
-- [/composer.json](https://github.com/bu-ist/responsive-child-starter-3x-block-editor/blob/develop/composer.json)
-
-And these [scripts](https://github.com/bu-ist/responsive-child-starter-3x-block-editor/blob/cc7d67ce9a5ef42cd0a119bd2d6831f11810548e/package.json#L74-L75) into your `package.json` file.
-
-Once that is done, in the terminal run `npm composer install`. After it installs, you can run the commands outlined in the Gutenberg Starter Repos section.
+1. To add this functionality to an older repo, copy the files from `/php/phpcs/` into your repo:
+  - `repo_root/dev/phpcs`
+  - `repo_root/.phpcs.xml.dist`
+  - `repo_root/composer.json`
+2. Add these [scripts](https://github.com/bu-ist/responsive-child-starter-3x-block-editor/blob/cc7d67ce9a5ef42cd0a119bd2d6831f11810548e/package.json#L74-L75) into your `package.json` file.
+3. You will need to have [Composter](https://getcomposer.org/download/) installed on your computer for the next step. In the terminal run `composer install`. After it installs, you can run the commands outlined in the Gutenberg Starter Repos section.
 
 ## IDEs
+
+## Documentation
+All files should be documented using [PHPDoc](https://docs.phpdoc.org/guide/getting-started/what-is-a-docblock.html#what-is-a-docblock). In PHPDoc, a DocBlock is a piece of documentation in your source code that informs you what the function of a certain class, method or other Structural Element is.
+
+Process documentation can be added to our GitHub or WP-Docs pages.
 
 ## Known Issues
 
 @todo
-https://phpstan.org/writing-php-code/phpdocs-basics
+https://marketplace.visualstudio.com/items?itemName=obliviousharmony.vscode-php-codesniffer
 
-## PHP Code Formatting
+## MOVED>...
 
-A full breakdown of PHP code formatting standards can be found in the [WordPress Best Practices Handbook](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/).
+
 
 # PHP Namespacing
+
+https://github.com/bu-ist/coding-standards/issues/56
+https://github.com/bu-ist/id-gutenberg/issues/38
+- maybe use for everything but also prefix plugin functions so you can track them down inside themes?
 
 Be mindful of [PHPs global namespace](http://php.net/manual/en/language.namespaces.global.php). All functions and classes should be prefixed consistently within the plugin or theme.
 

@@ -12,7 +12,7 @@ Unlike PHP/CSS/JS there are no command line tools packaged with this repo to run
 
 ## Older Repos
 
-See Gutenberg Starter Repos.
+See above: Gutenberg Starter Repos.
 
 ## IDEs
 

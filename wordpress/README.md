@@ -9,6 +9,14 @@ Those guides are:
 * [10up Engineering Best Practices](https://10up.github.io/Engineering-Best-Practices/)
 * [WordPress VIP Code Review Checklist](https://vip.wordpress.com/documentation/vip/code-review-what-we-look-for/)
 
+## General Guidelines
+
+* Keep your template files clean and lean. Avoid complex PHP logic.
+* Avoid duplicating code across templates. If something will be utilized in multiple areas, it should have a well named function for returning the data, or a template file.
+
+## Prevent Fatal Errors
+Usage of any functions or classes defined outside of the current theme should always be wrapped in a `function_exists` or `class_exists` conditional to prevent PHP fatal errors in the absence of a plugin.
+
 ## Internationalization (i18n)
 
 Internationalization is a set of best practices allowing text strings throughout your code to be easily translated into other languages. Internationalization is often abbreviated as i18n (because there are 18 letters between the i and the n).

@@ -16,17 +16,23 @@ The available scripts are:
 
 ### Settings
 
-- **ESLint**: ESLint ensures your JavaScript adheres to best practices and the WordPress coding standards. You can put your ESLint project configuration in a [configuration file](https://eslint.org/docs/latest/use/configure/configuration-files). You can include built-in rules, how you want them enforced, plugins with custom rules, shareable configurations, which files you want rules to apply to, and more.
-- **Prettier**: Prettier automatically formats your code. Prettier intentionally doesn’t support any kind of global configuration, but can be configured using a [configuration file](https://prettier.io/docs/en/configuration).
+- **ESLint**: ESLint ensures your JavaScript adheres to best practices and the WordPress coding standards. wp-scripts uses the set of recommended rules defined in [@wordpress/eslint-plugin](https://www.npmjs.com/package/@wordpress/eslint-plugin) npm package. You can override default rules with your own as described in [eslint docs](https://eslint.org/docs/latest/use/configure/configuration-files).
+- **Prettier**: Prettier automatically formats your code. It uses [stylelint](https://github.com/stylelint/stylelint) with the [@wordpress/stylelint-config](https://www.npmjs.com/package/@wordpress/stylelint-config) configuration. You can override them with your own rules as [described in stylelint user guide](https://stylelint.io/user-guide/configure/).
 
 Overall, we should avoid modifying these configuration files from one project to another, as we frequently resuse code from project to project.
 
 ## Older Repos
 
-@todo
+You can individually include the WordPress config files for ESLint and Prettier by following these instructions:
+
+- [ESLint plugin including configurations and custom rules for WordPress development](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-eslint-plugin/)
+- [WordPress Prettier shareable config for Prettier](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-prettier-config/)
 
 ## IDEs
 
-@todo
-https://jsdoc.app/about-getting-started
-JSHint
+- [VSCode: ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+## Documentation
+All files should be documented using [JSDoc](https://jsdoc.app/about-getting-started). You add documentation comments directly to your source code, right alongside the code itself.
+
+Process documentation can be added to our GitHub or WP-Docs pages.

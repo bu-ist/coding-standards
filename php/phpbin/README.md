@@ -10,11 +10,11 @@ We decided to standardize using the WordPress coding standards as a baseline so 
 
 1. Don't mandate use of snake_case in variables and methods.
 
-	Many phpbin applications have informally followed using camelCase for methods. Variables often were written in camelCase as well but not as consistently followed. We don't dictate whether to use snake_case nor camelCase but for adding to existing code, follow precedence for consistency. Setting a standard for new code will be addressed in a future PR.
+Many phpbin applications have informally followed using camelCase for methods. Variables often were written in camelCase as well but not as consistently followed. We don't dictate whether to use snake_case nor camelCase but for adding to existing code, follow precedence for consistency. Setting a standard for new code will be addressed in a future PR.
 
 1. Disable sniffing for nonces and WP database wrappers.
 
-	The WP standards require using nonces in forms, using the WP database wrapper instead of PDO and using WP wrapper methods around native PHP functions such as `json_encode`. Non-WP code doesn't have access to WP-only code and shouldn't be sniffed.
+The WP standards require using nonces in forms, using the WP database wrapper instead of PDO and using WP wrapper methods around native PHP functions such as `json_encode`. Non-WP code doesn't have access to WP-only code and shouldn't be sniffed.
 
 This is a Work In Progress effort to apply a default standard to all PHPbin applications. As it is a WIP, you may find a PHP application that wildly differs from our default standard, for instance BUniverse was built on Zend Framework. Use your best judgement on whether an application without formal standards should follow these standards or not.
 

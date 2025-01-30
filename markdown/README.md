@@ -20,4 +20,5 @@ See [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli/) for i
 
 ## IDEs
 
+- [Markdown/CommonMark linting and style checking for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
 - [VSCode: Markdown Shortcuts](https://marketplace.visualstudio.com/items?itemName=robole.markdown-shortcuts)

@@ -144,12 +144,12 @@ add_action( 'wp_enqueue_scripts', 'r_mytheme_enqueue_styles' );
 Uncached functions circumvent WordPress' object caching, resulting in database queries every time it is called. Whenever possible, uncached functions should be avoided. Some examples are:
 
 - `wp_get_post_terms()`, `wp_get_object_terms()`, etc.
- 	- These functions hit the database every time. Use `get_the_terms()` instead. Use in combination with `wp_list_pluck()` to get a list of a specific field, such as `term_id`.
+  - These functions hit the database every time. Use `get_the_terms()` instead. Use in combination with `wp_list_pluck()` to get a list of a specific field, such as `term_id`.
 - `get_posts()`
- 	- Use `WP_Query` instead, or set `suppress_filters => false`.
- 	- When using `WP_Query` instead of get_posts don’t forget about setting `ignore_sticky_posts` and `no_found_rows` params appropriately (both are hardcoded inside a get_posts function with value of true)
- 	- `get_children()`
-  		- Similar to `get_posts()`, but also performs a no-LIMIT query among other bad things by default. Alias of `break_my_site_now_please()`. Do not use. Instead do a regular `WP_Query` and make sure that the `post_parent` you are looking for is not 0 or a falsey value. Also make sure to set a reasonable `posts_per_page`, `get_children` will do a -1 query by default, a maximum of 100 should be used (but a smaller value could increase performance).
+  - Use `WP_Query` instead, or set `suppress_filters => false`.
+  - When using `WP_Query` instead of get_posts don’t forget about setting `ignore_sticky_posts` and `no_found_rows` params appropriately (both are hardcoded inside a get_posts function with value of true)
+  - `get_children()`
+    - Similar to `get_posts()`, but also performs a no-LIMIT query among other bad things by default. Alias of `break_my_site_now_please()`. Do not use. Instead do a regular `WP_Query` and make sure that the `post_parent` you are looking for is not 0 or a falsey value. Also make sure to set a reasonable `posts_per_page`, `get_children` will do a -1 query by default, a maximum of 100 should be used (but a smaller value could increase performance).
 
 **More info:** [VIP Uncached Functions](https://vip.wordpress.com/documentation/caching/uncached-functions/)
 

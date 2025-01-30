@@ -23,7 +23,9 @@ Overall, we should avoid modifying these configuration files from one project to
 
 ## Older Repos
 
-You can individually include the WordPress config files for ESLint and Prettier by following these instructions:
+[Responsive Framework specific documentation](https://github.com/bu-ist/responsive-framework/wiki/Code-reviews#javascript)
+
+Alternatively, you can individually include the WordPress config files for ESLint and Prettier by following these instructions:
 
 - [ESLint plugin including configurations and custom rules for WordPress development](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-eslint-plugin/)
 - [WordPress Prettier shareable config for Prettier](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-prettier-config/)

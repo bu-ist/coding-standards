@@ -35,6 +35,7 @@ Alternatively, you can individually include the WordPress config files for ESLin
 - [VSCode: ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 ## Documentation
+
 All files should be documented using [JSDoc](https://jsdoc.app/about-getting-started). You add documentation comments directly to your source code, right alongside the code itself.
 
 Process documentation can be added to our GitHub or WP-Docs pages.

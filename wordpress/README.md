@@ -15,6 +15,7 @@ Those guides are:
 * Avoid duplicating code across templates. If something will be utilized in multiple areas, it should have a well named function for returning the data, or a template file.
 
 ## Prevent Fatal Errors
+
 Usage of any functions or classes defined outside of the current theme should always be wrapped in a `function_exists` or `class_exists` conditional to prevent PHP fatal errors in the absence of a plugin.
 
 ## Internationalization (i18n)
@@ -26,6 +27,7 @@ Although we do not currently actively translate websites, using i18n best practi
 WordPress uses the [gettext](http://www.gnu.org/software/gettext/) libraries and tools for i18n. You can easily identify gettext functions by the `_` at the beginning of the function. WordPress uses WordPress specific variations of these functions, which are detailed below.
 
 ### Text Domains
+
 Each project should have a consistent text domain. The text domain is a unique identifier, which makes sure WordPress can distinguish between all loaded translations. This increases portability and plays better with already existing WordPress tools.
 
 If you are developing a plugin, the text domain must match the slug of the plugin. If your plugin is a single file called my-plugin.php or it is contained in a folder called my-plugin the domain name should be my-plugin. The text domain name must use dashes and not underscores.
@@ -36,7 +38,7 @@ For this guide's examples, we will use a `bu-bp` (BU Best Practice) text domain.
 
 `gettext` is not a PHP parser. It can not read variables and constants. Using a variable will result in complications.
 
-###Translating Basic Strings
+### Translating Basic Strings
 
 The most commonly used translation function is `__()`.
 
@@ -59,7 +61,7 @@ Other functions exist performing additional formatting to translated content. A 
 
 It is best to use the above examples as sanitization is also required for standards.
 
-###Variables
+### Variables
 
 Variables should never be passed in translations.
 
@@ -67,14 +69,15 @@ Variables should never be passed in translations.
 // Wrong
 $string = __( $some_string, 'bu-bp' );
 ```
+
 Translation relies on looking up strings in a table and then translating them. However, this list is built by code that scans your PHP files in an automated process. But because the PHP is not being loaded and files are not being executed, there would be no way to actually translate this variable.
 
 Use [`printf()`](http://php.net/manual/en/function.printf.php) and [`sprintf()`](http://php.net/manual/en/function.sprintf.php) instead. These functions allow you to pass variables into a translated string later using placeholders.
 
 ```
 print_f(
-	__( 'Your BU email is %s.', 'bu-bp' ),
-	$email
+ __( 'Your BU email is %s.', 'bu-bp' ),
+ $email
 );
 ```
 

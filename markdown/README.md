@@ -16,9 +16,8 @@ The new Gutenberg starter repos for themes and plugins have several utilities ba
 
 ## Older Repos
 
-See [markdownlint](https://github.com/DavidAnson/markdownlint) for installation and usage instructions.
+See [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli/) for installation and usage instructions.
 
 ## IDEs
 
 - [VSCode: Markdown Shortcuts](https://marketplace.visualstudio.com/items?itemName=robole.markdown-shortcuts)
-

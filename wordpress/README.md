@@ -46,7 +46,7 @@ The most commonly used translation function is `__()`.
 
 Another basic option is `_e()`. This functions the same as `__()`, with the exception of the result being printed to the screen.
 
-```
+```php
 // These two examples are exactly the same.
 echo __( 'Another string to translate', 'bu-bp' );
 
@@ -65,7 +65,7 @@ It is best to use the above examples as sanitization is also required for standa
 
 Variables should never be passed in translations.
 
-```
+```php
 // Wrong
 $string = __( $some_string, 'bu-bp' );
 ```
@@ -74,7 +74,7 @@ Translation relies on looking up strings in a table and then translating them. H
 
 Use [`printf()`](http://php.net/manual/en/function.printf.php) and [`sprintf()`](http://php.net/manual/en/function.sprintf.php) instead. These functions allow you to pass variables into a translated string later using placeholders.
 
-```
+```php
 print_f(
  __( 'Your BU email is %s.', 'bu-bp' ),
  $email

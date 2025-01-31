@@ -187,7 +187,7 @@ Use Sass mixins whenever possible. When writing CSS, use indentation to align va
 
 The following mixins are supported in Responsive Foundation so you don't have to manually write out vendor prefixes:
 
-```
+```css
 @include border-radius( 50% );
 @include box-shadow( inset 0 2px 0px rgba( 255, 255, 255, 0.25 ) );
 @include linear-gradient( transparent, darken( $your-color, 10% ) );

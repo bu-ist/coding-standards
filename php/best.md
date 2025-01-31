@@ -9,6 +9,8 @@
 
 Be mindful of [PHPs global namespace](http://php.net/manual/en/language.namespaces.global.php). All functions and classes should be prefixed consistently within the plugin or theme.
 
+@todo https://github.com/bu-ist/coding-standards/pull/57#discussion_r1936306099
+
 ```php
 /**
  * Example 1
@@ -88,13 +90,13 @@ WordPress has many functions to help with many scenarios. Here are a few:
 
 Example of how printing an `<a>` with proper escaping.
 
-```
+```php
 <a href="<?php echo esc_url( $some_url ); ?>" title="<?php esc_attr_e( $some_title ); ?>"><?php esc_html_e( $some_text_string ); ?></a>
 ```
 
 Example of how to use `wp_kses()` to only allow `<a>`, `<br>`, `<em>`, and `<strong>` tags.
 
-```
+```php
 $allowed_tags = array(
     'a' => array(
         'href' => array(),
@@ -130,7 +132,7 @@ Take advantage of the version arguments in `wp_enqueue_script()` and `wp_enqueue
 
 **Remember to namespace your asset name when enqueuing**
 
-```
+```php
 function r_mytheme_enqueue_styles() {
  wp_enqueue_style( 'r-mytheme-stylesheet', get_stylesheet_directory_uri() . '/css/path-to-my-stylesheet.css', array( 'dependency-1' ), '1.0' );
 }
@@ -165,7 +167,7 @@ Uncached functions circumvent WordPress' object caching, resulting in database q
 
 You should never pass a `posts_per_page` value of `-1`. This can be dangerous when sites scale and there are far more results than expected. Use a high limit such as 100 instead. If you need to retrieve large numbers of posts, [use a `while()` loop](https://gist.github.com/desrosj/de6a3923c61f5b4a3046a643e286abab).
 
-```
+```php
 $posts = array();
 
 $args = array(

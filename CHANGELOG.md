@@ -27,7 +27,7 @@
 ## 2.0.1
 
 - Convert the `.scss-lint-r-1.x.yml` configuration file to use the proper
- `scss-lint` format. 
+ `scss-lint` format.
 
 ## 2.0.0
 

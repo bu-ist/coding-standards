@@ -2,10 +2,14 @@
 
 ## PHP Namespacing
 
+@todo
 <https://github.com/bu-ist/coding-standards/issues/56>
+<https://wpreset.com/php-namespaces-wordpress-guide/>
 <https://github.com/bu-ist/id-gutenberg/issues/38>
 
 - maybe use for everything but also prefix plugin functions so you can track them down inside themes?
+
+"We can be more generic with our functions if there is a namespace at the top of the file. Usually the root functions.php doesn't have a namespace, so adding the "namespace" to the function is required. Otherwise, using the hook for the function name is okay."
 
 Be mindful of [PHPs global namespace](http://php.net/manual/en/language.namespaces.global.php). All functions and classes should be prefixed consistently within the plugin or theme.
 

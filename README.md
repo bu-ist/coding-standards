@@ -8,8 +8,12 @@ New web team employees should review these documents prior to committing any cod
 
 * [WordPress](wordpress/README.md)
 * [CSS and Sass](css-and-sass/README.md)
-* [PHPbin](phpbin/README.md)
-* [Git/Best Practices](best-practices/README.md)
+* [PHP](php/README.md)
+* [Markdown](markdown/README.md)
+* [JavaScript](javascript/README.md)
+* [Accessibility](accessibility/README.md)
+* [GitHub](github/README.md)
+* [Code Reviews](https://github.com/bu-ist/responsive-framework/wiki/Code-reviews)
 
 ## Why?
 

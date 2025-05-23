@@ -15,18 +15,7 @@ The new Gutenberg starter repos for themes and plugins have `PHPCS` baked in:
 
 [Responsive Framework specific documentation](https://github.com/bu-ist/responsive-framework/wiki/Code-reviews#php)
 
-1. To add this functionality to an older repo, copy the files from `/php/phpcs/` into your repo:
-
-- `repo_root/dev/phpcs`
-- `repo_root/.phpcs.xml.dist`
-- `repo_root/composer.json`
-
-2. Add these [scripts](https://github.com/bu-ist/responsive-child-starter-3x-block-editor/blob/cc7d67ce9a5ef42cd0a119bd2d6831f11810548e/package.json#L74-L75) into your `package.json` file.
-3. You will need to have [Composer](https://getcomposer.org/download/) installed on your computer for the next step. In the terminal run `composer install`. After it installs, you can run the commands outlined in the Gutenberg Starter Repos section.
-
-## IDEs
-
-- [VS Code PHP_CodeSniffer Extension](https://marketplace.visualstudio.com/items?itemName=obliviousharmony.vscode-php-codesniffer)
+- To add this functionality to an older repo, [follow these instructions](https://github.com/bu-ist/id-dev-library/tree/main/phpcs).
 
 ## Documentation
 

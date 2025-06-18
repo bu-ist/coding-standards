@@ -50,5 +50,6 @@ jobs:
             bu-ist/bu-policy-links
             bu-ist/r3-prebuilt-public-garden
             bu-ist/r3-hub
+            bu-ist/id-product
           token: ${{ secrets.PERSONAL_TOKEN }}
           prune: false

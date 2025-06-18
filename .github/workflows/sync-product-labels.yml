@@ -34,5 +34,6 @@ jobs:
             bu-ist/responsive-child-starter-3x-block-editor
             bu-ist/bu-testimonials
             bu-ist/bu-policy-links
+            bu-ist/id-product
           token: ${{ secrets.PERSONAL_TOKEN }}
           prune: false

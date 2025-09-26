@@ -167,3 +167,11 @@
   color: DE4A45
 - name: ⌛ WordPress Upgrade 5.8
   color: DE4A45
+- name: PHP
+  color: 474A8A
+- name: JS
+  color: F0DB4F
+- name: REACT
+  color: 61dbfb
+- name: CSS
+  color: 663399
